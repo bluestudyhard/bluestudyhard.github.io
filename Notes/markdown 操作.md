@@ -5,92 +5,97 @@
 ```
 # 一级标题
 ## 二级
-### 三级标题，以此类推到5级
+### 三级标题，以此类推到6级
+```
+
+##强调
+**加粗** _倾斜_ **_加粗倾斜_** ~~删除线~~
+面朝大海，春暖花开[^脚注]
+[^脚注]: 海子
+
+---
+
+```
+** a ** 是加粗操作
+_A_ 倾斜
+*** a ***  加粗倾斜
+~~删除线~~
+面朝大海，春暖花开[^脚注] [脚注a]
+[^脚注]: 海子 [^脚注]：xxx
+--- 线
 ```
 
 ## 列表
-
 
 ### 无序列表
 
 - 1
 - 2
 - 3
-  - 4
+  - 列表嵌套加两个空格
+- 4
+  - 再次嵌套
 
 ### 有序列表
 
 1. 123
 2. fdsfsd
+3. 123 ###任务列表
 
-## 文件引用
+- [] 任务 1
+- [] 任务 2
+- [x] 任务 3 已完成
+
+##引用
+
+> 文字引用
+>
+> > 二级引用
+> >
+> > > 三级引用
+
+### 文件引用
+
+```
+cpp  + tab 键,开一个代码条
+```
+
+```C++ {.line-numbers}
+list<int> k;
+int n, i, m;
+string a;
+scanf("%d", &n);
+```
 
 ```C++ {.line-numbers}
 [name]()
+[toc] 会展开一个索引的列表，根据你前文写的
 ```
 
-- [STL](STL.md) //
+[toc]
+
+```
+[名字](地址,引用的需要在同一文件目录下)
+```
+
+- [STL](STL.md)
 - [README](../README.md)
-  [TOC]
+- [imgg](测试图.png)
+- [简书语法](https://www.jianshu.com/p/c79fd3f7fdfa#fn1)
 
-## asda
-
-###
-
-### fsdf
-
-- asd
-- **asd**
-- fdsfsd
-  - fsdf
-- sdf
-  - fsd
-    - fsd
-      - fdsf
-
-asd
-
-1. fds
-2. dgfdg
-3. gdfg
-4. hgf
-5. sdf
-
-<br>
-
----
-
-> gdffdf
-
-sadsadas [sdsadast](STL.md)
+```
+!+[]()图片可以显示在文本里
+```
 
 ![img](img/STL_1.png)
 
-asdadd [百度](https://www.jianshu.com/p/c79fd3f7fdfa#fn1)
+##表格
 
-## dasd
-
-sda `int` asd
-
-- a 入域
-
-  ```C++ {.line-numbers}
-  list<int> k;
-  int n, i, m;
-  string a;
-  scanf("%d", &n);
-  ```
-
-- sada
-
-  ```C++ {.line-numbers}
-
-  ```
-
+```
+| 名字 | | 名字2 | alt+f会自动缩进补长度
+ :--: 居中 ：-- 左对齐  --:右对齐
+```
 |      星期       | 一              |     而 |
 | :-------------: | :-------------- | -----: |
-| afsdfdsfdsdsfsd | fssdfsdsdfsdfdf | assdfd |
+| 今天好好学算法 | 明天好好学算法| 天天都爱学算法 |
 
-|  hh  | ss  | sdd |
-| :--: | :-- | --: |
-| 居中 | ~~左菜菜绪徐~~  |  右 |
