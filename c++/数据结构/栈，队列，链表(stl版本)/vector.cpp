@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 { // vector 动态数组
+    //初始化 vector<int>k(1,2,3);
     // vector <int> k;//通过数组赋值
     // for(vector<int>:: iterator it = k.begin();it<k.end();it++)//利用迭代器遍历
     // cout<<*it<<" ";
