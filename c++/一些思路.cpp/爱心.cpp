@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <synchapi.h>
 int main()
-{   printf("                        Õû¸öÉ§»î");
+{   printf("fuck");
     float x, y, a;
     for (y = 1.5f; y > -1.5f; y -= 0.1f)
     {
@@ -14,5 +14,6 @@ int main()
         putchar('\n');
     }
     getchar();
+    system("pause");
     return 0;
 }

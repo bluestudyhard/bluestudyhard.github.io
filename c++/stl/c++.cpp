@@ -1,42 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
-int a[500050], b[50050], c[50050] = {0};
-int len = 1, i, j;
-void f(int n)
+int ans,k,n,m,sum,i,j;
+int a[100000];
+bool isprime(int n)
 {
-    a[1] = 1;
-    b[1] = 2;
-    for (i = 3; i <= n; i++)
+    for(i = 2;i<=sqrt(n);i++)
+        {
+            if(n%i==0)
+            return false;
+        }
+        return true;
+}
+void dfs(int m,int sum,int star)
+{
+    if(m==k)
     {
-        for (j = 1; j <= len; j++)
-            c[j] = a[j] + b[j];
-        for (j = 1; j <= len; j++)
-        {
-            if (c[j] > 9)
-            {
-                c[j + 1] += c[j] / 10;
-                c[j] %= 10;
-                if (j + 1 > len)
-                    len++;
-            }
-        }
-        for (j = 1; j <= len; j++)
-        {
-            a[j] = b[j];
-            b[j] = c[j];
-        }
+        if(isprime(sum))
+            ans++;
+        cout<<"zhongzhi: "<<sum<<" "<<" m: "<<m<<" "<<star<<endl;
+        return;//结束递归
     }
+    for(i = star;i<n;i++)
+    {   //递归检查要在递归前和递归后已经终止条件前,设置数据检查.
+        cout<<"shang: "<<sum<<" "<<" m: "<<m<<" "<<star<<endl;
+        dfs(m+1,sum+a[i], star+1);
+        cout<<"xia: "<<sum<<" "<<" m: "<<m<<" "<<star<<endl;
+    }
+    return;//结束了循环后才结束递归
 }
 int main()
 {
-    int n;
-    cin >> n;
-    if (n < 3)
-    {
-        cout << n;
-        return 0;
-    }
-    f(n);
-    for (i = len; i >= 1; i--)
-        cout << c[i];
+    cin>>n>>k;
+    for(i = 0;i<n;i++)
+        cin>>a[i];
+    dfs(0,0,0);
+    cout<<ans;
 }

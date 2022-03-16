@@ -1,13 +1,7 @@
 #include <stdio.h>
-int gcd(int x, int y)
-{
-    int c;
-    while (y!=0)//32 28
-    {   c=x%y;
-        x=y;
-        y=c;
-    }
-    return x;
+int gcd(int a, int b)
+{                              //b = a%b;
+    return (b == 0) ? a : gcd(b, a % b);//如果a<b的话一模就变成了ba，所以不用做先导判断
 }
 int bei (int x,y)// 最小公倍数 等于两个数相乘 / 这两个数的最大公约数
  { int temp,i;

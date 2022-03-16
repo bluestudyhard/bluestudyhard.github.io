@@ -48,3 +48,26 @@ int fib(int n)
     else
     return fib(n - 1) + fib(n - 2);
 }
+f[500] = {0},i,j;
+long long fib(int n)
+{
+    if(n==0||n==1)
+    {
+        f[n] = 1;
+    }
+    f[n]=f[n-1]+f[n-2];
+    return f[n];
+}
+//判断是不是斐波那契数列
+ll isf(int m)
+{
+   int f = 0;
+   for (int i = 1; fib(i) <= m; i++)
+   {
+      if (fib(i) == m)
+      {
+         f = 1;break;
+      }
+   }
+   return f;
+}
