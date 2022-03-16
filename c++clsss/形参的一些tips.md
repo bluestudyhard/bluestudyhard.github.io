@@ -1,5 +1,6 @@
 ##传参
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 float &cut(float &a, float &b)
 {
     return a < b ? a : b;

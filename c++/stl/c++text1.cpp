@@ -16,13 +16,17 @@ void dfs(int u)
         sum *= a[u];
         sum1 += b[u];
         minn = min(abs(sum - sum1), minn);
-        cout << "minn = " << minn << endl;
-        cout << sum << " " << sum1 << endl;
+        cout << "minn shang : " << minn << endl;
+        cout<<"sum:shang  " <<sum << " " << sum1 << endl;
+        cout <<"u = " <<u<<endl;
         dfs(u + 1);
-         cout << sum << " " << sum1 << endl;
         sum /= a[u];
         sum1 -= b[u];
+        cout <<"xia: " <<sum << " " << sum1 << endl;
+        dfs(u+1);
     }
+    if(sum1==1&&sum==0)
+        return;
 }
 int main()
 {
