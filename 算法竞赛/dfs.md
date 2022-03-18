@@ -1,10 +1,12 @@
 [toc]
-##stl里的全排列
-```C++ {.line-numbers} 
 
-#include <bits/stdc++.h>
-using namespace std;
-typedef long long ll;
+### dfs 暴力枚举，排列问题
+
+- 暴力枚举排列的题目一般是问:xx 东西在
+
+```C++ {.line-numbers}
+/*stl里的全排列*/
+要先预先sort好序
 int main()
 {   int i,j;
     int a[3] = {1,2,3};
@@ -20,7 +22,7 @@ int path[10], i, j;
 bool s[10]; //默认为0
 int n;
 void dfs(int u)//u代表访问的层数
-{
+{   /*1.终止条件*/
     if(u==n)//返回条件，一直遍历到最后一层，返回输出
     {
         for(i = 0;i<n;i++)
@@ -30,6 +32,7 @@ void dfs(int u)//u代表访问的层数
             cout<<endl;
             return;//
     }
+    /*遍历候选节点*/
         for(i = 1;i<=n;i++)
         {
             if(!s[i])//if(s[i]==false)
@@ -42,12 +45,16 @@ void dfs(int u)//u代表访问的层数
         }
 }
 ```
-###经典的迷宫问题
-#####找最短路问题
-- 解题思路,比如在一个10x10的迷宫里面，起始坐标是(0,0),重点是(5,4),要求找到一条最短的路
+
+### 经典的迷宫问题
+
+##### 找最短路问题
+
+- 解题思路,比如在一个 10x10 的迷宫里面，起始坐标是(0,0),重点是(5,4),要求找到一条最短的路
 - ![img](mi.png)
 - 如同所示,那么要想实现这玩意的话,就得用回溯了,在一次次的走和实验中,发现最短路
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 int x, y, x1, y1, step = 0;
 int minn = 999999;
 int a[100][100]; // 1表示空地可走,2表示有障碍物.
@@ -108,9 +115,10 @@ int main()
 }
 ```
 
-
 ####排列选数问题
-```C++ {.line-numbers} 
+思路：我们要明白，我们想实现什么，我们要实现的是，将 n 个数中选 m 个数，然后让他们进行排列，不能有重复的数字。2.怎么避免选重复的数字，
+
+```C++ {.line-numbers}
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -128,7 +136,7 @@ bool isprime(int n)
 int a[25];
 long long ans;
 void dfs(int m, int sum, int startx)
-{
+{   //边界条件
    if (m == k)
    {
       if (isprime(sum))
@@ -150,6 +158,50 @@ int main()
 }
 
 ```
-####dfs标准模版题
+
+#### dfs 标准模版题
+
 - 对于这种题目，我的理解能力比较难以理解，就是为什么递推，一定要回溯
 - 此类题目就是一个很近的
+- 题目链接
+
+```C++ {.line-numbers}
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+bool v[10000];
+int n, m, i = 0, j, sum = 1, sum1, k;
+int minn = 999999999;
+int a[10000], b[10000];
+void dfs(int u)
+{
+    if (u == n)
+    {
+        return;
+    }
+    else
+    {
+        sum *= a[u];
+        sum1 += b[u];
+        minn = min(abs(sum - sum1), minn);
+        //cout << "minn shang : " << minn << endl;
+        //cout<<"sum:shang  " <<sum << " " << sum1 << endl;
+        //cout <<"u = " <<u<<endl;
+        dfs(u + 1);
+        sum /= a[u];
+        sum1 -= b[u];
+        //cout <<"xia: " <<sum << " " << sum1 << endl;
+        dfs(u+1);
+    }
+    if(sum1==1&&sum==0)
+        return;
+}
+int main()
+{
+    cin >> n;
+    for (i = 0; i < n; i++)
+        cin >> a[i] >> b[i];
+    dfs(0);
+    cout << minn;
+}
+```

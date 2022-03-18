@@ -12,7 +12,8 @@ bool isprime(int n)
     return true;
 }
 void dfs(int m, int sum, int star)
-{
+{ //边界条件
+cout<< " m: " << m << " " << star << endl;
     if (m == k)
     {
         if (isprime(sum))
@@ -21,11 +22,14 @@ void dfs(int m, int sum, int star)
              << " m: " << m << " " << star << endl;
         return; //结束递归
     }
+    //
     for (i = star; i < n; i++)
-    { //递归检查要在递归前和递归后已经终止条件前,设置数据检查.
+    {
+        //递归检查要在递归前和递归后已经终止条件前,设置数据检查.
         cout << "shang: " << sum << " "
              << " m: " << m << " " << star << endl;
-        dfs(m + 1, sum + a[i], star + 1);
+        dfs(m + 1, sum + a[i], i+ 1);
+        //递归完后会进行一个溯回
         cout << "xia: " << sum << " "
              << " m: " << m << " " << star << endl;
     }

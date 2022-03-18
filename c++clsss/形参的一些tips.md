@@ -1,5 +1,9 @@
+[toc]
+##引用型变量
+- 首先要知道什么是引用型变量
+  
 ##传参
-
+  -
 ```C++ {.line-numbers}
 float &cut(float &a, float &b)
 {
