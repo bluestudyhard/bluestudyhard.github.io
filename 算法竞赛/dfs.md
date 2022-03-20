@@ -1,9 +1,8 @@
 [toc]
 
-### dfs 暴力枚举，排列问题
+### dfs 暴力枚举，排列问题，组合问题
 
 - 暴力枚举排列的题目一般是问:xx 东西在
-
 ```C++ {.line-numbers}
 /*stl里的全排列*/
 要先预先sort好序
@@ -43,6 +42,38 @@ void dfs(int u)//u代表访问的层数
                 s[i] = false;//重新回溯的时候，把数字从新的开始，比如1轮完了轮2
             }
         }
+}
+```
+- 实现几个数里面选几个数的组合
+- 例题[洛谷P1157 组合的输出](https://www.luogu.com.cn/problem/P1157)
+```C++ {.line-numbers} 
+void dfs(int u)
+{
+   #include <bits/stdc++.h>
+using namespace std;
+int a[10000], b[10000], j, n, k, sum, m;
+bool v[1000];
+void dfs(int u)
+{ /*终止条件*/
+    int i;
+    if (u > m)
+    {
+        for (i = 1; i <= m; i++)
+            cout<<setw(3)<<a[i];//c++中打间隔的方式
+        cout << endl;
+        return;
+    }
+    for (i = a[u - 1] + 1; i <= n; i+++)
+    {
+        a[u] = i; // 1 25
+        dfs(u + 1);
+    }
+}
+int main()
+{
+    cin >> n >> m;
+    dfs(1);
+}
 }
 ```
 

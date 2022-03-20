@@ -23,28 +23,91 @@ int main()
     cin >> n >> m;
     dfs(1);
 }*/
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
-int a[100056];
-int num(int n)
-{
-    int ans;
-    while (n)
-    {
-        ans += n % 10;
-        n/=10;
-    }
-    return ans;
-}
+int a[5000], s[5000];
+int n, m, k, x, y, b, c, d, maxx = 0;
+int i, j;
+pair<int, int> v[50000];
 int main()
 {
-    int n;
-    char s[100];
-    cin>>n;
-    for(int i = 1e4;i<1e6;i++)
-        {
-            if(num(i)==n)
-                
-            
-        }
+    cin >> n >> m >> k;
+    for (i = 1; i <= k; i++)
+    {
+        cin >> b >> d >> c;
+        v[i].first = b * d;
+        v[i].second = c;
+    }
+    sort(v, v + k);
+    for (i = 1; i <= k - 1; i++)
+    {
+        v[k].first -= v[i].first;
+    }
+    cout << v[k].first << " " << v[k].second;
+}*/
+/*#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+const int Max = 1e7;
+ll vector(pair<ll,ll>) kk;
+int n, m, k, x, y, b, c, d;
+int i, j;
+ll a[Max];
+bool cmp(pair<ll,ll>a,pair<ll,ll>b)
+{
+    return b.second > a.second;
+}
+pair<ll, ll> v[Max];
+int main()
+{
+    cin >> n >> k;
+    for (i = 0; i < n; i++)
+        cin >> a[i], v[i].first = a[i];
+    for (i = 0; i < n; i++)
+    {
+        cin >> b;
+        v[i].second = a[i] - b;
+    }
+    sort(v, v + n, cmp);
+    for (i = 0; i < k; i++)
+    {
+        if (v[i].second < 0)
+            break;
+        v[i].first -= v[i].second;
+    }
+    int sum = 0;
+    for (i = 0; i < n; i++)
+        sum += v[i].first;
+    cout << sum;
+}
+*/
+#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+const int  Max = 1e7;
+ll a[Max],s[Max];
+int n,m,k,x,y,b,c,d,maxx= 0;
+int i,j;
+pair <ll,ll>v[Max];
+int main()
+{
+    cin>>n>>m>>k;
+    for(i = 0;i<k;i++)
+    {   
+        cin>>a[i]>>s[i]>>c;
+            v[i].second = c;
+            v[i].first = a[i]*s[i];
+            cout<<v[i].first<<" "<<endl;
+             if(a[i]==a[i-1]||s[i]==s[i-1])
+             {
+                 v[i].first = max(a[i]*s[i],a[i-1]*s[i-1]);
+                 cout<<v[i].first<<" "<<endl;
+             }
+    }
+    sort(v,v+k);
+    for(i = 0;i<k-1;i++)
+    {
+        v[k-1].first -=v[i].first;
+    }
+    cout << v[k-1].first << " " << v[k-1].second;
 }
