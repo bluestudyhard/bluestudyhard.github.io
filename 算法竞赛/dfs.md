@@ -221,7 +221,7 @@ void dfs(int u)
         dfs(u + 1);
         sum /= a[u];
         sum1 -= b[u];
-        //cout <<"xia: " <<sum << " " << sum1 << endl;
+        //cout <<"xia: " <<sum << " " << sum1 << endl; 
         dfs(u+1);
     }
     if(sum1==1&&sum==0)

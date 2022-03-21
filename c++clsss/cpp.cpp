@@ -89,25 +89,17 @@ ll a[Max],s[Max];
 int n,m,k,x,y,b,c,d,maxx= 0;
 int i,j;
 pair <ll,ll>v[Max];
+int f[Max];
+int fib(int n)
+{
+    f[0] = 1;
+    f[1] = 1;
+    for(i = 2;i<=n;i++)
+    {
+        f[i] = f[i-1]+f[i-2];
+    }
+}
 int main()
 {
-    cin>>n>>m>>k;
-    for(i = 0;i<k;i++)
-    {   
-        cin>>a[i]>>s[i]>>c;
-            v[i].second = c;
-            v[i].first = a[i]*s[i];
-            cout<<v[i].first<<" "<<endl;
-             if(a[i]==a[i-1]||s[i]==s[i-1])
-             {
-                 v[i].first = max(a[i]*s[i],a[i-1]*s[i-1]);
-                 cout<<v[i].first<<" "<<endl;
-             }
-    }
-    sort(v,v+k);
-    for(i = 0;i<k-1;i++)
-    {
-        v[k-1].first -=v[i].first;
-    }
-    cout << v[k-1].first << " " << v[k-1].second;
+    
 }
