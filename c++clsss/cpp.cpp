@@ -80,26 +80,73 @@ int main()
         sum += v[i].first;
     cout << sum;
 }
+*#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+const int Max = 1e7;
+int n, m, x, y, b, c, d;
+int maxx = 0, maxxx = -1;
+int i, j;
+pair<ll, ll> v;
+bool cmp(string a, string b)
+{
+    return a + b < b + a;
+}
+vector<int> a[Max];
+int main()
+{
+    int pos[100];
+    int k = 1;
+    string s;
+    cin >> n;
+    cin >> s;
+    for (i = 0; i < s.length(); i++)
+    {
+        if (s[i] == '1')
+        {
+            pos[k] = i;
+            k++;
+        }
+    }
+    for (i = 0; i < k; i++)
+    {
+        d = (pos[i + 1] - pos[i])/2;
+        maxx = max(maxx, d);
+    }
+    cout << maxx;
+}
 */
 #include <bits/stdc++.h>
 typedef long long ll;
 using namespace std;
-const int  Max = 1e7;
-ll a[Max],s[Max];
-int n,m,k,x,y,b,c,d,maxx= 0;
-int i,j;
-pair <ll,ll>v[Max];
-int f[Max];
-int fib(int n)
+int n, m, x, y, b, c, d,i,j;
+const int Max = 1e7;
+const int money = 251;
+const int coin = 5;
+int minn[Max],type[coin] = {1,5,10,25,50};//minn数组内容,记录硬币数量,下标表示金额。
+void dp()
 {
-    f[0] = 1;
-    f[1] = 1;
-    for(i = 2;i<=n;i++)
-    {
-        f[i] = f[i-1]+f[i-2];
-    }
+    for(int k = 0;k<money;k++)
+        minn[k] = INT_MAX;
+    minn[0] = 0;
+    for(i = 0;i<coin;i++)
+        for(j = type[i];j<money;j++)//这两个循环把所有硬币种类都算了一遍取了最小值。
+        {
+            minn[j] = min(minn[j],minn[j-type[i]]+1);
+            cout<<minn[j]<<endl;
+        }
 }
 int main()
-{
-    
+{  
+    vector <int> ans;
+    int n;
+    cin>>n;
+    while(n)//
+    {
+        ans.push_back(n&1),n>>=1;
+        
+    }
+    reverse(ans.begin(),ans.end());
+    for(i = 1;i<=ans.size();i++)
+    cout<<ans[i];
 }

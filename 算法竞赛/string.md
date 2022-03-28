@@ -62,3 +62,31 @@ if (string s == string(s.rbegin(),s.rend()));//12321发过来相等的就是回�
      }
   }
   ```
+   ### 按字典序排序最小
+- 此最小并不是说，像abcddabd 排完以后变成 aabbcddd，这样是纯sort，并不符合一些题目的要求，一般这类题目会给你一直输入一些字符串，然后再来比较。
+- 字典序的实现排序的实现原理是，从首字母开始进行比较，比较小的就往前放
+- 比如说： a,b,c ，排完以后就是 abc  ab ac 排完以后就是 abac
+- 例题[蓝桥杯练习最小字符串](http://lx.lanqiao.cn/problem.page?gpid=T3001)
+- 解法 ： 鱼哥的神仙做法
+```C++ {.line-numbers} 
+bool cmp(string a, string b)
+{
+    return a + b < b + a;
+}
+int main()
+{
+    string s, s1;
+    cin >> n;
+    while (n--)
+    {
+        cin >> m;
+        vector<string> k(m);
+        for (i = 0; i < m; i++)
+            cin >> k[i];
+            sort(k.begin(),k.end(),cmp);
+        for(i = 0;i<k.size();i++)
+            cout<<k[i];
+        cout<<endl;
+    }
+}
+```
