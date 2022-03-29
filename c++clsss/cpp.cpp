@@ -119,34 +119,42 @@ int main()
 #include <bits/stdc++.h>
 typedef long long ll;
 using namespace std;
-int n, m, x, y, b, c, d,i,j;
+int n, m, x, y, b, c, d, i, j;
 const int Max = 1e7;
 const int money = 251;
 const int coin = 5;
-int minn[Max],type[coin] = {1,5,10,25,50};//minn数组内容,记录硬币数量,下标表示金额。
+int minn[Max], type[coin] = {1, 5, 10, 25, 50}; // minn数组内容,记录硬币数量,下标表示金额。
 void dp()
 {
-    for(int k = 0;k<money;k++)
+    for (int k = 0; k < money; k++)
         minn[k] = INT_MAX;
     minn[0] = 0;
-    for(i = 0;i<coin;i++)
-        for(j = type[i];j<money;j++)//这两个循环把所有硬币种类都算了一遍取了最小值。
+    for (i = 0; i < coin; i++)
+        for (j = type[i]; j < money; j++) //这两个循环把所有硬币种类都算了一遍取了最小值。
         {
-            minn[j] = min(minn[j],minn[j-type[i]]+1);
-            cout<<minn[j]<<endl;
+            minn[j] = min(minn[j], minn[j - type[i]] + 1);
+            cout << minn[j] << endl;
         }
 }
-int main()
-{  
-    vector <int> ans;
-    int n;
-    cin>>n;
-    while(n)//
+ll fpow(ll a, ll b)
+{
+    ll sum = 1;
+    while (b)
     {
-        ans.push_back(n&1),n>>=1;
+        if (b & 1) //如果是0就跳一位不乘比如11 1011 101 10 1 a1 * a2 * a8
+            sum = sum * a % c;
+        a = a*a%c;
+        b >>= 1;
+    }
+    return sum;
+}
+int main()
+{
+    clock_t tbegin, tend;
+    tbegin = clock();
+    {
         
     }
-    reverse(ans.begin(),ans.end());
-    for(i = 1;i<=ans.size();i++)
-    cout<<ans[i];
+    tend = clock();
+    printf("\ntime cost : %.3f\n", (tend - tbegin) / 1000.);
 }

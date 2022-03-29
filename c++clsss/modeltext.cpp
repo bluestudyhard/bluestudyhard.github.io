@@ -45,7 +45,7 @@ vector<int> add(vector<int>&a,vector<int>&b)
         if(i<b.size())
     }
 }*/
-#include<bits/stdc++.h>
+/*#include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 const int Max  = 1e9;
@@ -68,4 +68,19 @@ int main()
                 maxx = dp[i][j];
         }
     cout<<maxx;
+}
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int T, n;
+    for (cin >> T; T--;)
+    {
+        int ans = 0;
+        cin >> n;
+        bitset<16> t(n);
+        cout << t.count() << " ";
+    }
 }
