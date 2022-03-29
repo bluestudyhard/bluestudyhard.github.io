@@ -141,20 +141,26 @@ ll fpow(ll a, ll b)
     ll sum = 1;
     while (b)
     {
-        if (b & 1) //如果是0就跳一位不乘比如11 1011 101 10 1 a1 * a2 * a8
+        if (b & 1) //&1表示的是，如果那个位上是1,其实表示的是a那个位的次方，表示这个数，可以拆成那个位上的数如果是0就跳一位不乘比如11 1011 101 10 1 a1 * a2 * a8
             sum = sum * a % c;
-        a = a*a%c;
+        a = a * a % c;
         b >>= 1;
     }
     return sum;
 }
+string jin(int n, int radix)
+{
+    string ans = "";
+    while (n != 0)
+    {
+        int t = n % radix;
+        ans += ((t >= 0 and t <= 9) ? t + '0' : t - 10 + 'a');
+        n /= radix;
+    }
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
 int main()
 {
-    clock_t tbegin, tend;
-    tbegin = clock();
-    {
-        
-    }
-    tend = clock();
-    printf("\ntime cost : %.3f\n", (tend - tbegin) / 1000.);
+    cout << jin(151515151,2);
 }

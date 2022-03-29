@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main()
-int binarysearch(int a[],int key,int n)//二分搜索原理
+int binarysearch(int a[],int key,int n)//二分搜索原理，先排序
 {
      int left = 0;
      int right = n;

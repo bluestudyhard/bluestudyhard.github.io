@@ -70,17 +70,56 @@ int main()
     cout<<maxx;
 }
 */
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
-
+typedef long long ll;
+ll a, b, c;
+int n, i, j;
+ll fpow(ll a, ll b, ll c)
+{
+    ll sum = 0;
+    while (b)
+    {
+        if (b & 1)
+            sum = (sum + a) % c;
+        a = a * 2 % c;
+        b>>=1;
+    }
+    return sum;
+}
 int main()
 {
-    int T, n;
-    for (cin >> T; T--;)
+    ll a, b, c;
+    cin >> a >> b >> c;
+    cout << fpow(a, b, c);
+}*/
+#include <bits/stdc++.h>
+using namespace std;
+int a[10000];
+int n, q, i, j, k, pos, pos1, m;
+/*int bs(int a[], int mid, int k)
+{
+    int l = a[0];
+    int r = a[n - 1];
+    while (l < r)
     {
-        int ans = 0;
-        cin >> n;
-        bitset<16> t(n);
-        cout << t.count() << " ";
+        mid = (l + r) / 2;
+        if (a[mid] == k)
+            return mid;
+        else if (a[mid] < k)
+            l = mid;
+        else
+            r = mid;
+    }
+}
+*/
+int main()
+{
+    cin >> n >> q;
+    for (i = 0; i < n; i++)
+        cin >> a[i];
+    while (q--)
+    {
+        
     }
 }
