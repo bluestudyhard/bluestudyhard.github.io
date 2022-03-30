@@ -119,7 +119,33 @@ int main()
     for (i = 0; i < n; i++)
         cin >> a[i];
     while (q--)
-    {
-        
+    {   int l = a[0];
+        int r = a[n-1];
+        cin>>k;
+        while(l<r)
+        {
+            m = (l+r)>>1;
+            if(k<=a[m])
+                r = m;
+            else
+                l = m+1;
+        }
+        if(a[l]!=k)//说明如果是最大边界，l = r时，最小边界 l = a[0]时
+        //都找不到
+        cout<<"-1"<<" "<<"-1"<<endl;
+        else{
+            cout<<l<<" ";
+             l = 0;
+             r = n-1;
+            while(l<r)
+            {
+                m = l+r+1>>1;//右区间
+                if(k>=a[m])
+                  l = m;
+                else
+                  r = m-1;
+            }
+                cout<<r<<endl;
+        }
     }
 }
