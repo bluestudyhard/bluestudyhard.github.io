@@ -229,27 +229,31 @@ int main()
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int Max = 1e7 + 10;
+const int Max = 1e8 + 10;
 int minn = Max;
 int n, m;
-bitset<Max> st; //用于判断素数，以及合数
-int prime[Max], p = 1;
-// 2 3  8 5 7 11
-// 2 一开始是2的话,进入循环,将4筛掉,然后3 存入数组，2*3 把6筛掉
+bitset<Max> st;
+int prime[Max];
+bool pp[Max];
+int a[40][40];
 int main()
 {
-    int N = 1e7;
-    int i, j, sum = 0, cnt = 0;
-    for (i = 2; i <= N; ++i)
+    cin >> n >> m;
+    if (n == 0)
     {
-        if (!st[i])             //如果st里面的是0的话
-            prime[p++] = i, cnt++; // 2 3 目的是筛掉，2的倍数，2和其他素数的共用倍数
-        for (j = 1; prime[j] * i <= N; ++j)
-        {
-            st[prime[j] * i] = 1; //先标记素数的合数，然后筛掉 4 6 9 8 10 15
-            if (i % prime[j] == 0) //如果是素数就筛到本身为止跳出循环，如果不是素数第一轮或第二轮就出去了
-                break;
-        }
+        cout << "0";
+        return 0;
     }
-    printf("%d", cnt);
+    int i, j;
+    int b[n + 5], c[n + 5];
+    c[0] = 0;
+
+    for (i = 1; i <= n; i++)
+    {
+        cin >> b[i];
+        c[i] = c[i - 1] + b[i];
+        if (i >= m)
+            minn = min(minn, c[i] - c[i - m]);
+    }
+    cout << minn;
 }
