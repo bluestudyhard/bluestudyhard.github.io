@@ -226,7 +226,7 @@ int main()
 }
 */
 
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 const int Max = 1e8 + 10;
@@ -256,4 +256,14 @@ int main()
             minn = min(minn, c[i] - c[i - m]);
     }
     cout << minn;
-}
+}*/
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int Max = 1e8 + 10;
+int minn = Max;
+int n, m;
+bitset<Max> st;
+int prime[Max];
+bool pp[Max];
