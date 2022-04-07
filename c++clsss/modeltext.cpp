@@ -267,3 +267,12 @@ int n, m;
 bitset<Max> st;
 int prime[Max];
 bool pp[Max];
+int main()
+{
+    ll a, b;
+    cin >> a >> b;
+    ll c;
+    c = __gcd(a, b);
+    cout << a * b / c;
+
+}
