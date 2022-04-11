@@ -260,19 +260,64 @@ int main()
 
 #include <bits/stdc++.h>
 using namespace std;
+/*各类模板*/
 typedef long long ll;
-const int Max = 1e8 + 10;
-int minn = Max;
-int n, m;
-bitset<Max> st;
-int prime[Max];
-bool pp[Max];
+const int maxx = 1e8 + 10;
+/* 高精+ */
+/*vector<int> add(vector<int> &a, vector<int> &b)
+{
+    if (a.size() < b.size())
+        return add(b, a);
+    vector<int> c;
+    int sum = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        sum += a[i];
+        if (i < b.size())
+            sum += b[i];
+        c.push_back(sum % 10);
+        //    2468
+        sum /= 10;
+    }
+    if (sum)
+        c.push_back(sum);
+    return c;
+}*/
+/* 高精x*/
+vector<int> muti(vector<int> &a, vector<int> &b)
+{
+    if (a.size() < b.size())
+        return muti(b, a);
+    vector<int> c;
+    int sum = 0;
+    for (int i = 0; i < a.size(); i++)
+        for (int j = 0; j < b.size(); j++)
+            c[i + j - 1] += a[i] * b[j];
+    for (int i = 0; i < a.size() + b.size(); i++)
+    {
+        if (c[i] > 9)
+        {
+            c[i + 1] += c[i] % 10;
+            c[i] /= 10;
+        }
+    }
+    while (c.size() > 1 && c.back() == 0) //第一位为0的情况
+        c.pop_back();
+    return c;
+}
 int main()
 {
-    ll a, b;
-    cin >> a >> b;
-    ll c;
-    c = __gcd(a, b);
-    cout << a * b / c;
-
+    vector<int> a, b;
+    string n, m;
+    cin >> n >> m;
+    for (int i = n.length() - 1; i >= 0; i--)
+    {
+        a.push_back(n[i] - '0');
+        cout << a[i] << endl;
+    }
+    for (int j = m.length() - 1; j >= 0; j--)
+        b.push_back(m[j] - '0');
+    vector<int> c = muti(a, b);
+    for (int i = c.size() - 1; i >= 0; i--)
+        cout << c[i];
 }
