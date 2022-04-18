@@ -291,5 +291,6 @@
   ],
   "C_Cpp.errorSquiggles": "Enabled",
   "cmake.configureOnOpen": false,
-  "liveServer.settings.port": 81
+  "liveServer.settings.port": 81,
+  "cSpell.enabled": false
 }

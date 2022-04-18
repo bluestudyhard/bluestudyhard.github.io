@@ -1,1 +1,52 @@
-## select字句
+[toc]
+# sql语句基础操作
+![img_5.png](img_5.png)
+## mysql ddl语句 数据库定义语言
+![img_4.png](img_4.png)
+## mysql dml 数据操纵语言
+![img_6.png](img_6.png) 
+## mysql dql 数据库查询语言
+![img_7.png](img_7.png)
+### 一. select子句，where字句，join，having
+1.查询整个表的内容：select * from xxx
+ - 也可以选择表的xx内容，比如说，select name,number from xs;
+2. 表连接 join
+- join 有 inner join ， left join ， outer join ，right join，默认为inner join
+- **inner join 的原理，两个表的某些列相等，然后经过一个判断，就可以把两个表连接在一起。**
+- 例 查找xscj数据库中，性别为男，专业名为计算机的姓名，课程号，成绩
+- 在这个例题中，我们知道，性别，专业名在学生表，课程号在kc，成绩在xs_kc,所以我们要展示这个表的话的，就要把相同的元素，结合来判断
+  select name,coursen,pname,score,sex
+  from xs join xs_kc on xs.number = xs.number
+  join kc on kc.coursenum1 = xs_kc.coursenum
+  where xs.pname = '计算机'
+  and kc.coursen = '计算机基础'
+  and xs.sex = '1'
+  and xs_kc.score>90;
+- 因为细写实在是太麻烦了，就放个操作让看笔记的我自行领会叭
+### 二 . group by,order by语句,
+- group by 的作用是把表里面的列(唯一列)，提出来。作用和distinct相似，但是group by 通常是结合聚合函数进行一个计算的过程。
+- 比如
+- select sex from xs
+- 和 select distinct sex from xs 输出结果是一样的
+- ![img_1.png](img_1.png)
+- group by 语句通常和聚合函数结合
+- 聚合函数:
+- AVG() - 返回集合的平均值。
+- COUNT() - 返回集合中的项目数。
+- MAX() - 返回集合中的最大值。
+- MIN() - 返回集合中的最小值
+- SUM() - 返回集合中所有或不同值的总和。
+- 例如
+- select coursen, count(*) as 总人数
+  from kc
+  join xs_kc on xs_kc.coursenum = kc.coursenum1
+  group by coursen;
+- ![img_2.png](img_2.png)
+- 在这里的话，group by把coursen的数据，列出来,然后通过count函数将数据统计并显现出来。
+- **order by**语句
+- 顾名思义，对列排序啦，分为升序和降序，默认升序，在后面加desc就是降序
+- ![img_3.png](img_3.png)
+
+## mysql dcl
+
+## mysql 视图
