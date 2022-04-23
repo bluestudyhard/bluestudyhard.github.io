@@ -112,8 +112,9 @@ from kc
          join xs_kc on xs_kc.coursenum = kc.coursenum1
 group by coursen;
 
-select * from employees
-order by number1 desc ;
+select *
+from employees
+order by number1 desc;
 select pname, count(*) as 总人数, avg(totalnumber) as 平均分
 from xs
 group by pname;
@@ -195,9 +196,10 @@ handler salary close;
 create or replace view yggl.cs_kc
 as
 select number, name, pname, coursenum, score
-from xs,xs_kc
-         where xs.number = xs_kc.number1
-    and xs.pname = '通信工程'
+from xs,
+     xs_kc
+where xs.number = xs_kc.number1
+  and xs.pname = '通信工程'
 --  group by pname, name, number, coursenum, score;  -- 使用group by 不能更新表
     with check option;
 select *
@@ -299,48 +301,104 @@ select departmentID as 部门名称
 from ds_v
 where num = 4;
 
-select name,income as 实际收入
+select name, income as 实际收入
 from employees_v
 where employees_v.name = '王林';
 
 insert into ds_v
-values (6,'财务部','财物管理');
-select * from ds_v;
+values (6, '财务部', '财物管理');
+select *
+from ds_v;
 
 update ds_v
-set  departmentID = '生产部'
+set departmentID = '生产部'
 where num = 5;
 select *
 from ds_v;
 
 use mysql;
-select * from user;
+select *
+from user;
 
 use yggl;
 
-select number,name,coursen,score
-from xs,xs_kc,kc
+select number, name, coursen, score
+from xs,
+     xs_kc,
+     kc
 where xs.number = xs_kc.number1
-    and kc.coursenum1 = xs_kc.coursenum
-    and kc.coursen = '离散数学'
-    and xs_kc.score <80;
+  and kc.coursenum1 = xs_kc.coursenum
+  and kc.coursen = '离散数学'
+  and xs_kc.score < 80;
 
-select * from xs  limit 10;
-select * from xs limit  10,11;
+select *
+from xs
+limit 10;
+select *
+from xs
+limit 10,11;
 
-select name,coursen,pname,score,sex
-from xs join xs_kc on xs.number = xs.number
-join kc on kc.coursenum1 = xs_kc.coursenum
+select name, coursen, pname, score, sex
+from xs
+         join xs_kc on xs.number = xs.number
+         join kc on kc.coursenum1 = xs_kc.coursenum
 where xs.pname = '计算机'
-and kc.coursen = '计算机基础'
-and xs.sex = '1'
-and xs_kc.score>90;
+  and kc.coursen = '计算机基础'
+  and xs.sex = '1'
+  and xs_kc.score > 90;
 use yggl;
 create or replace view yggl.ck_kcc
 as
-    select number,name,pname,coursenum,score
-from xs,xs_kc
+select number, name, pname, coursenum, score
+from xs,
+     xs_kc
 where xs.number = xs_kc.number1
-and xs.pname = '通信工程'
-with  check option ;
-select * from cs_kcc;
+  and xs.pname = '通信工程'
+with check option;
+select *
+from cs_kcc;
+
+select 'I\nlove\nmy\nfamily';
+
+select 0x43, cast(0x43 as unsigned);
+
+select hex('HI');
+
+select 0x4849, cast(0x4849 as unsigned);
+
+select true,false;
+
+set @num = (select number1 from employees where employees.name = '陈林琳');
+select @num;
+
+set @user1 = '010008';
+select number1,name,study,born,sex,worktime,dnum from employees where employees.number1 = @user1;
+
+set @female = 0;
+select name,phone from employees where employees.sex = @female;
+
+select @@version;
+
+select current_time;
+select  current_date,current_timestamp,current_user;
+
+select 199-205,0.14-0.1,1.2+3.09345;
+
+select '2019-5-6' + interval 33 Day;
+
+select '2019-5-6' - interval 2 month ;
+
+select 12%3, -32%7,7%0;
+select '18AA'+'1',  'AA18'+1, '11x' * 3 * 'qwe';
+
+select 8 = '8ab','8' = '8ab';
+select 5<>5,5<>6,'a'<>'a','5a'<>'5b',NULL<>NULL, 0<>NULL, 0<>0;
+select (1=1) AND (9>10),('c'='c') AND ('c'<'d');
+
+select(1=1) OR (9>10), ('a'='c') OR (1>2);
+select (1=1) XOR (4=3), (1<2) XOR (9<10);
+
+select income-outcome from salary;
+
+select * from employees
+where study = '本科' and sex = '0';

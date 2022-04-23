@@ -49,4 +49,6 @@
 
 ## mysql dcl
 
-## mysql 视图
+# mysql 视图
+
+# mysql 增加的语言元素 常量，变量，运算符，函数
