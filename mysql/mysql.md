@@ -48,7 +48,30 @@
 - ![img_3.png](img_3.png)
 
 ## mysql dcl
-
-# mysql 视图
-
-# mysql 增加的语言元素 常量，变量，运算符，函数
+### grant 语句
+### revoke
+##mysql 视图
+- 视图的话就是，把表的内容呈现出来
+- 语法 create or replace view xxx as 
+      from table 
+      where xxx
+      with check option;
+- with check option 是为了确保创造出来的视图的元素可以更新。
+- 查询方法和表一样 select * from;
+## mysql 增加的语言元素 常量，变量，运算符，函数
+### 常量
+- 常量包括 字符串常量，数字常量，十六进制常量，bool常量，位字段常量，日期常量，null
+- 字符串常量
+- 字符串常量形如'hello’
+- 想要查看有双引号的字符串的方法：select '\"hello\"','"hello"';
+- 数值常量 经典 int double float
+- 十六进制常量
+- 形如0x41 这样子的就是十六进制常量
+- cast(xxx,as unsigned) 字符串转数字 = to_string()
+- select 0x41,cast(0x41 as unsigned );
+- hex(number) 数字转字符串
+### 函数
+#### 字符串函数
+- concat(c1,c2,c3) 字符串结合在一起，等价于string的加减
+- select length('ssss') 获取字符串长度
+- ![img_8.png](img_8.png)
