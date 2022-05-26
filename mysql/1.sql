@@ -595,8 +595,81 @@ begin
                      salary
                 where number1 = number
                   and dnum = str1);
-    set id  = (select number from salary where income = maxx);-- 找到
+    set id = (select number from salary where income = maxx);-- 找到
     set ans = (select name from employees where number1 = id);-- 输出的名字
 end;
 call high('研发部', @anss);
 select @anss;
+
+select *
+from xs;
+
+select number, name, sex, avg(score) s1
+from xs x3,
+     xs_kc x4
+where x3.number = x4.number1
+  and x3.sex = 0
+  and score > (select avg(score) s2, sex
+               from xs x1,
+                    xs_kc x2
+               where x1.number = x2.number1
+                 and x1.sex = 1);
+
+select number, name, sex, totalnumber
+from xs
+where sex = 1
+  and totalnumber < (select avg(totalnumber) from xs where sex = 0);
+
+-- 储存过程
+create function em_avg()
+    returns double
+begin
+    return (select avg(income) from salary);
+end;
+SET GLOBAL log_bin_trust_function_creators = 1;
+select em_avg();
+
+drop function if exists iswork;
+create function iswork(worker char(15))
+    returns
+        char(15)
+begin
+    declare s char(10);
+    select departmentID into s
+    from employees,departments
+    where employees.name = worker and dnum = num;
+    if s = '研发部' then
+        return (select study from employees where name = worker);
+    else
+        return '不是研发部员工';
+    end if;
+end;
+select iswork('王林');
+
+use yggl;
+drop function if exists  add_m;
+create function add_m()
+returns float
+begin
+   return (select income+300 from employees,salary where number1 = number and worktime>=4);
+end;
+
+create trigger em_delete after  delete
+    on salary for each row
+    begin
+        delete from employees where number1 = old.number;
+    end;
+delete from salary where number = '112201';
+select * from salary;
+
+drop trigger if exists em_delete;
+
+drop trigger if exists dp_update;
+create trigger dp_update after update
+    on departments for each row
+    begin
+        update  employees set dnum = new.num where dnum = old.num;
+    end;
+update departments set num = '9' where departmentID = '研发部';
+select * from departments;
+select * from employees;

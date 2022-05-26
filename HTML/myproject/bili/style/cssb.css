@@ -1,0 +1,540 @@
+/*
+list
+*/
+.round-corner {
+    margin: 0px;
+}
+
+#header {
+    min-width: 999px;
+    min-height: 250px;
+    box-sizing: border-box;
+}
+
+
+.mini-header-mini-type {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    display: flex;
+}
+
+.mini-header-content {
+    display: flex;
+    right: 24px;
+    line-height: 30px;
+    position: relative;
+    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: space-between;
+
+
+}
+
+.logo {
+    line-height: 32px;
+    display: flex;
+    color: black;
+    text-shadow: none;
+    /* flex-direction:;*/
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 70px;
+    height: 32px;
+    margin-right: 16px;
+}
+
+.nav-pullup {
+    width: 10px;
+    height: 12px;
+    transform: rotate(180deg);
+    /*旋转*/
+    align-self: center;
+}
+
+.nav-link {
+    margin-right: 12px;
+}
+
+.nav-link-ul-left {
+    align-items: center;
+    height: 36px;
+    display: flex;
+    list-style: none;
+    font-size: 14px;
+    line-height: 32px;
+    white-space: nowrap;
+    display: flex;
+}
+
+.nav-link-item {
+    margin-right: 12px;
+}
+
+.nav-link-anime {
+    color: black;
+}
+
+.nav-link-game {
+    color: black;
+}
+
+.nav-link-live {
+    color: black;
+}
+
+.nav-link-comic {
+    color: black;
+}
+
+.nav-link-download {
+    color: black;
+}
+
+.nav-link-competition {
+    color: black;
+}
+
+.nav-search-box {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin-top: 12px;
+    margin-left: 5px;
+    transition: 0.3s width;
+}
+
+.nav-search {
+    position: relative;
+}
+
+.nav-serach-form {
+    display: block;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #E7E7E7;
+    background: #F4F4F4;
+    width: 500px;
+    padding: 0 38px 0 16px;
+}
+
+.bserach {
+    text-align: center;
+    word-break: break-all;
+    overflow: hidden;
+    border: none;
+    height: 34px;
+    border: none;
+    width: 100%;
+    line-height: 34px;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.nav-serach-button {
+    width: 48px;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+.button-icon {
+    position: absolute;
+    top: 5px;
+    right: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+}
+
+.nav-link-right {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+.sign-in a {}
+
+.nav-link-signin1 {
+    top: 14px;
+    left: 12px;
+    margin-right: 20px;
+    width: 36px;
+    height: 36px;
+    color: #00A1D6;
+    position: relative;
+    border-radius: 50%;
+    background: #F4F4F4;
+    text-align: center;
+    font-weight: 600;
+}
+
+.nav-link-vip1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+
+}
+
+.nav-link-message1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link-share1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link-collect1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link-record1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link-center1 {
+    left: 5px;
+    top: 12px;
+    margin-right: 10px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+}
+
+.nav-link-submit1 {
+    left: 5px;
+    top: 12px;
+    height: 36px;
+    margin-right: 20px;
+    color: #212121;
+    text-align: center;
+    position: relative;
+    background: #fb7299;
+    display: block;
+    color: #E7E7E7;
+    cursor: pointer;
+    border-radius: 2px;
+    width: 100px;
+}
+
+.top-banner {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 86px;
+    background: #00A1D6;
+}
+
+.title-line {
+    text-align: center;
+    margin-bottom: 28px;
+    height: 28px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.app-center-part {
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-left {
+    width: 50%;
+    height: 300px;
+    position: relative;
+    bottom: 50px;
+}
+
+.qrcode {
+    padding-top: 72px;
+    height: 200px;
+}
+
+.qrcode-tv-img {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    top: 10px;
+    left: 150px;
+}
+
+.qrcode-img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    right: 5px;
+    position: relative;
+}
+
+.qrcode-imgg {
+    position: absolute;
+    width: 160px;
+    right: 14px;
+
+}
+
+.qrcode-footer {
+    width: 600px;
+    height: 180px;
+    position: relative;
+    width: 480px;
+    right: 20px;
+    bottom: 60px;
+    background: url('../img/2233.png') 0 -7px no-repeat;
+}
+
+.tip-text {
+    text-align: center;
+    color: #222;
+    font-size: 18px;
+    padding-top: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+a {
+    color: #00A1D6;
+}
+
+.tip-2233 {
+    text-align: center;
+    color: #717171;
+    font-size: 14px;
+}
+
+.middle-line {
+    border-right: #ddd solid 1px;
+    height: 300px;
+    margin-top: 28px;
+}
+
+.login-right {
+    width: 50%;
+    height: 260px;
+    padding-left: 50px;
+    position: relative;
+}
+
+.right-form {
+    width: 414px;
+}
+
+.login-right-top {
+    font-size: 14px;
+    letter-spacing: 0px;
+
+}
+
+.secret {
+    color: #00A1D6;
+    margin-right: 20px;
+}
+
+.right-login {
+    position: relative;
+}
+
+.user-name {
+    position: relative;
+}
+
+.input-username {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: #ddd solid 1px;
+    border-radius: 4px;
+    width: 400px;
+    height: 35px;
+    font-size: 13px;
+    vertical-align: middle;
+    padding-left: 10px;
+    background-color: rgb(232, 240, 254);
+}
+
+.input-password {
+    border-radius: 4px;
+    border: #ddd solid 1px;
+    border-radius: 4px;
+    width: 400px;
+    height: 35px;
+    font-size: 13px;
+    vertical-align: middle;
+    padding-left: 10px;
+    background-color: rgb(232, 240, 254);
+}
+
+.user-password {
+    position: relative;
+}
+
+.user-password-tips {
+    margin: 6px;
+    height: 20px;
+}
+
+.user-name-tips {
+    margin: 6px;
+    height: 20px;
+}
+
+.remember {
+    padding-right: 20px;
+    color: #717171;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+label {
+    justify-content: flex-start;
+    -webkit-box-pack: start;
+}
+
+.rememberme {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.remember-checkbox {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    right: 3px;
+}
+
+.remember span {
+    margin-left: 10px;
+    color: #bbb;
+}
+
+.cant-login {
+    margin-left: 35px;
+    ;
+}
+
+.signin-signup {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 13px;
+    position: relative;
+}
+
+.signin {
+    width: 184px;
+    height: 36px;
+    background: #06b0e9 no-repeat;
+    border: 1px solid rgb(183, 183, 183);
+    border-radius: 2px;
+}
+
+.signin a {
+    text-align: center;
+    line-height: 8px;
+    font-size: 14px;
+    color: rgb(243, 240, 240);
+}
+
+.signin a :active {
+    text-align: center;
+    line-height: 8px;
+    font-size: 14px;
+    color: rgb(243, 240, 240);
+}
+
+.signin p {
+    text-align: center;
+    line-height: 8px;
+    font-size: 14px;
+    color: rgb(243, 240, 240);
+}
+
+.signup-class {
+    margin-left: 40px;
+}
+
+.signup {
+    width: 165px;
+    height: 36px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 8px;
+    border: 1px solid rgb(220, 219, 219);
+    border-radius: 2px;
+    background: rgb(254, 253, 253);
+}
+
+.sns {
+    display: flex;
+    font-size: 12px;
+    line-height: 32px;
+    align-items: center;
+    position: relative;
+    padding-top: 5px;
+}
+
+.weixin-img {
+    position: relative;
+    top: 6px;
+}
+
+.btn {
+    color: #717171;
+    margin-right: 30px;
+    height: 30px;
+}
+
+.btn a {
+    color: #717171;
+}
+
+.app-bottom-part {
+    width: 900px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    top: 50px;
+    font-size: 12px;
+    color: rgb(165, 164, 164);
+}
+
+.app-bottom-part a {
+    position: relative;
+}

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//请编写你的代码
+//请编写你的代砄1�7
 /*
 class Point
 {
@@ -105,7 +105,7 @@ int main()
     father *f1;
     son s1;
     f1 = &s1;
-    f1->show_name();//不能通过指针来访问被子类覆盖的函数
+    f1->show_name();//不能通过指针来访问被子类覆盖的函敄1�7
 }*/
 /*
 class circle
@@ -266,57 +266,331 @@ int main()
     a.disp();
 }
 */
-
-class Employee
+/*
+class Time
 {
 private:
-    string Name;
-    int Employee_no;
-    int Salary;
-    double money;
+    int hours, minutes, seconds;
 
 public:
-    Employee()
-    {
-        Employee_no = 1000;
-        Name = "wenyitong";
-        Salary = 5000;
-    };
-    Employee(string name, int employee_no, int salary)
-    {
-        Employee_no = employee_no;
-        Name = name;
-        Salary = salary;
-        cout << "正在生成1个职员类对象，姓名：" << Name << endl;
-    };
-    Employee(string name)
-    {
-        Name = name;
-        cout << "正在注销1个职员类对象，姓名：" << Name << endl;
-    };
-    ~Employee(){
-        cout<<"111";
-    }
-    void Showme();
+    Time(int h = 0, int m = 0, int s = 0);
+    Time operator+(Time &);
+    void DispTime();
 };
-void Employee::Showme()
+Time::Time(int h, int m, int s) : hours(h), minutes(m), seconds(s) {}
+Time Time::operator+(Time &t)
 {
-    if (Salary > 3000)
-    {
-        money = 0;
-    }
-    if (Salary >= 3000 && money <= 5000)
-    {
-        money = Salary * 0.05;
-    }
-    if (Salary > 5000)
-    {
-        money = Salary * 0.1;
-    }
-    cout << Employee_no << '\t' << Name << '\t' << Salary << '\t' << money << endl;
+    int s = (t.seconds + this->seconds) % 60;
+    int m = ((t.seconds + this->seconds) / 60 + t.minutes + this->minutes) % 60;
+    int h = ((t.seconds + this->seconds) / 60 + t.minutes + this->minutes) / 60 + t.hours + this->hours;
+    t.hours = h;
+    t.minutes = m;
+    t.seconds = s;
+    return t;
+}
+void Time::DispTime()
+{
+    cout << this->hours << "h:" << this->minutes << "m:" << this->seconds << "s";
 }
 int main()
 {
-    Employee e1("wenyitong", 1000, 2000);
+    Time tm1(8, 75, 50), tm2(0, 6, 16), tm3;
+    tm3 = tm1 + tm2;
+    tm3.DispTime();
     return 0;
+}
+*/
+/*
+class Date
+{
+protected:
+    int year;
+    int month;
+    int day;
+public:
+    Date(int year, int month, int day) : year(year), month(month), day(day){};
+
+public:
+    int totalData()
+    {
+        return year * 1000 + month * 100 + day;
+    }
+    void showdate() { cout << " " << year << "/" << month << "/" << day; }
+};
+class Time
+{
+protected:
+    int hour;
+    int minute;
+    int second;
+public:
+    Time(int hour, int minute, int second) : hour(hour), minute(minute), second(second) {}
+
+public:
+    int totaltime()
+    {
+        return hour * 1000 + minute * 100 + second;
+    }
+    void showtime()
+    {
+        cout << " " << hour << ":" << minute << ":" << second;
+    }
+};
+class Schedule : public Date, Time
+{
+protected:
+    int id;
+
+public:
+    Schedule(int id, int year, int month, int day, int hour, int minute, int second)
+        : Date(year, month, day),
+          Time(hour, minute, second),
+          id(id) {}
+
+public:
+    bool operator<(Schedule s2)
+    {
+        if (this->totalData() != s2.totalData())
+        {
+            return totalData() < s2.totalData();
+        }
+        else
+        {
+            return totaltime() < s2.totaltime();
+        }
+    }
+    void show()
+    {
+        cout << "No." << id << ":";
+        Date::showdate();
+        Time::showtime();
+    }
+};
+int main()
+{
+    int n, a, b, c, d, e, f;
+    Schedule s2(0, 9999, 9999, 9999, 999, 999, 99);
+    while (cin >> n, n != 0)
+    {
+        scanf("%d/%d/%d", &a, &b, &c);
+        scanf("%d:%d:%d", &d, &e, &f);
+        Schedule s1(n, a, b, c, d, e, f);
+        if (s1 < s2)
+        {
+            s2 = s1;
+        }
+    }
+    cout << "The urgent schedule is ";
+    s2.show();
+}
+*/
+/*
+class person
+{
+public:
+    int a, b;
+    person() : a(10), b(20) {}
+    person operator+(person &p)
+    {
+        person temp;
+        temp.a = p.a + p.a;
+        temp.b = p.b + p.b;
+        return temp;
+    }
+    // person operator>>()
+    // person operator <<()
+    // person operator>()
+    person &operator++()
+    {
+        a++;
+        b++;
+        return *this;
+    }
+    person operator++(int)
+    {
+        person tmp(*this); // temp = *this;
+        a++;
+        b++;
+        return tmp;
+        // return ++*this;
+    }
+    friend ostream &operator<<(ostream &out, person &p1)
+    {
+    }
+    // person operator!=()
+};
+int main()
+{
+    person a;
+    person b;
+    person c = a + b; //实现扢�有成员函数的相加
+    person *p;
+    a++;
+    cout << a.a << " " << a.b << endl;
+    cout << c.a << " " << c.b << endl;
+}
+*/
+/*
+class MyTime
+{
+    int h;
+    int m;
+    int s;
+
+public:
+    MyTime()
+    {
+        h = 0, m = 0, s = 0;
+    };
+    MyTime(int a, int b, int c) : h(a), m(b), s(c) {}
+    MyTime operator++()
+    {
+        this->h++;
+        this->m++;
+        this->s++;
+        if (this->h > 24)
+            h = 0;
+        else if (this->m >= 60)
+            m = 0;
+        else
+            s = 0;
+    }
+    friend istream &operator>>(istream &in, MyTime &t)
+    {
+        in >> t.h >> t.m >> t.s;
+        return in;
+    }
+    friend ostream &operator<<(ostream &out, MyTime &t)
+    {
+        out << t.h << ":" << t.m << ":" << t.s;
+        return out;
+    }
+};
+
+int main()
+{
+    MyTime t1, t2(23, 59, 59), t3;
+    cin >> t3;
+    ++t1;
+    cout << t1 << endl;
+    ++t2;
+    cout << t2 << endl;
+    ++t3;
+    cout << t3 << endl;
+    return 0;
+}
+*/
+/*
+class shape
+{
+public:
+    virtual float area() const = 0;
+};
+class circle : public shape
+{
+public:
+    float r;
+    circle(float r) : r(r) {}
+    virtual float area(float r)const
+    {
+        return r * r * 3.14159f;
+    }
+};
+class square : public shape
+{
+public:
+    float a;
+    square(float a) : a(a) {}
+    virtual float area(float a)const
+    {
+        return a * a;
+    }
+};
+class ret : public shape
+{
+public:
+    float b, c;
+    ret(float b, float c) : b(b), c(c) {}
+    virtual float area(float b, float c)const
+    {
+        return b * c;
+    }
+};
+class ts : public shape
+{
+public:
+    float d, e, f;
+    ts(float d, float e, float f) : d(d), e(e), f(f) {}
+    virtual float area(float d, float e, float f)const
+    {
+        return (d + e) * f * 0.5;
+    }
+};
+class tri : public shape
+{
+public:
+    float g, h;
+    tri(float g, float h) : g(g), h(h) {}
+    virtual float area(float g, float h)const
+    {
+        return g * h * 0.5;
+    }
+};
+
+int main()
+{
+    float a, b, c, d, e, f, g, h, r;
+    cin >> r >> a >> b >> c >> d >> e >> f >> g >> h;
+
+    circle c1(r);
+    square s(a);
+    ret r1(b, c);
+    ts t(d, e, f);
+    tri tr(g, h);
+    shape *pt[5] = {&c1, &s, &r1, &t, &tr};
+    double areas = 0.0;
+    for (int i = 0; i < 5; i++)
+    {
+        areas = areas + pt[i]->area();
+    }
+    cout << areas << endl;
+    return 0;
+}*/
+/*
+class shape
+{
+public:
+    virtual void getarea() = 0; //纯虚构函敄1�7
+};
+class circle : public shape
+{
+public:
+    double r;
+    circle(double r) : r(r){};
+    void getarea()
+    {
+        cout << r * r * 3.1415;
+    }
+};
+int main()
+{
+    circle c1(5.5);
+    c1.getarea();
+}
+
+*/
+
+template <typename T>
+void swap(T &a,T&b)
+{
+    T temp;
+    temp = a;
+    a = b;
+    b = temp;
+
+}
+int main()
+{   int a = 1,b = 2;
+
+   void swap<int>(a,b);
 }

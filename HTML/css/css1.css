@@ -1,7 +1,195 @@
+/*背景设置*/
 body {
     background-color: rgb(121, 152, 189);
+    height: 100 vh;
+    width: 100vw;
+    background: url("../img/background.png") fixed no-repeat;
+    background-position: 100%;
+    background-size: 100%;
+    padding: 1px;
+    box-sizing: border-box;
+    z-index: 1;
 }
-.p1
-{
+
+.border1 {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    border: 50px solid rgb(54, 175, 54);
+    padding: 25px;
+    /*内填充*/
+    margin: 0 auto;
+    /*外边框*/
+    outline: outset 25px rgb(43, 58, 226);
+}
+
+/*文本设置*/
+.p1 {
+    text-align: center;
     color: aliceblue;
+}
+
+#plink {
+    text-align: center;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#H1 {
+    text-align: center;
+    color: blue;
+    font-size: 100px;
+    font-family: "宋体";
+}
+
+#polist {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.91);
+    font-family: 宋体;
+}
+
+#p1img {
+    text-align: center;
+    font-size: large;
+    color: aquamarine;
+    font-family: 宋体;
+}
+
+#p1table {
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 0 0 5px rgb(137, 126, 126), 0 0 10px rgb(73, 73, 73), 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
+    ;
+    color: rgb(221, 2, 245);
+    font-family: 宋体;
+}
+
+#pborder{
+    text-align: center;
+    font: 50px 宋体;
+    text-shadow: 0 0 2px white;
+    color: rgb(64, 74, 50);
+}
+#pchoose{
+    color;
+}
+.chooseqi{
+    text-align: center;
+}
+.chooseqi,pchoose,pchoose1{
+    color: #ff00de;
+}
+/*L I S T*/
+#ulist{
+    text-align:center;
+}
+.nodelist{
+    text-align: center;
+}
+.nodelist li{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.divolist {
+    text-align: center;
+}
+
+#olist {
+    width: 200px;
+    margin-top: 10px;
+    margin: 0 auto;
+    display: inline;
+    list-style: none;
+}
+
+#olist ol {
+    margin-left: 50px;
+}
+
+#olist li {
+    display: inline;
+    /* = float left */
+    background-repeat: ;
+    margin: 20px;
+    ;
+}
+
+#olist a {
+    line-height: 40px;
+    color: rgb(43, 70, 166);
+    text-decoration: none;
+    padding: 5px;
+}
+
+#olist a:hover {
+    background-color: aquamarine;
+}
+
+.Table {
+    width: 500px;
+    margin: 0 auto;
+
+}
+
+/*
+图片设置
+*/
+#img1 {
+    text-align: center;
+}
+
+.img02 {
+    text-align: center;
+}
+
+/*超链接*/
+a.one:link {
+    color: rgb(32, 154, 89);
+
+}
+
+a.one:visited {
+    color: rgb(249, 246, 244);
+}
+
+a.one:hover {
+    color: rgb(26, 20, 108);
+    cursor: cell;
+    font-family: 宋体;
+}
+
+a.one:active {
+    color: blueviolet;
+}
+
+
+/*
+table
+*/
+
+.Table,
+th,
+td {
+    text-align: center;
+    border: 1px solid rgb(44, 44, 44);
+    /*边框*/
+    border-collapse: collapse;
+}
+
+.Table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Table td {
+    color: rgb(4, 4, 4);
+    padding: 15px;
+    /*默认上下左右各15，表示周围的空格*/
 }
