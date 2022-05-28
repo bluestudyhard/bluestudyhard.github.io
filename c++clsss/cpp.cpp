@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-//请编写你的代砄1�7
 /*
 class Point
 {
@@ -105,7 +104,7 @@ int main()
     father *f1;
     son s1;
     f1 = &s1;
-    f1->show_name();//不能通过指针来访问被子类覆盖的函敄1�7
+    f1->show_name(); 不能通过指针来访问被子类覆盖的函敄1�7
 }*/
 /*
 class circle
@@ -397,9 +396,9 @@ public:
         temp.b = p.b + p.b;
         return temp;
     }
-    // person operator>>()
-    // person operator <<()
-    // person operator>()
+      person operator>>()
+      person operator <<()
+      person operator>()
     person &operator++()
     {
         a++;
@@ -408,22 +407,22 @@ public:
     }
     person operator++(int)
     {
-        person tmp(*this); // temp = *this;
+        person tmp(*this);   temp = *this;
         a++;
         b++;
         return tmp;
-        // return ++*this;
+          return ++*this;
     }
     friend ostream &operator<<(ostream &out, person &p1)
     {
     }
-    // person operator!=()
+      person operator!=()
 };
 int main()
 {
     person a;
     person b;
-    person c = a + b; //实现扢�有成员函数的相加
+    person c = a + b;  实现扢�有成员函数的相加
     person *p;
     a++;
     cout << a.a << " " << a.b << endl;
@@ -560,7 +559,7 @@ int main()
 class shape
 {
 public:
-    virtual void getarea() = 0; //纯虚构函敄1�7
+    virtual void getarea() = 0;  纯虚构函敄1�7
 };
 class circle : public shape
 {
@@ -579,18 +578,159 @@ int main()
 }
 
 */
-
-template <typename T>
-void swap(T &a,T&b)
+/*
+template <class T>
+void sort(T *a, int size)
 {
-    T temp;
-    temp = a;
-    a = b;
-    b = temp;
+    {
+        for (int i = 0; i < size; i++)
+            cin >> a[i];
+    }
+    for(int i = 0;i<size;i++)
+        for(int j = i+1;j<size;j++)
+        {
+            if(a[i]>a[j])
+            t temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+}*/
+/*
+class vehicle
+{
+protected:
+    string no;
 
+public:
+    virtual void display() = 0;
+    vehicle(string n) : no(n) {}
+};
+class car : public vehicle
+{
+protected:
+    int people;
+    int weight;
+
+public:
+    car(string n, int p, int w) : vehicle(n), people(p), weight(w){};
+    void display()
+    {
+        int sum = 0;
+        sum = people * 8 + weight * 2;
+        cout << no << " " << sum << endl;
+    }
+};
+class truck : public vehicle
+{
+protected:
+    int weight;
+
+public:
+    truck(string n, int w) : vehicle(n), weight(w) {}
+    void display()
+    {
+        int sum = 0;
+        sum = weight * 5;
+        cout << no << " " << sum << endl;
+    }
+};
+class bus : public vehicle
+{
+protected:
+    int people;
+
+public:
+    bus(string n, int p) : vehicle(n), people(p) {}
+    void display()
+    {
+        int sum = 0;
+        sum = people * 3;
+        cout << no << " " << sum << endl;
+    }
+};
+
+template <class T1, class T2>
+T1 mie(T1 a, T2 b)   double mie(double a, double b)
+{
+    return a + b;
+}
+
+void swap(int &a, int &b)
+{
+    int temp = 0;
+    temp = a, a = b, b = temp;
+}
+void swap1(int a,int b)
+{
+    int temp = 0;
+    temp = a, a = b, b = temp;
 }
 int main()
-{   int a = 1,b = 2;
+{
+    int a = 1, b = 2;
+    swap(a, b);
+    swap1(a,b);
+    cout<<a<<" "<<b<<endl;
+     vehicle *pv[10];
+     int n, w, p;
+      string no;
+      while (cin>>n,n!=0)
+      {
+          if (n == 1)
+          {
+              cin >> no >> p >> w;
+              pv[n] = new car(no, p, w);
+              pv[n]->display();
+          }
+          else if (n == 2)
+          {
+              cin >> no >> w;
+              pv[n] = new truck(no, w);
+              pv[n]->display();
+          }
+          else
+          {
+              cin >> no >> p;
 
-   void swap<int>(a,b);
+              pv[n] = new bus(no, p);
+              pv[n]->display();
+          }
+      }
+}*/
+
+int& blue()
+{
+    static int a = 10;
+    return a;
 }
+int main()
+{       
+    blue() = 100;
+    int &f = blue();
+    cout<<f<<endl;
+}
+/*
+template <class t,class t1>
+void add(t a,t b)
+{
+    cout<<a+b;
+}
+template <class t,class s>
+class person{
+    private:
+    t age;
+    s name;
+    public:
+    person(t age,s name):age(age),name(name){};
+    void display()
+    {
+        cout<<age<<endl<<name;
+    }
+};
+int main()
+{   person <int,string> p1(19,"blue");
+    p1.display();
+    int a = 10;
+    string b = "ss";
+    
+}*/

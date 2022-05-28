@@ -216,6 +216,7 @@ int main()
     t1.settotal();
 
 }*/
+/*
 class student
 {
 private:
@@ -240,4 +241,4 @@ int main()
         a[i].getvalue(n);
     }
     cout<<s.total<<" "<<s.total/5.;
-}
+}*/

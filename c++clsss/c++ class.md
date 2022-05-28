@@ -22,8 +22,10 @@ Class person
 -
 
 ### 基本模板
-- 关于protected 成员，在继承类的类函数里面，是可以访问的，而在类外，也就是主函数里，是不可访问的。例如
-```C++ {.line-numbers} 
+
+- 关于 protected 成员，在继承类的类函数里面，是可以访问的，而在类外，也就是主函数里，是不可访问的。例如
+
+```C++ {.line-numbers}
 class bb{
     protected:
     int k;
@@ -42,6 +44,7 @@ int main()
     cout<<b.k;//不行，因为不在类内不能访问
 }
 ```
+
 ```C++ {.line-numbers}
 class box()//对象名
 {
@@ -55,9 +58,72 @@ public:
 }
 ```
 
+### 对于引用&的理解
+
+- [忘了看这里](https://www.bilibili.com/video/BV1et411b73Z?p=91);
+
+#### 本质
+
+- &的本质就是为变量更改别名，比如。。。。在这个例子里面，a 在内存区开辟了 4 个字节的空间存放数据，而&是取地址，&a 取了 a 的地址，赋值给 b，相当于 b 就指向了这个内存空间，对于 b 进行修改就是对 a 进行修改。
+
+```C++ {.line-numbers}
+int a = 10;
+int b = &a;
+b = 20;
+cout<<a;//a为20
+```
+
+#### 引用变量作为函数参数的用法和实际意义
+##### 引用变量作为函数的参数
+- 以经典的 void 为例
+- 在例1里
+结果是 1,2 实参并没有发生改变，因为在void里面，我们改变的是形参，而我们在main函数里面定义的a和b都没有发生实质的改变
+```C++ {.line-numbers}
+void swap1(int a,int b)
+{
+    int temp = 0;
+    temp = a, a = b, b = temp;
+}
+int main()
+{
+    int a = 1, b = 2;
+    swap1(a, b);
+    cout<<a<<" "<<b<<endl;
+    a = 1,b = 2
+}
+```
+- **而在这个例子中，因为我们传入的a，是&a，相当于直接指向了a的地址，相当于给a取了别名，那么我们在函数里面更改的，就是实参，也就是直接改变了原本a和b的值。**
+```C++ {.line-numbers}
+void swap(int &a, int &b)
+{
+    int temp = 0;
+    temp = a, a = b, b = temp;
+}
+int main()
+{
+    int a = 1, b = 2;
+    swap(a, b);
+    cout<<a<<" "<<b<<endl;
+    a = 2,b = 1;//发生了交换
+}
+```
+##### 引用变量作为左值
+```C++ {.line-numbers} 
+int& blue()
+{
+    static int a = 10;
+    return a;
+}
+int main()
+{       
+    blue() = 100;
+    int &f = blue();
+    cout<<f<<endl;
+}
+```
 ## 类函数
 
-### 关于函数重 载
+### 关于函数重载
 
 一. 什么是函数重载
 
@@ -153,7 +219,8 @@ int main()
 ```
 
 ### 静态变量，静态成员函数，全局变量
-- 静态变量和全局变量，const 修饰的全局变量，和字符串常量，处于程序中的全局区，而在主函数里面的局部变量，局部const变量，不在全局区，储存域不同。
+
+- 静态变量和全局变量，const 修饰的全局变量，和字符串常量，处于程序中的全局区，而在主函数里面的局部变量，局部 const 变量，不在全局区，储存域不同。
 - [来源](https://www.cnblogs.com/USTC-ZCC/p/13924504.html);
 - 全局变量从定义处开始至程序结束起作用
 - 静态局部变量，定义的时候，赋值，只会赋值一次，其他时候重复调用并不会赋值，
@@ -274,12 +341,13 @@ box(int n,string s):num(n),name(s){cout<<num<<name;};//初始化列表
 - *a 也表示指向 a 的地址 *p = a 表示
 
 ## 类的继承和派生
-- 继承，顾名思义，生儿子，爹叫基类，子是派生类，然后继承的子可以访问爹的除了private以外的所有元素，爹也一样，但是初始化的时候不能先把子类给声明了 
-如 ``class shape circle:public:shape 
-void settotal(circle c1)``
-在这里如果后续想要用settotal调用c1，是不可以的。
+
+- 继承，顾名思义，生儿子，爹叫基类，子是派生类，然后继承的子可以访问爹的除了 private 以外的所有元素，爹也一样，但是初始化的时候不能先把子类给声明了
+  如 `class shape circle:public:shape void settotal(circle c1)`
+  在这里如果后续想要用 settotal 调用 c1，是不可以的。
 - **实例** shape 类派生三个类，求面积
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 class shape
 {
 public:
@@ -332,9 +400,11 @@ int main()
 
 }
 ```
+
 - **派生类如何使用构造函数**
 - 详解，就是，用初始化列表，先对父类进行构造函数赋值，再对子类进行赋值，对子类赋值的格式是(成员变量参数) :父 (参数);
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 class pp
 {
 public:
@@ -371,16 +441,23 @@ int main()
 {
     ass a("zhengquede", "ass1", "ass2");
 }
-``` 
+```
+
 ## 多态
+
 ### 虚函数，虚构造函数
-####  虚函数 
-- [直接看这个](https://www.jianshu.com/p/d07e0ac0ba3c) 
+
+#### 虚函数
+
+- [直接看这个](https://www.jianshu.com/p/d07e0ac0ba3c)
+
 #### 纯虚函数
+
 - 定义虚函数很多时候在基类单纯的是定义，而在继承中进行实现，所以，需要纯虚构函数来拟定义
-例 这个例子没有0时，是会报错的，显示没有虚函数表。
-解决方法 对getarea 定义功能，使其成为虚函数，或直接，将其定义为纯虚函数
-```C++ {.line-numbers} 
+  例 这个例子没有 0 时，是会报错的，显示没有虚函数表。
+  解决方法 对 getarea 定义功能，使其成为虚函数，或直接，将其定义为纯虚函数
+
+```C++ {.line-numbers}
     class shape
 {
 public:
@@ -404,11 +481,14 @@ int main()
     c1.getarea();
 }
 ```
+
 #### 虚构造函数
-- 在多类继承的时候，可能会出现一些识别冲突问题，比如在菱形继承里面，d类继承了b类和c类，而b类和c类都继承了a类的成员，这样在d类里面调用a类成员时，会出现冲突。具体见[这篇详解](http://c.biancheng.net/view/2280.html)
-总之是不太建议使用虚继承的，因为会出现各种问题，但是要知道简单的虚继承怎么做
+
+- 在多类继承的时候，可能会出现一些识别冲突问题，比如在菱形继承里面，d 类继承了 b 类和 c 类，而 b 类和 c 类都继承了 a 类的成员，这样在 d 类里面调用 a 类成员时，会出现冲突。具体见[这篇详解](http://c.biancheng.net/view/2280.html)
+  总之是不太建议使用虚继承的，因为会出现各种问题，但是要知道简单的虚继承怎么做
 - **样例**
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 class vehicle
 {
 
@@ -436,11 +516,14 @@ public:
     }
 };
 ```
+
 ## 操作符重载 operator
 
+-
 - ![img](C://vscode/c++clsss/img/cpp.png)
 - 首先，明白为什么要用 operator 重载操作符，就是，在 c++里，操作符是基于标准库和基本数据类型中的，而在我们自己定义的类中，是无法直接使用运算符来实现操作的。
 - 比如说,在这个样例里，我想实现判断 person 类的 age 是否相等，但是，==操作符，是不能直接用的，会报错“没有与这些操作数匹配的 "==" 运算符”，所以这个时候需要 operator 来重载运算符。
+
 ```C++ {.line-numbers}
   class person
   {
@@ -459,8 +542,76 @@ person p2(10);
 if(p1==p2)
 cout<<"yes";
 }
-  ```   
-- 用operator重载后是酱紫的
-```C++ {.line-numbers} 
+```
 
+- 用 operator 重载后是酱紫的
+
+
+
+
+
+
+## 模板 template
+- 模板的使用有两种方法，一种是编译器自动识别T的类型，转化，一般这种是限于单个参数或者你使用相同参数的模板
+- 另一种是主动标识参数类型，在使用时加上<>标明类型
+- 例
+```C++ {.line-numbers} 
+template <class t,class t1>
+void add(t a,t b)
+{
+    cout<<a+b;
+}
+int main()
+{
+    int a = 10;
+    char b = 'a';
+    add(a,b);这样是错误的，编译器会无法识别你要输出的类型
+    add<int,char>(a,b);//正确的
+}
+```
+### 函数模板
+
+- [参考文章](https://blog.csdn.net/tonglin12138/article/details/88595747)
+- 简单来理解就是，模板可以让函数更加多样化的使用，相当于重载了函数参数比如
+  `template <typename T> void display(T &a,T&b) `
+  这样构造出来的 void 函数，系统会自动识别参数类型，从而实现函数
+- 使用方法
+
+```C++ {.line-numbers}
+template <typename t>
+void display(t &a,t&b)
+{
+    t temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    int a = 1,b = 2;
+    swap(a,b);
+}
+```
+
+### 类模板
+- 类模板和函数模板差不多，就是通过模板来重载成员函数的参数类型
+- 例 在这个例子里面，类模板的作用其实和函数模板差不多，就是为成员函数指定一个参数类型
+```C++ {.line-numbers} 
+template <class t,class s>
+class person{
+    private:
+    t age;
+    s name;
+    public:
+    person(t age,s name):age(age),name(name){};
+    void display()
+    {
+        cout<<age<<endl<<name;
+    }
+};
+int main()
+{   person <int,string> p1(19,"blue");
+    p1.display();
+    int a = 10;
+    string b = "ss";
+}
 ```

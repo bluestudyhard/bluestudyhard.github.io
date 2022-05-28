@@ -64,7 +64,13 @@ display	指定 HTML 元素的盒子类型
 flex-direction	指定弹性盒子中子元素的排列方式
 flex-wrap	设置当弹性盒子的子元素超出父容器时是否换行
 flex-flow	flex-direction 和 flex-wrap 两个属性的简写
-justify-content	设置弹性盒子中元素在主轴（横轴）方向上的对齐方式
+- justify-content	设置弹性盒子中元素在主轴（横轴）方向上的对齐方式,也就是横向对齐，justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly; 沿着开头/结尾/中间对齐 
+space -between ![img](imgg/space-between.png)
+
+
+
+
+
 align-items	设置弹性盒子中元素在侧轴（纵轴）方向上的对齐方式
 align-content	修改 flex-wrap 属性的行为，类似 align-items，但不是设置子元素对齐，而是设置行对齐
 order	设置弹性盒子中子元素的排列顺序
