@@ -697,18 +697,18 @@ int main()
           }
       }
 }*/
-
+/*
 int& blue()
 {
     static int a = 10;
     return a;
 }
 int main()
-{       
+{
     blue() = 100;
     int &f = blue();
     cout<<f<<endl;
-}
+}*/
 /*
 template <class t,class t1>
 void add(t a,t b)
@@ -732,5 +732,61 @@ int main()
     p1.display();
     int a = 10;
     string b = "ss";
-    
+
 }*/
+class person
+{
+public:
+    int a, b;
+    person() : a(10), b(20) {}
+    person operator+(person &p)
+    {
+        person temp;
+        temp.a = p.a + p.a;
+        temp.b = p.b + p.b;
+        return temp;
+    }
+    friend ostream &operator<<(ostream &out, person &p1)
+    {
+        out << p1.a << " "<< p1.b;
+        return out;
+    }
+    friend istream &operator>>(istream &in, person &p1)
+    {
+        in >> p1.a >> p1.b;
+        return in;
+    }
+    person &operator++()
+    {
+        a++;
+        b++;
+        return *this;
+    }
+    person operator++(int)
+    {
+        person tmp(*this);
+        a++;
+        b++;
+        return tmp;
+        //return ++*this;
+    }
+    bool operator!=(person &p1)
+    {
+        return this->a!= p1.a;
+    }
+    bool operator>(person &p1){
+        return this->a>p1.a;
+        return this->b>p1.b;
+    }
+};
+int main()
+{
+    person a;
+    person b;
+    person c = a + b;
+    person *p;
+    a++;
+    cout << a.a << " " << a.b << endl;
+    cout<<a<<" ";
+    cout<<(a>b);
+}

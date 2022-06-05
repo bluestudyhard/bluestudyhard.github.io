@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Template.css">
     <link rel="stylesheet" href="css/css1.css">
-    <link rel = "stylesheet" href="css/myproject.css">
+    <link rel="stylesheet" href="css/myproject.css">
+    <script type="text/javascript" src="js/js1.j"> </script>
     <title>myfirstweb</title>
 </head>
 
 </style>
 
-<body>
+<body style="text-align: center;">
     <div>
         <h1 id="H1">BlueShouldStudy</h1>
     </div>
@@ -30,16 +31,27 @@
                 <li><a href="#">噜噜噜</a></li>
             </ol>
         </div>
+        <button onclick="alert('点一下捏一下wyt的脸');">
+            点我
+        </button>
+        <div id="first">
+        </div>
+        <div id="second">
+            
+        </div>
     </div>
-    <div>
-        <span class = "textmodel1">
-            <img src = "img/01.png">
-        </span>
-        <span class = "textmodel2">
-            <img src = "img/01.png">
-        </span>
-        <span class = "textmodel3">
-            <img src = "img/01.png">
-        </span>
-    </div>
+    <script>
+        console.log("hello word");
+        //window.alert("my first js");
+        document.getElementById("first").innerHTML = "改改";
+        document.getElementById("second").innerHTML = "改改吗";
+        document.write(5 * 6);
+        console.log("lulululu");
+
+        function rename(a, b) {
+            return a * b;
+        }
+        var x;
+        x = 5;
+    </script>
 </body>

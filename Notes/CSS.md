@@ -54,7 +54,8 @@
 
 
 ## 布局 
-### flex
+### display的种类
+#### flex
 - 弹性布局默认值是 将元素按行排列 而且排列的时候会预备空间
 - flex-direction: row | row-reverse | column | column-reverse;将元素按行，按行反向排列。。。 
 - flex-wrap : nowrap | wrap | wrap-reverse; wrap 换行，从上向下排 wrap-reverse 换行，从下向上排
@@ -67,9 +68,12 @@ flex-flow	flex-direction 和 flex-wrap 两个属性的简写
 - justify-content	设置弹性盒子中元素在主轴（横轴）方向上的对齐方式,也就是横向对齐，justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly; 沿着开头/结尾/中间对齐 
 space -between ![img](imgg/space-between.png)
 
+#### block
+- display的默认属性是block，也就是块级元素，可以定义宽高
 
 
-
+#### inline 
+- 内联元素，如span，<a> 等等都是内联元素，内联元素无法设置长宽高，所以想要设置下拉菜单的话，你就得强制改成block元素使其可以改变
 
 align-items	设置弹性盒子中元素在侧轴（纵轴）方向上的对齐方式
 align-content	修改 flex-wrap 属性的行为，类似 align-items，但不是设置子元素对齐，而是设置行对齐
@@ -80,10 +84,26 @@ flex-grow	设置弹性盒子的扩展比率
 flex-shrink	设置弹性盒子的收缩比率
 flex-basis	设置弹性盒子伸缩基准值
 ### position
+- 用position进行定位以后，元素可以通过right left bottom top 来上下改变位置
+- position一共有5种 static relative absolute fixed sticky
+- position的初始值是static
+#### relative
+- 最常用。会在盒子中预留特定的空间，该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置
+怎么理解呢，也就是说relative定位下，一个没有指定位移的元素，将会和其他元素保持一致，或者平行,调整该元素时，他不会影响到别的元素
+![例](imgg/relative.png)
+进行右移
+![](imgg/relative1.png)
+
+#### absolute
+- 绝对定位，fixed是相对于窗口定位，不常用先不说
+- 绝对定位元素，会和其他元素区分开来，不会预留空间，如果和别的元素位置重叠时会叠在元素上面。
+- 例如
+- ![](imgg/absolute.png)
 
 
-
-
+#### sticky
+- sticky 会一直定位在那个地方，下拉的时候也会跟着移动,这个在做固定菜单栏时用到
+- ![](imgg/sticky.png)
 
 
 ## 继承
@@ -115,3 +135,4 @@ flex-basis	设置弹性盒子伸缩基准值
 
 
 
+## 下拉菜单

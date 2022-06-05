@@ -429,7 +429,7 @@ private:
 public:
     ass();
     ass(string na, string a1, string a2) : pp(na), ass1(a1), ass2(a2)
-    {
+    {  
         cout << "ass are askew " << endl;
     };
     ~ass()
@@ -579,7 +579,7 @@ int main()
 
 ```C++ {.line-numbers}
 template <typename t>
-void display(t &a,t&b)
+void swap(t &a,t&b)
 {
     t temp = a;
     a = b;
