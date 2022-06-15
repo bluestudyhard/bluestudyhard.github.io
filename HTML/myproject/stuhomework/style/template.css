@@ -22,9 +22,10 @@
 table {
     border: 1px solid #ddd;
     font-size: 0.8rem;
-    margin: 10px;
+    margin: 1px;
     border-collapse: collapse;
     text-align: center;
+    width: 100%;
 }
 
 caption {
@@ -78,7 +79,7 @@ a:hover {
 .app {
     background: url('../img/river.jpg') no-repeat;
     background-size: 100%;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
     width: 100vw;
     height: 100vh;
 }

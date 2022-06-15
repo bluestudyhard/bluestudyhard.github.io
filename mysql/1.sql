@@ -496,7 +496,7 @@ select 0x41, cast(0x41 as unsigned);
 select hex(15);
 select length('ssss');
 
-delimiter $$
+# delimiter $$
 create procedure delete_student(in 刘明 char(6))
 begin
     delete from employees where name = 刘明;
