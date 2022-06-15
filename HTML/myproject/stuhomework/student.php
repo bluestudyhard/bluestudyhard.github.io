@@ -8,49 +8,50 @@ $sql = new SQL();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="style/template.css"/>
-    <link rel="stylesheet" href="style/stu.css"/>
-    <script>
-        function doDel(number1) {
-            if (confirm("真的要删掉吗？")) {
-                window.location = 'mysql/add.php?action=del&uid=' + number1;
-            }
-        }
-    </script>
-    <title>mysql</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/template.css" />
+  <link rel="stylesheet" href="style/stu.css" />
+  <script>
+    function doDel(number1) {
+      if (confirm("真的要删掉吗？")) {
+        window.location = 'mysql/add.php?action=del&uid=' + number1;
+      }
+    }
+  </script>
+  <title>mysql</title>
 </head>
 
 <body>
-<div class="app">
+  <div class="app">
     <div class="header">
-        <div class="header-title">欢迎来到学生成绩管理系统</div>
+      <div class="header-title">欢迎来到学生成绩管理系统</div>
     </div>
     <div class="content">
-        <div class="left-side">
-            <div class="leftbody">
-                131
-                <label class="left-button">
+      <div class="left-side">
+        <div class="leftbody">
+          131
+          <label class="left-button">
             <span>
               成绩管理
-              <input type="radio" name="option" value="score"/>
+              <input type="radio" name="option" value="score" />
             </span>
-                </label>
-                <label class="left-button">
+          </label>
+          <label class="left-button">
             <span>
-              课程管理
-              <input type="radio" name="option" value="score"/>
+              <a href="stucourse.php"> 课程管理</a>
+              <input type="radio" name="option" value="score" />
             </span>
-                </label>
-            </div>
+          </label>
         </div>
-        <a href='teacheradd.php'>增加 </a>
-        <div class="right-side">
-            <?php
-            echo '<table>
+      </div>
+      <a href='teacheradd.php'>增加 </a>
+      <div class="right-side">
+        <?php
+        echo '<table>
           <thead>
           <th>序号</th>
             <th>学号</th>
@@ -63,28 +64,28 @@ $sql = new SQL();
           </thead>
           <tbody>';
 
-            $str = 'select * from stuinfo';
-            $sql->Run($str);
+        $str = 'select * from stuinfo';
+        $sql->Run($str);
 
-            function printTable($arr, $head): void
-            {
-                $i = 1;
-                foreach ($arr as $row) {
-                    echo "<tr><td>{$i}</td>";
-                    $i++;
-                    foreach ($head as $col) {
-                        echo '<td>', $row[$col], '</td>';
-                    }
-                    $number1 = $row['number'];
-                    echo "<td><a href='teacheradd.php'>修改  </a><a href='javascript:doDel({$number1})')>  删除 </a> </td></tr>";
-                }
-                echo '</tbody></table>';
+        function printTable($arr, $head): void
+        {
+          $i = 1;
+          foreach ($arr as $row) {
+            echo "<tr><td>{$i}</td>";
+            $i++;
+            foreach ($head as $col) {
+              echo '<td>', $row[$col], '</td>';
             }
+            $number1 = $row['number'];
+            echo "<td><a href='teacheradd.php'>修改  </a><a href='javascript:doDel(\"{$number1}\")')>  删除 </a> </td></tr>";
+          }
+          echo '</tbody></table>';
+        }
 
-            printTable($sql->arr, $sql->head);
-            ?>
+        printTable($sql->arr, $sql->head);
+        ?>
 
-            <!-- <div class='change-form">
+        <!-- <div class='change-form">
                 <span>修改学生信息</span>
                 <form action="student.php" method="post">
                     <input type="text">
@@ -92,10 +93,10 @@ $sql = new SQL();
                 </form>
             </div> -->
 
-        </div>
+      </div>
     </div>
     <div class="footer" style="text-align: center;">
-        <span>cover by blue @3164752596@qq.com</span>
+      <span>cover by blue @3164752596@qq.com</span>
     </div>
 </body>
 
