@@ -1,6 +1,6 @@
 <?php
 
-include "mysql/database.php";
+include "../mysql/database.php";
 $sql = new SQL();
 
 
@@ -36,7 +36,7 @@ $sql = new SQL();
           131
           <label class="left-button">
             <span>
-              成绩管理
+               <a href="teacher.php"> 学生管理</a>
               <input type="radio" name="option" value="score" />
             </span>
           </label>

@@ -1,6 +1,6 @@
 <?php
 
-include "mysql/database.php";
+include "../mysql/database.php";
 $sql = new SQL();
 
 
@@ -10,11 +10,11 @@ $sql = new SQL();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/template.css" />
-    <link rel="stylesheet" href="style/stu.css" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../style/template.css"/>
+    <link rel="stylesheet" href="../style/stu.css"/>
     <script>
         function doDel(number1) {
             if (confirm("真的要删掉吗？")) {
@@ -36,14 +36,14 @@ $sql = new SQL();
                 131
                 <label class="left-button">
             <span>
-              <a href="student.php"> 成绩管理</a>
-              <input type="radio" name="option" value="score" />
+              <a href="teacher.php"> 学生管理</a>
+              <input type="radio" name="option" value="score"/>
             </span>
                 </label>
                 <label class="left-button">
             <span>
               <a href="stucourse.php"> 课程管理</a>
-              <input type="radio" name="option" value="score" />
+              <input type="radio" name="option" value="score"/>
             </span>
                 </label>
             </div>
@@ -65,6 +65,7 @@ $sql = new SQL();
 
             $str = 'select * from stukc';
             $sql->Run($str);
+
             function printTable($arr, $head): void
             {
                 $i = 1;
@@ -72,29 +73,20 @@ $sql = new SQL();
                     echo "<tr><td>{$i}</td>";
                     $i++;
                     foreach ($head as $col) {
-                        echo '<td>', $row[$col], '</td>';
+                        echo "<td id='{$col}'>{$row[$col]}</td>";
                     }
-                    $number1 = $row['courseNum'];
-                    echo "<td><a href='teacheradd.php'>修改  </a><a href='javascript:doDel(\"{$number1}\")')>  删除 </a> </td></tr>";
+                    echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['courseNum']})')>  删除</a></td></tr>";
                 }
                 echo '</tbody></table>';
             }
 
             printTable($sql->arr, $sql->head);
             ?>
-
-            <!-- <div class='change-form">
-                    <span>修改学生信息</span>
-                    <form action="student.php" method="post">
-                        <input type="text">
-
-                    </form>
-                </div> -->
-
+            <script src="../style/index.js"></script>
         </div>
     </div>
     <div class="footer" style="text-align: center;">
-        <span>cover by blue @3164752596@qq.com</span>
+        <span></span>
     </div>
 </body>
 

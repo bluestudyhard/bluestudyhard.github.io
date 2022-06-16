@@ -1,6 +1,6 @@
 <?php
 
-include "mysql/database.php";
+include "../mysql/database.php";
 $sql = new SQL();
 
 ?>
@@ -12,8 +12,8 @@ $sql = new SQL();
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style/template.css" />
-  <link rel="stylesheet" href="style/stu.css" />
+  <link rel="stylesheet" href="../style/template.css" />
+  <link rel="stylesheet" href="../style/stu.css" />
   <title>mysql</title>
 </head>
 
@@ -42,7 +42,7 @@ $sql = new SQL();
       </div>
 
       <div class="right-side">
-        <form action="mysql/add.php?action=add" method="post">
+        <form action="../mysql/add.php?action=add" method="post">
           <div>学号
             <input type="text" name="studentID" value="2333">
           </div>

@@ -62,7 +62,7 @@ function printTable($arr, $head): void
         foreach ($head as $col) {
             echo '<td>', $row[$col], '</td>';
         }
-        echo '<td><a href="teacheradd.php">增加  <a href="teacheradd.php">修改  <a href="teacheradd.php">删除 </td>', '</tr>';
+        echo '<td><a href="teacheradd.php">增加  <a href="tea/teacheradd.php">修改  <a href="tea/teacheradd.php">删除 </td>', '</tr>';
     }
     echo '</tbody></table>';
 }
