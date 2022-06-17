@@ -2,7 +2,8 @@
 include "database.php";
 
 $sql = new SQL();
-if (isset($_GET['action'])) {
+if (isset($_GET['action']))
+{
     switch ($_GET['action']) {
         case "add";
             $stuid = $_POST['studentID'];

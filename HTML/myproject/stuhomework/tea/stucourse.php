@@ -46,12 +46,21 @@ $sql = new SQL();
               <input type="radio" name="option" value="score"/>
             </span>
                 </label>
+
+                <label class="left-button">
+                    <span>
+                        <a href="stucourse.php"> 课程管理</a>
+                        <input type="radio" name="option" value="score"/>
+                     </span>
+                </label>
+
             </div>
         </div>
         <a href='teacheradd.php'>增加 </a>
         <div class="right-side">
-            <?php
-            echo '<table>
+            <form action="stuEdit.php?action=course" method="post" class="stu-form">
+                <?php
+                echo '<table>
           <thead>
           <th>序号</th>
             <th>课程号</th>
@@ -63,26 +72,27 @@ $sql = new SQL();
           </thead>
           <tbody>';
 
-            $str = 'select * from stukc';
-            $sql->Run($str);
+                $str = 'select * from stukc';
+                $sql->Run($str);
 
-            function printTable($arr, $head): void
-            {
-                $i = 1;
-                foreach ($arr as $row) {
-                    echo "<tr><td>{$i}</td>";
-                    $i++;
-                    foreach ($head as $col) {
-                        echo "<td id='{$col}'>{$row[$col]}</td>";
+                function printTable($arr, $head): void
+                {
+                    $i = 1;
+                    foreach ($arr as $row) {
+                        echo "<tr><td>{$i}</td>";
+                        $i++;
+                        foreach ($head as $col) {
+                            echo "<td id='{$col}'>{$row[$col]}</td>";
+                        }
+                        echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['courseNum']})')>  删除</a></td></tr>";
                     }
-                    echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['courseNum']})')>  删除</a></td></tr>";
+                    echo '</tbody></table>';
                 }
-                echo '</tbody></table>';
-            }
 
-            printTable($sql->arr, $sql->head);
-            ?>
-            <script src="../style/index.js"></script>
+                printTable($sql->arr, $sql->head);
+                ?>
+                <script src="../style/index.js"></script>
+            </form>
         </div>
     </div>
     <div class="footer" style="text-align: center;">
