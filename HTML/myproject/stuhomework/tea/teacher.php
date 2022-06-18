@@ -33,11 +33,12 @@
                         <span class="fontawesome-search"></span>
                     </button>
                 </form> -->
-                <form action="../mysql/add.php?action=search" method="post">
-                <div class="search-box">
-                    <input class="search-txt" type='text' id='inp' name="ser"/>
-                    <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
-                </div>
+                <form action="stuEdit.php?action=search" method="post">
+                    <div class="search-box">
+                        <input class="search-txt" type='text' id='inp' name="ser"/>
+                        <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
+
+                    </div>
                 </form>
             </div>
         </div>
@@ -125,20 +126,19 @@
         // $('input[type="search"]').on("focusout", function(e) {
         //     $("form").removeClass("opened");
         // });
-        let oInp = document.getElementById('inp');
-        let oBtn = document.getElementById('btn');
-        oBtn.onclick = function () {
-            Search();
-        }
-        document.onkeydown = function () {
-            if (event.keyCode == 13) {
-                Search();
-            }
-        }
-        function Search() {
-            window.location = '../mysql/add.php';
-            window.open(url);
-        }
+        // let oInp = document.getElementById('inp');
+        // let oBtn = document.getElementById('btn');
+        // oBtn.onclick = function () {
+        //     Search();
+        // }
+        // document.onkeydown = function () {
+        //     if (event.keyCode == 13) {
+        //         Search();
+        //     }
+        // }
+        // function Search() {
+        //     window.location = '../mysql/add.php?action=del&uid='+;
+        // }
     </script>
 </body>
 

@@ -44,7 +44,7 @@ $sql = new SQL();
       <div class="right-side">
         <form action="../mysql/add.php?action=add" method="post">
           <div>学号
-            <input type="text" name="studentID" value="2333">
+            <input type="text" name="studentID" >
           </div>
           <div>姓名
             <input type="text" name="studentName">
