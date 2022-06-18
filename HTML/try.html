@@ -8,24 +8,61 @@
       href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/try.css" />
     <title>try</title>
+    <script
+      type="text/javascript"
+      src="https://wow.techbrood.com/libs/jquery/jquery-2.1.1.min.js"
+    ></script>
   </head>
 
   <body>
-    <form>
-      <input type="search" placeholder="Search" />
-      <button>
+    <form action="../mysql/add.php?action=serach" method="post">
+      <input type="search" placeholder="Search" name="searchok" />
+      <button type="submit" value="onserach">
         <span class="fontawesome-search"></span>
       </button>
+      <input type="checkbox" id="#ck" />
     </form>
-    <script>
-      $("button").on("click", function (e) {
-        e.preventDefault();
-        $("form").addClass("opened");
-        $('input[type="search"]').focus();
-      });
 
+    <div class="search-box">
+      <input class="search-txt" type='text' id='inp' />
+      <input class="search-btn" type='button' id='btn' value='&#xf002' />
+  </div> 
+    <script>
+      var oInp = document.getElementById("inp");
+      var oBtn = document.getElementById("btn");
+
+      oBtn.onclick = function () {
+        Search();
+      };
+      document.onkeydown = function () {
+          Search();
+        
+      };
+      function Search() {
+        var url = "h.html";
+        window.open(url);
+      }
+    </script>
+    <script>
+      $("button")
+        .on("click", function (e) 
+        {
+            e.preventDefault();
+          $("form").addClass("opened");
+          $('input[type="search"]').focus();
+        })
+        // .off("click", function (e) {});
       $('input[type="search"]').on("focusout", function (e) {
         $("form").removeClass("opened");
       });

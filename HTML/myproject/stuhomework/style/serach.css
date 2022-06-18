@@ -5,13 +5,7 @@
 [class*="fontawesome-"]:before {
     font-family: 'FontAwesome', sans-serif;
 }
-
-body {
-    background: #f3f3f3;
-    margin-top: 70px;
-}
-
-form {
+.nav-search form {
     position: relative;
     width: 60px;
     height: 60px;
@@ -22,11 +16,11 @@ form {
     background: rgba(0, 0, 0, 0);
 }
 
-form.opened {
+.nav-search form.opened {
     width: 380px;
 }
 
-form.opened:before {
+.nav-search form.opened:before {
     position: fixed;
     content: "";
     top: 0;
@@ -64,10 +58,10 @@ form.opened input[type="search"] {
     transition: width 0.5s;
 }
 
-button {
+.nav-search button {
+    right: 0;
     position: absolute;
     top: 0;
-    right: 0;
     width: 60px;
     height: 60px;
     background: #28d7d7;

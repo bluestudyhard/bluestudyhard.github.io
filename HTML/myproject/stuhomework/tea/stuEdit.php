@@ -23,5 +23,10 @@ if (isset($_POST)) {
 
             }
             break;
+        case "search";
+            $info = $_POST['ser'];
+            print_r($info);
+            break;
     }
+
 }

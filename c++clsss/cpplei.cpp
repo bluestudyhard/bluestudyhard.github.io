@@ -216,23 +216,24 @@ int main()
     t1.settotal();
 
 }*/
-/*
+
 class student
 {
 private:
     int num;
-
+    
 public:
     static double total;
     int getvalue(int n)
     {   total+=n;
         return n;
     }
+    
 } ;
 double student ::total = 0;
 int main()
 {
-
+    
     student s;
     student a[5];
     int n;
@@ -241,4 +242,4 @@ int main()
         a[i].getvalue(n);
     }
     cout<<s.total<<" "<<s.total/5.;
-}*/
+}

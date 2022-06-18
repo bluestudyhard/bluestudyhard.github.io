@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Han的快捷搜索栏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" rel="text.css">
+    <style>
+        /* @font-face {
+            font-family: 'FontAwesome';
+            src: url('./fontawesome-webfont.eot');
+            src: url('./fontawesome-webfont.eot') format('embedded-opentype'),
+                url('./fontawesome-webfont.woff2') format('woff2'), url('.fontawesome-webfont.woff') format('woff'),
+                url('./fontawesome-webfont.ttf') format('truetype'),
+                url('./fontawesome-webfont.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        } */
+
+        .search-box {
+            font-family: FontAwesome;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #504f4f8e;
+            height: 40px;
+            border: 10px;
+            border-radius: 40px;
+            padding: 10px;
+            opacity: 0;
+            transition-delay: 99999999s;
+            transition-duration: 0s;
+        }
+
+        .search-box:hover>.search-txt {
+            width: 240px;
+            padding: 0 6px;
+        }
+
+        .search-box:hover>.search-btn {
+            color: white;
+            background: rgb(101, 101, 101);
+        }
+
+        .search-btn {
+            transition: 0.5s;
+            font-family: FontAwesome;
+            font-size: 25px;
+            color: rgb(246, 240, 240);
+            float: right;
+            width: 40px;
+            height: 40px;
+            border: 10px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .search-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            transition: 0.6s;
+            line-height: 40px;
+            width: 0px;
+        }
+        html:hover .search-box {
+            opacity: 1;
+            transition-delay: 0.5s;
+            transition-duration: 1s;
+        }
+
+        /* .hand-box {
+            font-family: FontAwesome;
+            padding: 350px;
+            font-size: 30px;
+        } */
+
+        /* @keyframes flash {
+            50% {
+                transform: scale(1.5);
+            }
+
+            80% {
+                transform: rotate(-60deg);
+            }
+
+            100% {
+                transform: rotate(30deg);
+            }
+            
+        } */
+
+        /* .img {
+            width: 500px;
+            height: 500px;
+            margin-top: 15px;
+            transition-delay: 9999999s;
+            transition-duration: 3s;
+        } */
+
+        /* html:hover .img {
+            width: 80px;
+            height: 80px;
+            margin-top: 0px;
+            transition-delay: 1s;
+            transition-duration: 2s;
+        } */
+/* 
+        .p {
+            margin-top: -20px;
+            color: white;
+            font-family: 微软雅黑;
+            font-size: 50px;
+            opacity: 1;
+            transition-delay: 999999s;
+            transition-duration: 3s;
+        } */
+
+        /* html:hover .p {
+            margin-top: 10px;
+            font-size: 0px;
+            opacity: 0;
+            transition-delay: 1s;
+            transition-duration: 2s;
+        } */
+
+        
+    </style>
+</head>
+
+<body >
+    <center>
+        <!-- <img src="Big_LOGO.png" class="img" />
+        <p class="p">Han 出品</p> -->
+
+         <div class="search-box">
+            <input class="search-txt" type='text' id='inp' />
+            <input class="search-btn" type='button' id='btn' value='&#xf002' />
+        </div> 
+    </center>
+</body>
+
+<script>
+    let oInp = document.getElementById('inp');
+    let oBtn = document.getElementById('btn');
+    oBtn.onclick = function () 
+    {
+        Search();
+    }
+         document.onkeydown = function () {
+        if (event.keyCode == 13) {
+            Search();
+        }
+    }
+    function Search() {
+        window.location = 'h.html';
+        window.open(url);
+    }
+</script>
