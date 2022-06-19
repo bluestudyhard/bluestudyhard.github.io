@@ -74,3 +74,12 @@ end;
 call update_score('2114100314', '206', 'score', '87');
 select *
 from stuxskc;
+
+select *
+from stuinfo
+where stuinfo.name = '蓝习之';
+select *
+from stuinfo
+right join stuxskc using (number)
+right join stukc using (courseNum)
+where stuinfo.name = '蓝习之';

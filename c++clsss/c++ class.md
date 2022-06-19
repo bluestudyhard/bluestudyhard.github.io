@@ -74,10 +74,13 @@ cout<<a;//a为20
 ```
 
 #### 引用变量作为函数参数的用法和实际意义
+
 ##### 引用变量作为函数的参数
+
 - 以经典的 void 为例
-- 在例1里
-结果是 1,2 实参并没有发生改变，因为在void里面，我们改变的是形参，而我们在main函数里面定义的a和b都没有发生实质的改变
+- 在例 1 里
+  结果是 1,2 实参并没有发生改变，因为在 void 里面，我们改变的是形参，而我们在 main 函数里面定义的 a 和 b 都没有发生实质的改变
+
 ```C++ {.line-numbers}
 void swap1(int a,int b)
 {
@@ -92,7 +95,9 @@ int main()
     a = 1,b = 2
 }
 ```
-- **而在这个例子中，因为我们传入的a，是&a，相当于直接指向了a的地址，相当于给a取了别名，那么我们在函数里面更改的，就是实参，也就是直接改变了原本a和b的值。**
+
+- **而在这个例子中，因为我们传入的 a，是&a，相当于直接指向了 a 的地址，相当于给 a 取了别名，那么我们在函数里面更改的，就是实参，也就是直接改变了原本 a 和 b 的值。**
+
 ```C++ {.line-numbers}
 void swap(int &a, int &b)
 {
@@ -107,20 +112,23 @@ int main()
     a = 2,b = 1;//发生了交换
 }
 ```
+
 ##### 引用变量作为左值
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 int& blue()
 {
     static int a = 10;
     return a;
 }
 int main()
-{       
+{
     blue() = 100;
     int &f = blue();
     cout<<f<<endl;
 }
 ```
+
 ## 类函数
 
 ### 关于函数重载
@@ -278,8 +286,6 @@ int box::count = 0;
 
 ### 构造函数和析构函数
 
-#### this 指针
-
 - 构造函数，是赋初值的函数
 - 例如
 - 在这里它的名字和类名相同，没有返回值，不需要用户显式调用（用户也不能调用），而是在创建对象时自动执行。这种特殊的成员函数就是构造函数（Constructor)
@@ -320,6 +326,52 @@ int main()
     s1.display();
 }
 ```
+
+#### 指针常量，常量指针 this 指针
+
+**指针常量**：顾名思义它就是一个常量，但是是指针修饰的。
+格式为：
+
+```C++ {.line-numbers}
+int * const p //指针常量
+在这个例子下定义以下代码：
+int a，b；
+int * const p=&a //指针常量
+//那么分为一下两种操作
+*p=9;//操作成功
+p=&b;//操作错误
+
+```
+
+- 因为声明了指针常量，说明指针变量不允许修改。如同次指针指向一个地址该地址不能被修改，但是该地址里的内容可以被修改
+- **常量指针**:
+ 如果在定义指针变量的时候，数据类型前用 const 修饰，被定义的指针变量就是指向常量的指针变量，指向常量的指针变量称为常量指针，格式如下
+  `const int *p = &a; //常量指针 `
+
+```C++ {.line-numbers}
+int a，b；
+ const int *p=&a //常量指针
+//那么分为一下两种操作
+*p=9;//操作错误
+p=&b;//操作成功
+```
+- **This的理解**
+- this指针是**指针常量**，不可以修改，也就是this指针指向对象本身是不能被修改的。这是C++编译器设计的也就是this指针指向对象本身是不能被修改的。
+- 另一方面，this指针又是**常量指针**，也就是this指针指向的变量值不可以修改，因此m_a = a;是错误的。因此，在C++类中，成员函数加了const，就代表属性是不可以修改的。   
+```C++ {.line-numbers} 
+Test1::Test1(int a) //实质是 Test1(Test1*const this,int a)
+{
+    m_a = a;
+    cout << "构造函数" << endl;
+}  
+Test1::Test1(int a)const // 实质是Test1(const Test1*const this,int a)
+{
+    m_a = a;
+    cout << "构造函数" << endl;
+}
+```
+
+
 
 - **初始化列表**
 - 形如 ``A(int a,string b):num(a),name(b){};
@@ -429,7 +481,7 @@ private:
 public:
     ass();
     ass(string na, string a1, string a2) : pp(na), ass1(a1), ass2(a2)
-    {  
+    {
         cout << "ass are askew " << endl;
     };
     ~ass()
@@ -546,16 +598,13 @@ cout<<"yes";
 
 - 用 operator 重载后是酱紫的
 
-
-
-
-
-
 ## 模板 template
-- 模板的使用有两种方法，一种是编译器自动识别T的类型，转化，一般这种是限于单个参数或者你使用相同参数的模板
+
+- 模板的使用有两种方法，一种是编译器自动识别 T 的类型，转化，一般这种是限于单个参数或者你使用相同参数的模板
 - 另一种是主动标识参数类型，在使用时加上<>标明类型
 - 例
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 template <class t,class t1>
 void add(t a,t b)
 {
@@ -569,6 +618,7 @@ int main()
     add<int,char>(a,b);//正确的
 }
 ```
+
 ### 函数模板
 
 - [参考文章](https://blog.csdn.net/tonglin12138/article/details/88595747)
@@ -593,9 +643,11 @@ int main()
 ```
 
 ### 类模板
+
 - 类模板和函数模板差不多，就是通过模板来重载成员函数的参数类型
 - 例 在这个例子里面，类模板的作用其实和函数模板差不多，就是为成员函数指定一个参数类型
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 template <class t,class s>
 class person{
     private:

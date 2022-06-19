@@ -27,17 +27,10 @@
         <div class="header-title">欢迎来到学生成绩管理系统</div>
         <div class="nav-search-box">
             <div class="nav-search">
-                <!-- <form action="../mysql/add.php?action=serach" method="post">
-                    <input type="search" placeholder="Search" name="searchok" />
-                    <button type="submit" value="onserach" >
-                        <span class="fontawesome-search"></span>
-                    </button>
-                </form> -->
-                <form action="stuEdit.php?action=search" method="post">
+                <form action="stuserach.php" method="post">
                     <div class="search-box">
                         <input class="search-txt" type='text' id='inp' name="ser"/>
                         <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
-
                     </div>
                 </form>
             </div>
@@ -65,7 +58,7 @@
                     </label>
                     <label class="left-button">
                             <span>
-                                <a href="stucourse.php"> 成绩管理</a>
+                                <a href="stuscore.php"> 成绩管理</a>
                                 <input type="radio" name="option" value="score"/>
                             </span>
                     </label>
@@ -116,30 +109,7 @@
     <div class="footer" style="text-align: center;">
         <span></span>
     </div>
-    <script>
-        // $("button").on("click", function(e) {
-        //     e.preventDefault();
-        //     $("form").addClass("opened");
-        //     $('input[type="search"]').focus();
-        // });
 
-        // $('input[type="search"]').on("focusout", function(e) {
-        //     $("form").removeClass("opened");
-        // });
-        // let oInp = document.getElementById('inp');
-        // let oBtn = document.getElementById('btn');
-        // oBtn.onclick = function () {
-        //     Search();
-        // }
-        // document.onkeydown = function () {
-        //     if (event.keyCode == 13) {
-        //         Search();
-        //     }
-        // }
-        // function Search() {
-        //     window.location = '../mysql/add.php?action=del&uid='+;
-        // }
-    </script>
 </body>
 
 </html>

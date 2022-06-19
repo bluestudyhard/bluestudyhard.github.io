@@ -15,6 +15,9 @@ $sql = new SQL();
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../style/template.css"/>
     <link rel="stylesheet" href="../style/stu.css"/>
+    <link rel="stylesheet" href="../style/text.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
     <script>
         function doDel(number1) {
             if (confirm("真的要删掉吗？")) {
@@ -29,11 +32,24 @@ $sql = new SQL();
 <div class="app">
     <div class="header">
         <div class="header-title">欢迎来到学生成绩管理系统</div>
+        <div class="nav-search-box">
+            <div class="nav-search">
+                <form action="stuserach.php" method="post">
+                    <div class="search-box">
+                        <input class="search-txt" type='text' id='inp' name="ser"/>
+                        <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="content">
         <div class="left-side">
             <div class="leftbody">
-                131
+                <div class="left-logo">
+                    <img src="../img/bluesheep.jpg">
+                    <div>cover by blue and stupidsheep</div>
+                </div>
                 <label class="left-button">
             <span>
               <a href="teacher.php"> 学生管理</a>
@@ -49,7 +65,7 @@ $sql = new SQL();
 
                 <label class="left-button">
                     <span>
-                        <a href="stucourse.php"> 课程管理</a>
+                        <a href="stuscore.php"> 成绩管理</a>
                         <input type="radio" name="option" value="score"/>
                      </span>
                 </label>

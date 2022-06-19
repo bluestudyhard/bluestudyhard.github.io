@@ -25,7 +25,24 @@ if (isset($_POST)) {
             break;
         case "search";
             $info = $_POST['ser'];
-            print_r($info);
+            $str = "select * from stuinfo where name = '$info'";
+            $sql->Run($str);
+            function printTable($arr, $head): void
+            {
+                $i = 1;
+                foreach ($arr as $row) {
+                    echo "<tr><td>{$i}</td>";
+                    $i++;
+                    foreach ($head as $col)
+                    {
+
+                        echo "<td id='{$col}'>{$row[$col]}</td>";
+                    }
+                    echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['number']})')>  删除</a></td></tr>";
+                }
+                echo '</tbody></table>';
+            }
+
             break;
     }
 

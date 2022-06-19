@@ -10,6 +10,7 @@
     <!--    <link rel="stylesheet" href="../style/serach.css" />-->
     <link rel="stylesheet" href="../style/text.css"/>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
     <script>
         function doDel(number1) {
             if (confirm("真的要删掉吗？")) {
@@ -24,16 +25,6 @@
 <div class="app">
     <div class="header">
         <div class="header-title">欢迎来到学生成绩管理系统</div>
-        <div class="nav-search-box">
-            <div class="nav-search">
-                <form action="stuEdit.php?action=search" method="post">
-                    <div class="search-box">
-                        <input class="search-txt" type='text' id='inp' name="ser"/>
-                        <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
     <div class="content">
         <div class="left-side">
@@ -57,7 +48,7 @@
                     </label>
                     <label class="left-button">
                             <span>
-                                <a href="stucourse.php"> 成绩管理</a>
+                                <a href="stuscore.php"> 成绩管理</a>
                                 <input type="radio" name="option" value="score"/>
                             </span>
                     </label>
@@ -77,6 +68,8 @@
                     <th>专业名</th>
                     <th>出生日期</th>
                     <th>总学分</th>
+                    <th>所选课程号</th>
+                    <th>成绩</th>
                     <th>修改信息</th>
                     </thead>
                     <tbody>
@@ -84,7 +77,7 @@
                     include "../mysql/database.php";
                     $sql = new SQL();
                     $search = $_POST['ser'];
-                    $str = 'select * from stuinfo where name = $search';
+                    $str = "select * from stuinfo join stuxskc using (number) where stuinfo.number = '$search' or stuinfo.name = '$search' ";
                     $sql->Run($str);
                     function printTable($arr, $head): void
                     {

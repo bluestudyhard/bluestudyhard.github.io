@@ -40,7 +40,7 @@
     height: 100%;
     display: flex;
     position: relative;
-    margin: 0 5em;
+    margin-right: 2em;
     animation: animated-border 2s infinite;
     border: solid 2px rgba(64, 80, 128, 0.285);
     border-radius: 10px;
@@ -67,6 +67,7 @@
     background-color: rgb(244, 244, 248);
     border-radius: 10px;
     align-items: center;
+    justify-content: center;
     padding: 5px;
     margin: 20%;
     font-size: 20px;
@@ -79,7 +80,7 @@
 
 .left-button span {
     margin: 0 auto;
-    margin-top: 20px;
+    padding: 10px;
 }
 
 .left-button [type="radio"] {
@@ -87,13 +88,12 @@
     position: absolute;
 }
 
-
 .right-side {
     width: 80%;
     height: 100%;
     display: flex;
     position: relative;
-
+    margin-left: 2em;
     animation: animated-border 2s infinite;
     border-radius: 10px;
     padding: 1em;
