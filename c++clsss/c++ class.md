@@ -575,7 +575,6 @@ public:
 - ![img](C://vscode/c++clsss/img/cpp.png)
 - 首先，明白为什么要用 operator 重载操作符，就是，在 c++里，操作符是基于标准库和基本数据类型中的，而在我们自己定义的类中，是无法直接使用运算符来实现操作的。
 - 比如说,在这个样例里，我想实现判断 person 类的 age 是否相等，但是，==操作符，是不能直接用的，会报错“没有与这些操作数匹配的 "==" 运算符”，所以这个时候需要 operator 来重载运算符。
-
 ```C++ {.line-numbers}
   class person
   {
@@ -593,11 +592,96 @@ person p1(10);
 person p2(10);
 if(p1==p2)
 cout<<"yes";
+//报错
 }
 ```
 
 - 用 operator 重载后是酱紫的
+```C++ {.line-numbers} 
+class person{
+    private:
+    int a;
+    public:
+    person()
+    {
+        a = 2;
+    }
+    bool operator==(person &p1)
+    {
+        return this->a==p1.a;
+    }
+};
+int main()
+{
+    person p1;
+    person p2;
+    if (p1==p2)
+    {
+        cout<<"yes";
+    }
+    //输出yes
+}
+```
 
+- 多个愿望一次满足 常用的重载，记住就好
+```C++ {.line-numbers} 
+class person
+{
+public:
+    int a, b;
+    person() : a(10), b(20) {}
+    person operator+(person &p)
+    {
+        person temp;
+        temp.a = p.a + p.a;
+        temp.b = p.b + p.b;
+        return temp;
+    }
+    friend ostream &operator<<(ostream &out, person &p1)
+    {
+        out << p1.a << " "<< p1.b;
+        return out;
+    }
+    friend istream &operator>>(istream &in, person &p1)
+    {
+        in >> p1.a >> p1.b;
+        return in;
+    }
+    person &operator++()
+    {
+        a++;
+        b++;
+        return *this;
+    }
+    person operator++(int)
+    {
+        person tmp(*this);
+        a++;
+        b++;
+        return tmp;
+        //return ++*this;
+    }
+    bool operator!=(person &p1)
+    {
+        return this->a!= p1.a;
+    }
+    bool operator>(person &p1){
+        return this->a>p1.a;
+        return this->b>p1.b;
+    }
+};
+int main()
+{
+    person a;
+    person b;
+    person c = a + b;
+    person *p;
+    a++;
+    cout << a.a << " " << a.b << endl;
+    cout<<a<<" ";
+    cout<<(a>b);
+}
+```
 ## 模板 template
 
 - 模板的使用有两种方法，一种是编译器自动识别 T 的类型，转化，一般这种是限于单个参数或者你使用相同参数的模板

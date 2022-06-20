@@ -217,29 +217,25 @@ int main()
 
 }*/
 
-class student
-{
-private:
-    int num;
-    
-public:
-    static double total;
-    int getvalue(int n)
-    {   total+=n;
-        return n;
+class person{
+    private:
+    int a;
+    public:
+    person()
+    {
+        a = 2;
     }
-    
-} ;
-double student ::total = 0;
+    bool operator==(person &p1)
+    {
+        return this->a==p1.a;
+    }
+};
 int main()
 {
-    
-    student s;
-    student a[5];
-    int n;
-    for(int i = 0;i<5;i++)
-    {   cin>>n;
-        a[i].getvalue(n);
+    person p1;
+    person p2;
+    if (p1==p2)
+    {
+        cout<<"yes";
     }
-    cout<<s.total<<" "<<s.total/5.;
 }
