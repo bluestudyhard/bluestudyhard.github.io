@@ -2,7 +2,7 @@
     font-family: FontAwesome;
     content: 'f002';
     position: absolute;
-    left: 80%;
+    left: 60%;
     transform: translate(-50%, -50%);
     background: #e0e0e02f;
     border: 10px;
@@ -12,13 +12,11 @@
     transition-delay: 99999999s;
     transition-duration: 0s;
 }
-
 html:hover .search-box {
     opacity: 1;
     transition-delay: 0.5s;
     transition-duration: 1s;
 }
-
 .search-box:hover>.search-btn {
     color: white;
     background: rgb(53, 179, 221);
@@ -30,7 +28,7 @@ html:hover .search-box {
     outline: none;
     color: rgba(30, 27, 27, 0.977);
     font-size: 18px;
-    transition: 0.6s;
+    transition: 1s;
     line-height: 20px;
     width: 0px;
 }
@@ -56,3 +54,5 @@ html:hover .search-box {
     align-items: center;
     text-decoration: none;
 }
+
+.

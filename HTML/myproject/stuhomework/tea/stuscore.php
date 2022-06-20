@@ -24,16 +24,17 @@
 <body>
 <div class="app">
     <div class="header">
-        <div class="header-title">欢迎来到学生成绩管理系统</div>
-        <div class="nav-search-box">
-            <div class="nav-search">
-                <form action="stuserach.php" method="post">
-                    <div class="search-box">
-                        <input class="search-txt" type='text' id='inp' name="ser"/>
-                        <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
-                    </div>
-                </form>
-            </div>
+        <div class="container">
+            <div>欢</div>
+            <div>迎</div>
+            <div>来</div>
+            <div>到</div>
+            <div>学</div>
+            <div>生</div>
+            <div>管</div>
+            <div>理</div>
+            <div>系</div>
+            <div>统</div>
         </div>
     </div>
     <div class="content">
@@ -66,13 +67,22 @@
             </div>
         </div>
         <div class="right-side">
-
+            <div class="nav-search-box">
+                <div class="nav-search">
+                    <form action="stuserach.php" method="post">
+                        <div class="search-box">
+                            <input class="search-txt" type='text' id='inp' name="ser"/>
+                            <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <a href='teacheradd.php'>增加 </a>
             <form action="stuEdit.php?action=stu" method="post" class="stu-form">
                 <table>
                     <thead>
-                    <th>序号</th>
                     <th>学号</th>
+                    <th>姓名</th>
                     <th>所选课程号</th>
                     <th>成绩</th>
                     <th>修改信息</th>
@@ -81,14 +91,14 @@
                     <?php
                     include "../mysql/database.php";
                     $sql = new SQL();
-                    $str = 'select * from stuxskc';
+                    $str = 'select stuinfo.number,name,stuxskc.courseNum,score from stuxskc,stukc,stuinfo where stuinfo.number = stuxskc.number and stukc.courseNum = stuxskc.courseNum order by  number';
                     $sql->Run($str);
                     function printTable($arr, $head): void
                     {
-                        $i = 1;
+
                         foreach ($arr as $row) {
-                            echo "<tr><td>{$i}</td>";
-                            $i++;
+                            echo "<tr>";
+
                             foreach ($head as $col) {
                                 echo "<td id='{$col}'>{$row[$col]}</td>";
                             }

@@ -13,28 +13,38 @@ $sql = new SQL();
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../style/template.css" />
-  <link rel="stylesheet" href="../style/stu.css" />
+  <link rel="stylesheet" href="../style/teacher.css" />
   <title>mysql</title>
 </head>
 
 <body>
   <div class="app">
     <div class="header">
-      <div class="header-title">欢迎来到学生成绩管理系统</div>
+      <div class="container">
+        <div>欢</div>
+        <div>迎</div>
+        <div>来</div>
+        <div>到</div>
+        <div>学</div>
+        <div>生</div>
+        <div>管</div>
+        <div>理</div>
+        <div>系</div>
+        <div>统</div>
+      </div>
     </div>
     <div class="content">
       <div class="left-side">
         <div class="leftbody">
-          131
           <label class="left-button">
             <span>
-              成绩管理
+              学生信息添加
               <input type="radio" name="option" value="score" />
             </span>
           </label>
           <label class="left-button">
             <span>
-              课程管理
+              课程信息添加
               <input type="radio" name="option" value="score" />
             </span>
           </label>
@@ -43,26 +53,26 @@ $sql = new SQL();
 
       <div class="right-side">
         <form action="../mysql/add.php?action=add" method="post">
-          <div>学号
-            <input type="text" name="studentID" >
+          <div class="addlabel">学号
+            <input type="text" name="studentID">
           </div>
-          <div>姓名
+          <div class="addlabel">姓名
             <input type="text" name="studentName">
           </div>
-          <div>性别
+          <div class="addlabel">性别
             <input type="radio" name="sex" value="1" /> 男
             <input type="radio" name="sex" value="0" />女
           </div>
-          <div>专业名
+          <div class="addlabel">专业名
             <input type="text" name="project">
           </div>
-          <div>出生日期
+          <div class="addlabel">出生日期
             <input type="text" name="born">
           </div>
-          <div>总学分
+          <div class="addlabel">总学分
             <input type="text" name="point">
           </div>
-          <div>
+          <div class="addlabel">
             <input type="submit" value="提交">
           </div>
         </form>

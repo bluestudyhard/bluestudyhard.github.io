@@ -1,7 +1,14 @@
 .app {
+    background: url('../img/river.jpg') no-repeat;
+    background-size: 100%;
+    backdrop-filter: blur(4px);
     width: 100vw;
+    height: 100vh;
 }
 
+.app {
+    width: 100vw;
+}
 .header {
     height: 8%;
     text-align: center;
@@ -9,11 +16,6 @@
     top: 1em;
 }
 
-.header-title {
-    font-size: 30px;
-    color: rgb(38, 20, 153);
-    text-shadow: 0.5px 0.5px 0.52px rgb(223, 224, 226);
-}
 
 
 .content {
@@ -60,8 +62,6 @@
     position: relative;
     background-color: transparent;
 }
-
-
 .left-button {
     display: flex;
     background-color: rgb(244, 244, 248);

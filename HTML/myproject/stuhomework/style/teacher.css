@@ -1,0 +1,27 @@
+.app {
+    background: url('../img/back7.jpg') no-repeat;
+    background-size: 100%;
+    backdrop-filter: blur(4px);
+    width: 100vw;
+    height: 100vh;
+}
+.right-side form{
+    margin-left: 40%;
+    align-items: center;
+}
+.addlabel{
+   margin-bottom: 3%;
+   font-size: 21px;
+   color: rgb(255, 255, 255);
+}
+.addlabel input{
+    text-decoration: none;
+    height:30px ;
+    border-radius: 8px;
+    background-color: azure;
+}
+.addlabel input[type="submit"]{
+    width: 90px;
+    position: relative;
+    left: 80px;
+}
