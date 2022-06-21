@@ -42,7 +42,7 @@
             <div class="leftbody">
                 <div class="left-logo">
                     <img src="../img/bluesheep.jpg">
-                    <div>cover by blue and stupidsheep</div>
+                    <div class="author">cover by blue and stupidsheep</div>
                 </div>
                 <div class="leftbuttons">
                     <label class="left-button">

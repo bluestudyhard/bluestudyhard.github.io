@@ -23,6 +23,18 @@
 
 <body>
 <div class="app">
+<style>
+            .app {
+                background: url('../img/back9.jpg') no-repeat;
+                background-size: 100%;
+                backdrop-filter: blur(4px);
+                width: 100vw;
+                height: 100vh;
+            }
+            .author{
+                color: white;
+            }
+        </style>
     <div class="header">
         <div class="container">
             <div>欢</div>
@@ -42,7 +54,7 @@
             <div class="leftbody">
                 <div class="left-logo">
                     <img src="../img/bluesheep.jpg">
-                    <div>cover by blue and stupidsheep</div>
+                    <div class="author">cover by blue and stupidsheep</div>
                 </div>
                 <div class="leftbuttons">
                     <label class="left-button">

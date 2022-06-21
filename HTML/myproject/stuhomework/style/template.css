@@ -21,12 +21,14 @@
   */
 table {
   border: 1px solid #ddd;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin: 1px;
   border-spacing: 0;
   text-align: center;
   width: 100%;
   border-radius: 20px;
+  overflow: auto;
+  color: black;
 }
 
 caption {
@@ -92,7 +94,14 @@ a:hover {
   position: relative;
   top: 1em;
 }
-
+.add{
+  position: relative;
+  left: 45%;
+  top: 5%;
+}
+.author{
+  color: white;
+}
 .header-title {
   font-size: 30px;
   color: rgb(38, 20, 153);
@@ -155,6 +164,8 @@ a:hover {
   margin: 20%;
   font-size: 20px;
   cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -2px -3px rgba(0, 0, 0, 0.195);
 }
 
 .left-button:hover {
@@ -210,6 +221,8 @@ a:hover {
   position: relative;
   padding-top: 30px;
   border-radius: 10px;
+  box-shadow: 5px 8px 8px 1px rgb(40 40 40 / 48%);
+  border-top: none;
 }
 
 .stu-form table {
@@ -236,8 +249,8 @@ a:hover {
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div {
   font-size: 3vw;
@@ -247,62 +260,62 @@ a:hover {
 .container div:nth-child(1) {
   animation: pulse 10s infinite;
   animation-delay: 0ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(2) {
   animation: pulse 10s infinite;
   animation-delay: 200ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(3) {
   animation: pulse 10s infinite;
   animation-delay: 400ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(4) {
   animation: pulse 10s infinite;
   animation-delay: 600ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(5) {
   animation: pulse 10s infinite;
   animation-delay: 800ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(6) {
   animation: pulse 10s infinite;
   animation-delay: 1000ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(7) {
   animation: pulse 10s infinite;
   animation-delay: 1200ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(8) {
   animation: pulse 10s infinite;
   animation-delay: 1400ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(9) {
   animation: pulse 10s infinite;
   animation-delay: 1600ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 .container div:nth-child(10) {
   animation: pulse 10s infinite;
   animation-delay: 1800ms;
-  color:transparent;
-  text-shadow: 0.5px 0.5px 0.6px  rgba(246, 242, 243, 0.845);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.6px rgba(246, 242, 243, 0.845);
 }
 
 @keyframes pulse {
