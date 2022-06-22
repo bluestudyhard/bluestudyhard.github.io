@@ -23,15 +23,38 @@
 
 <body>
 <div class="app">
+    <style>
+        .app {
+            background: url('../img/back8.jpg') no-repeat;
+            background-size: 100%;
+            backdrop-filter: blur(4px);
+            width: 100vw;
+            height: 100vh;
+        }
+        .author{
+            color: white;
+        }
+    </style>
     <div class="header">
-        <div class="header-title">欢迎来到学生成绩管理系统</div>
+        <div class="container">
+            <div>欢</div>
+            <div>迎</div>
+            <div>来</div>
+            <div>到</div>
+            <div>学</div>
+            <div>生</div>
+            <div>管</div>
+            <div>理</div>
+            <div>系</div>
+            <div>统</div>
+        </div>
     </div>
     <div class="content">
         <div class="left-side">
             <div class="leftbody">
                 <div class="left-logo">
                     <img src="../img/bluesheep.jpg">
-                    <div>cover by blue and stupidsheep</div>
+                    <div class="author">cover by blue and stupidsheep</div>
                 </div>
                 <div class="leftbuttons">
                     <label class="left-button">
@@ -56,8 +79,6 @@
             </div>
         </div>
         <div class="right-side">
-
-            <a href='teacheradd.php'>增加 </a>
             <form action="stuEdit.php?action=stu" method="post" class="stu-form">
                 <table>
                     <thead>

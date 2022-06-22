@@ -89,7 +89,6 @@
                     </form>
                 </div>
             </div>
-            <a href='teacheradd.php'>增加 </a>
             <form action="stuEdit.php?action=stu" method="post" class="stu-form">
                 <table>
                     <thead>

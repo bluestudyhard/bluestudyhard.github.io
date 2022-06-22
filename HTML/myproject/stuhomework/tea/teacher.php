@@ -36,6 +36,7 @@
             <div>系</div>
             <div>统</div>
         </div>
+        <a href='teacheradd.php' class="add" class="fa fa-plus-square-o">&#xf196 </a>
     </div>
     <div class="content">
         <div class="left-side">
@@ -77,7 +78,7 @@
                     </form>
                 </div>
             </div>
-            <a href='teacheradd.php'>增加 </a>
+            
             <form action="stuEdit.php?action=stu" method="post" class="stu-form">
                 <table>
                     <thead>

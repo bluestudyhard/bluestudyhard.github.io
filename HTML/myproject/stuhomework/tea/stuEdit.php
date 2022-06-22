@@ -20,7 +20,6 @@ if (isset($_POST)) {
                 $str = "call update_course('{$courseID}','{$key}','{$value}')";
                 $sql->Run($str);
                 header("location:stucourse.php");
-
             }
             break;
         case "search";
@@ -35,7 +34,6 @@ if (isset($_POST)) {
                     $i++;
                     foreach ($head as $col)
                     {
-
                         echo "<td id='{$col}'>{$row[$col]}</td>";
                     }
                     echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['number']})')>  删除</a></td></tr>";

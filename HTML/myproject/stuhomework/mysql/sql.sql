@@ -38,7 +38,7 @@ drop procedure if exists update_course;
 create procedure update_course(in courseID char(10), in stutype varchar(255), in val varchar(255))
 begin
     if (stutype = 'courseNum') then
-        update stukc
+        update stukc,stuxskc
             left join stuxskc using (courseNum)
         set stukc.courseNum   = val,
             stuxskc.courseNum = val
@@ -47,6 +47,14 @@ begin
         update stukc
         set stukc.courseName = val
         where stukc.courseNum = courseID;
+    elseif (stutype = 'term') then
+        update stukc
+        set stukc.term = val
+        where stukc.courseNum = courseID;
+    elseif (stutype = 'studyhour') then
+        update stukc
+        set stukc.studyhour = val
+        where stukc.courseNum = courseID;
     elseif (stutype = 'point') then
         update stukc
         set stukc.point = val
@@ -54,6 +62,9 @@ begin
     end if;
 end;
 call update_course('102', 'courseName', 'Java程序设计');
+update stukc
+set stukc.term = '2022秋'
+where stukc.courseNum = '102';
 select *
 from stukc;
 

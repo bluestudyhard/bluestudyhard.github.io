@@ -22,7 +22,7 @@ if (isset($_GET['action'])) {
             $SID = $_GET['uid'];
             $str_del = "delete from stukc where courseNum = '$SID' ";
             $sql->Run($str_del);
-            echo "<script>alert('删除成功');window.location = '../tea/teacher.php';</script>";
+            echo "<script>alert('删除成功');window.location = '../tea/stucourse.php';</script>";
             break;
     }
 }

@@ -15,7 +15,7 @@
 html:hover .search-box {
     opacity: 1;
     transition-delay: 0.5s;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
 .search-box:hover>.search-btn {
     color: white;

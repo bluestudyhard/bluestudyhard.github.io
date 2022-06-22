@@ -29,6 +29,7 @@ table {
   border-radius: 20px;
   overflow: auto;
   color: black;
+  font-weight: bold;
 }
 
 caption {
@@ -95,9 +96,10 @@ a:hover {
   top: 1em;
 }
 .add{
-  position: relative;
-  left: 45%;
-  top: 5%;
+  position: absolute;
+  font-family: FontAwesome;
+  font-size:50px;
+  right: 6%;
 }
 .author{
   color: white;
