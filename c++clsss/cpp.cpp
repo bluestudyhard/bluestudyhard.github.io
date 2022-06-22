@@ -734,6 +734,7 @@ int main()
     string b = "ss";
 
 }*/
+/*
 class person
 {
 public:
@@ -789,4 +790,4 @@ int main()
     cout << a.a << " " << a.b << endl;
     cout<<a<<" ";
     cout<<(a>b);
-}
+}*/

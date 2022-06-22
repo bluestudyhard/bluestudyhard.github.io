@@ -221,10 +221,7 @@ class person{
     private:
     int a;
     public:
-    person()
-    {
-        a = 2;
-    }
+    person(int a);
     bool operator==(person &p1)
     {
         return this->a==p1.a;
@@ -232,10 +229,6 @@ class person{
 };
 int main()
 {
-    person p1;
-    person p2;
-    if (p1==p2)
-    {
-        cout<<"yes";
-    }
+    person p(2);
+    person p1(3);
 }
