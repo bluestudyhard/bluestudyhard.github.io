@@ -47,7 +47,9 @@
             <div>理</div>
             <div>系</div>
             <div>统</div>
+
         </div>
+        <a href="stucourse.php">返回主页</a>
     </div>
     <div class="content">
         <div class="left-side">
@@ -83,22 +85,18 @@
                 <table>
                     <thead>
                     <th>序号</th>
-                    <th>学号</th>
-                    <th>姓名</th>
-                    <th>性别</th>
-                    <th>专业名</th>
-                    <th>出生日期</th>
-                    <th>总学分</th>
-                    <th>所选课程号</th>
-                    <th>成绩</th>
-                    <th>修改信息</th>
+                    <th>课程号</th>
+                    <th>课程名</th>
+                    <th>开课学期</th>
+                    <th>所选人</th>
+                    <th>对应成绩</th>
                     </thead>
                     <tbody>
                     <?php
                     include "../mysql/database.php";
                     $sql = new SQL();
-                    $search = $_POST['ser'];
-                    $str = "select * from stuinfo join stuxskc using (number) where stuinfo.number = '$search' or stuinfo.name = '$search' ";
+                    $search = $_POST['ser1'];
+                    $str = "select courseNum,courseName,term,number,score from stukc join stuxskc using (courseNum) where stukc.courseNum = '$search' or stukc.courseName='$search'";
                     $sql->Run($str);
                     function printTable($arr, $head): void
                     {
@@ -109,7 +107,7 @@
                             foreach ($head as $col) {
                                 echo "<td id='{$col}'>{$row[$col]}</td>";
                             }
-                            echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['number']})')>  删除</a></td></tr>";
+                            echo "</td></tr>";
                         }
                         echo '</tbody></table>';
                     }

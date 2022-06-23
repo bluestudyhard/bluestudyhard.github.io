@@ -20,6 +20,7 @@
 </div>
 <form action="mysql/add.php?action=serach" method="post">
     <input type="search" placeholder="Search" name="searchok"/>
+    <input type="search" placeholder="Search" name="searchok"/>
     <button type="submit" value="onserach">
         <span class="fontawesome-search"></span>
     </button>

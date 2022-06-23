@@ -50,6 +50,6 @@ $table = "<table border=1px ><tr><th>姓名><td>计算机</td><td>50</td></tr></
 print_r($table);
 
 if (isset($_POST)) {
-    $stuid = $_POST['oldid'];
+    $stuid = $_POST['id'];
     print_r($_POST);
 }

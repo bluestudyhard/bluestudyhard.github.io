@@ -48,9 +48,14 @@ $sql = new SQL();
                                 <input type="radio" name="option" value="score"/>
                             </span>
                 </label>
+                <label class="left-button">
+                        <span>
+                                <a href="stucourse.php"> 返回主页</a>
+                                <input type="radio" name="option" value="score"/>
+                        </span>
+                </label>
             </div>
         </div>
-
         <div class="right-side">
             <form action="../mysql/addkc.php?action=add" method="post">
                 <div class="addlabel">课程号

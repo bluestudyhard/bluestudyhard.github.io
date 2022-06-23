@@ -78,7 +78,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <form action="stuEdit.php?action=stu" method="post" class="stu-form">
                 <table>
                     <thead>
@@ -110,7 +110,6 @@
                         }
                         echo '</tbody></table>';
                     }
-
                     printTable($sql->arr, $sql->head);
                     ?>
             </form>

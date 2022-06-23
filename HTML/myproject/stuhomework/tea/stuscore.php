@@ -13,7 +13,7 @@
     <script>
         function doDel(number1) {
             if (confirm("真的要删掉吗？")) {
-                window.location = '../mysql/add.php?action=del&uid=' + number1;
+                window.location = '../mysql/add.php?action=del1&uid=' + number1;
             }
         }
     </script>
@@ -89,9 +89,10 @@
                     </form>
                 </div>
             </div>
-            <form action="stuEdit.php?action=stu" method="post" class="stu-form">
+            <form action="stuEdit.php?action=score" method="post" class="stu-form">
                 <table>
                     <thead>
+                    <td>序号</td>
                     <th>学号</th>
                     <th>姓名</th>
                     <th>所选课程号</th>
@@ -106,10 +107,10 @@
                     $sql->Run($str);
                     function printTable($arr, $head): void
                     {
-
+                        $i = 1;
                         foreach ($arr as $row) {
-                            echo "<tr>";
-
+                            echo "<tr><td>$i</td>";
+                            $i++;
                             foreach ($head as $col) {
                                 echo "<td id='{$col}'>{$row[$col]}</td>";
                             }

@@ -48,6 +48,7 @@
             <div>系</div>
             <div>统</div>
         </div>
+        <a href="teacher.php">返回主页</a>
     </div>
     <div class="content">
         <div class="left-side">
@@ -91,7 +92,6 @@
                     <th>总学分</th>
                     <th>所选课程号</th>
                     <th>成绩</th>
-                    <th>修改信息</th>
                     </thead>
                     <tbody>
                     <?php
@@ -109,11 +109,10 @@
                             foreach ($head as $col) {
                                 echo "<td id='{$col}'>{$row[$col]}</td>";
                             }
-                            echo "<td><a href='javascript:edit()' class='edit'>修改  </a><a href='javascript:doDel({$row['number']})')>  删除</a></td></tr>";
+                            echo "</td></tr>";
                         }
                         echo '</tbody></table>';
                     }
-
                     printTable($sql->arr, $sql->head);
                     ?>
             </form>

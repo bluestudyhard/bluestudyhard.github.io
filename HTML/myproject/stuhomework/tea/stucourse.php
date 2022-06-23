@@ -93,10 +93,9 @@ $sql = new SQL();
             </div>
         </div>
         <div class="right-side">
-
-            <form action="stuserach.php" method="post">
+            <form action="stuserachcourse.php" method="post">
                 <div class="search-box">
-                    <input class="search-txt" type='text' id='inp' name="ser"/>
+                    <input class="search-txt" type='text' id='inp' name="ser1"/>
                     <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
                 </div>
             </form>

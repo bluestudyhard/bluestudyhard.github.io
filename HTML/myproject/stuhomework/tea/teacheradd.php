@@ -34,6 +34,7 @@ $sql = new SQL();
         </div>
     </div>
     <div class="content">
+
         <div class="left-side">
             <div class="leftbody">
                 <label class="left-button">
@@ -46,7 +47,13 @@ $sql = new SQL();
                         <span>
                                 <a href="courseadd.php"> 课程信息添加</a>
                                 <input type="radio" name="option" value="score"/>
-                            </span>
+                        </span>
+                </label>
+                <label class="left-button">
+                        <span>
+                                <a href="teacher.php"> 返回主页</a>
+                                <input type="radio" name="option" value="score"/>
+                        </span>
                 </label>
             </div>
         </div>
@@ -71,6 +78,12 @@ $sql = new SQL();
                 </div>
                 <div class="addlabel">总学分
                     <input type="text" name="point">
+                </div>
+                <div class="addlabel">课程号
+                    <input type="text" name="courseNum">
+                </div>
+                <div class="addlabel">所选课程成绩
+                    <input type="text" name="score">
                 </div>
                 <div class="addlabel">
                     <input type="submit" value="提交">

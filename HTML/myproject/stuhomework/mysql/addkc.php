@@ -24,5 +24,11 @@ if (isset($_GET['action'])) {
             $sql->Run($str_del);
             echo "<script>alert('删除成功');window.location = '../tea/stucourse.php';</script>";
             break;
+        case "del1";
+            $SID = $_GET['uid'];
+            $str_del = "delete from stuxskc where courseNum = '$SID' ";
+            $sql->Run($str_del);
+            echo "<script>alert('删除成功');window.location = '../tea/stuscore.php';</script>";
+            break;
     }
 }
