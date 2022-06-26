@@ -108,7 +108,8 @@ begin
         where stuxskc.courseNum = stunum;
     end if;
 end;
-
+use homework;
+select * from employee;
 #
 #
 # call update_score('2114100314', '206', 'score', '87');

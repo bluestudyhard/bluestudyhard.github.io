@@ -35,5 +35,15 @@ if (isset($_GET['action'])) {
             $sql->Run($str_del);
             echo "<script>alert('删除成功');window.location = '../tea/stuscore.php'</script>";
             break;
+            case"add2";
+            $eid = $_POST['eid'];
+            $ename = $_POST['ename'];
+            $age = $_POST['age'];
+            $salary = $_POST['salary'];
+            $sql_add2= "insert into employee values ('$eid','$ename','$age',$salary)";
+            $sql->Run($sql_add2);
+            echo "<script>alert('添加成功');window.location = '../tea/18.9.php'</script>";
     }
+
+
 }

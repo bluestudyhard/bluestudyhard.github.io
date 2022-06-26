@@ -791,3 +791,76 @@ int main()
     cout<<a<<" ";
     cout<<(a>b);
 }*/
+/*
+class X
+{
+    int a;
+public:
+    X(int x = 0) { a = x; }
+    friend ostream &operator<< (ostream &out,X &x)
+    {
+        out<<x.a<<endl;
+        return out;
+    }
+};
+class Y : public X
+{
+    int b;
+public:
+    Y(int x = 0, int y = 0) : X(y) { b = x; }
+};
+    double *f()
+    {
+       // return a;
+    }
+
+int main()
+{   //char a = 's';
+    //const char*p = "chen";//常量指针，本质是指针，不能改变指向的常量
+   // char* const p1 = "chejj";//指针常量,本质是常量,不能改变指向的指针
+   // p = "huang";
+   // p[3] = 'a';
+   // p1 = "huang";//报错
+    // p1[3] = 'w';
+    // cout<<p1<<endl;
+    X x1(2);
+    Y y1(2,3);
+    Y Y2(0,3);
+    cout<<x1<<endl<<y1<<endl<<Y2;
+}*/
+
+class circle
+{
+protected:
+    int r;
+public:
+   circle();
+    circle(int R) : r(R) {}
+    void display()
+    {
+        cout << 3.14 * r << endl;
+    }
+};
+class desk : public circle
+{
+protected:
+    int l, w;
+public:
+    desk();
+    desk(int l1, int w1) : l(l1), w(w1),circle(2){}
+};
+class descircle : public desk
+{
+public:
+   descircle();
+    descircle(int R1, int l1, int w1) : r1(R1), desk(l1, w1)
+    {
+        cout << R1 * l1 * w1 << endl;
+    }
+private:
+    int r1;
+};
+int main()
+{   
+    descircle d(2, 3, 4);
+}

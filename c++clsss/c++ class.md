@@ -19,7 +19,13 @@ Class person
 ### 如何利用动态内存分配数组
 
 - `int* a = new int [n];//`这里其实是用一个指针，指向一个新的数组
--
+- **动态声明三维数组的方法**
+
+```C++ {.line-numbers}
+ float(*fp)[25][10];
+    fp = new float[10][25][10];
+    cout<<fp;
+```
 
 ### 基本模板
 
@@ -326,13 +332,17 @@ int main()
     s1.display();
 }
 ```
+
 #### 特别注意
-- 对于构造函数，你要在main函数里调用别名的构造函数，比如person p1，你需要先设置一个默认构造函数，也就是person();空的就行
-```C++ {.line-numbers} 
+
+- 对于构造函数，你要在 main 函数里调用别名的构造函数，比如 person p1，你需要先设置一个默认构造函数，也就是 person();空的就行
+
+```C++ {.line-numbers}
 person{
-    
+
 };
 ```
+
 #### 指针常量，常量指针 this 指针
 
 **指针常量**：顾名思义它就是一个常量，但是是指针修饰的。
@@ -351,7 +361,7 @@ p=&b;//操作错误
 
 - 因为声明了指针常量，说明指针变量不允许修改。如同次指针指向一个地址该地址不能被修改，但是该地址里的内容可以被修改
 - **常量指针**:
- 如果在定义指针变量的时候，数据类型前用 const 修饰，被定义的指针变量就是指向常量的指针变量，指向常量的指针变量称为常量指针，格式如下
+  如果在定义指针变量的时候，数据类型前用 const 修饰，被定义的指针变量就是指向常量的指针变量，指向常量的指针变量称为常量指针，格式如下
   `const int *p = &a; //常量指针 `
 
 ```C++ {.line-numbers}
@@ -361,23 +371,23 @@ int a，b；
 *p=9;//操作错误
 p=&b;//操作成功
 ```
-- **This的理解**
-- this指针是**指针常量**，不可以修改，也就是this指针指向对象本身是不能被修改的。这是C++编译器设计的也就是this指针指向对象本身是不能被修改的。
-- 另一方面，this指针又是**常量指针**，也就是this指针指向的变量值不可以修改，因此m_a = a;是错误的。因此，在C++类中，成员函数加了const，就代表属性是不可以修改的。   
-```C++ {.line-numbers} 
+
+- **This 的理解**
+- this 指针是**指针常量**，不可以修改，也就是 this 指针指向对象本身是不能被修改的。这是 C++编译器设计的也就是 this 指针指向对象本身是不能被修改的。
+- 另一方面，this 指针又是**常量指针**，也就是 this 指针指向的变量值不可以修改，因此 m_a = a;是错误的。因此，在 C++类中，成员函数加了 const，就代表属性是不可以修改的。
+
+```C++ {.line-numbers}
 Test1::Test1(int a) //实质是 Test1(Test1*const this,int a)
 {
     m_a = a;
     cout << "构造函数" << endl;
-}  
+}
 Test1::Test1(int a)const // 实质是Test1(const Test1*const this,int a)
 {
     m_a = a;
     cout << "构造函数" << endl;
 }
 ```
-
-
 
 - **初始化列表**
 - 形如 ``A(int a,string b):num(a),name(b){};
@@ -501,6 +511,93 @@ int main()
 }
 ```
 
+- #### 注意 基类构造函数调用规则
+- 事实上，通过派生类创建对象时**必须要调用基类的构造函数**，这是语法规定。换句话说，定义派生类构造函数时最好指明基类构造函数；如果不指明，就调用基类的默认构造函数（不带参数的构造函数）；如果没有默认构造函数，那么编译失败。请看下面的例子：
+
+```C++ {.line-numbers}
+#include <iostream>
+using namespace std;
+
+//基类People
+class People{
+public:
+    People();  //基类默认构造函数
+    People(char *name, int age);
+protected:
+    char *m_name;
+    int m_age;
+};
+People::People(): m_name("xxx"), m_age(0){ }
+People::People(char *name, int age): m_name(name), m_age(age){}
+//派生类Student
+class Student: public People
+{
+public:
+    Student();
+    Student(char*, int, float);
+public:
+    void display();
+private:
+    float m_score;
+};
+Student::Student(): m_score(0.0){ }  //派生类默认构造函数
+Student::Student(char *name, int age, float score): People(name, age), m_score(score){ }
+void Student::display(){
+    cout<<m_name<<"的年龄是"<<m_age<<"，成绩是"<<m_score<<"。"<<endl;
+}
+
+int main(){
+    Student stu1;
+    stu1.display();
+    Student stu2("小明", 16, 90.5);
+    stu2.display();
+    return 0;
+}
+```
+
+- 想要使用初始化列表调用构造函数，例如 A-B-C 那么你需要在 abc 里都通过基类初始化列表，尽管他用不上，否则会报错 undefined reference to。。。而且要给构造函数赋初值
+- 例
+
+```C++ {.line-numbers}
+class circle
+{
+protected:
+    int r;
+public:
+   circle();
+    circle(int R) : r(R) {}
+    void display()
+    {
+        cout << 3.14 * r << endl;
+    }
+};
+class desk : public circle
+{
+protected:
+    int l, w;
+public:
+    desk();
+    desk(int l1, int w1) : l(l1), w(w1),//circle(2){}
+};
+class descircle : public desk
+{
+public:
+   descircle();
+    descircle(int R1, int l1, int w1) : r1(R1), desk(l1, w1)
+    {
+        cout << R1 * l1 * w1 << endl;
+    }
+private:
+    int r1;
+};
+int main()
+{
+    descircle d(2, 3, 4);
+}
+```
+
+在这例子里，如果没有对 desk()类使用 circle 的构造函数，并且赋初值，会报错
+
 ## 多态
 
 ### 虚函数，虚构造函数
@@ -581,6 +678,7 @@ public:
 - ![img](img/cpp.png)
 - 首先，明白为什么要用 operator 重载操作符，就是，在 c++里，操作符是基于标准库和基本数据类型中的，而在我们自己定义的类中，是无法直接使用运算符来实现操作的。
 - 比如说,在这个样例里，我想实现判断 person 类的 age 是否相等，但是，==操作符，是不能直接用的，会报错“没有与这些操作数匹配的 "==" 运算符”，所以这个时候需要 operator 来重载运算符。
+
 ```C++ {.line-numbers}
   class person
   {
@@ -603,7 +701,8 @@ cout<<"yes";
 ```
 
 - 用 operator 重载后是酱紫的
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 class person{
     private:
     int a;
@@ -630,7 +729,8 @@ int main()
 ```
 
 - 多个愿望一次满足 常用的重载，记住就好
-```C++ {.line-numbers} 
+
+```C++ {.line-numbers}
 class person
 {
 public:
@@ -688,6 +788,7 @@ int main()
     cout<<(a>b);
 }
 ```
+
 ## 模板 template
 
 - 模板的使用有两种方法，一种是编译器自动识别 T 的类型，转化，一般这种是限于单个参数或者你使用相同参数的模板

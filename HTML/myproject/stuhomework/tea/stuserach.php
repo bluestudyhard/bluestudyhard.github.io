@@ -99,6 +99,7 @@
                     $sql = new SQL();
                     $search = $_POST['ser'];
                     $str = "select * from stuinfo join stuxskc using (number) where stuinfo.number = '$search' or stuinfo.name = '$search' ";
+                    //$str = "select * from employee where id = $search";
                     $sql->Run($str);
                     function printTable($arr, $head): void
                     {
@@ -106,7 +107,8 @@
                         foreach ($arr as $row) {
                             echo "<tr><td>{$i}</td>";
                             $i++;
-                            foreach ($head as $col) {
+                            foreach ($head as $col)
+                            {
                                 echo "<td id='{$col}'>{$row[$col]}</td>";
                             }
                             echo "</td></tr>";
