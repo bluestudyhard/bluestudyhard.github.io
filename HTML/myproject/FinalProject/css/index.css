@@ -1,0 +1,415 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url("../img/back.png") fixed no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+    /*去除原生滚动*/
+}
+
+.left-box {
+    position: absolute;
+    top: 11%;
+    left: 4%;
+    width: 343px;
+    height: 591px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: grey -6px 10px 8px 5px;
+    background: url("../img/left-box.jpg") no-repeat fixed;
+    background-size: contain;
+    z-index: 1;
+}
+
+.score {
+    position: absolute;
+    top: 25%;
+    right: 35%;
+    color: black;
+    opacity: 0.5;
+    font-size: 30px;
+    border: 5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.score:hover {
+    opacity: 1;
+}
+
+.header {
+    font-size: 45px;
+    position: absolute;
+    left: 36%;
+    text-shadow: 4px 4px 12px white;
+    color: black;
+}
+
+.classroom {
+    position: absolute;
+    bottom: 25%;
+    right: 35%;
+    color: black;
+    opacity: 0.5;
+    font-size: 30px;
+    border: 5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.classroom:hover {
+    opacity: 1;
+}
+
+.score-box {
+    display: none;
+    position: absolute;
+    right: 4.7%;
+    top: 11%;
+    width: 1000px;
+    height: 591px;
+    background: url("../img/right-background-02.jpg") no-repeat fixed;
+    background-size: cover;
+    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: slategrey 5px 10px 8px 7px;
+    overflow-y: auto;
+}
+
+.classroom-box {
+    display: block;
+    position: absolute;
+    right: 4.7%;
+    top: 11%;
+    width: 1000px;
+    height: 591px;
+    background: url("../img/right-background-01.jpg") no-repeat fixed;
+    background-size: cover;
+    border: 1px solid grey;
+    border-radius: 15px;
+    box-shadow: slategrey 5px 10px 8px 7px;
+    overflow-y: auto;
+}
+
+.table-header {
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+
+table {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid grey;
+    border-radius: 20px;
+    border-collapse: collapse;
+    opacity: 0.8;
+}
+
+tr {
+    margin: 10px;
+    border: 1px solid black;
+}
+
+td, th {
+    text-align: center;
+    font-size: 25px;
+    border-right: 1px solid black;
+}
+
+td {
+    color: black;
+}
+
+table thead {
+    background-color: grey;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #00A1D6;
+}
+
+table tbody tr:nth-child(even) {
+
+    background-color: #ccc;
+}
+
+table tbody tr:hover {
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+    cursor: pointer;
+    color: pink;
+}
+
+table tbody tr:hover td {
+    color: #ec9bad;
+
+}
+
+
+/*table td:last-child {*/
+/*    background-color: navajowhite;*/
+/*}*/
+
+
+tfoot {
+    width: 100%;
+    height: auto;
+}
+
+
+.showBox {
+    display: block;
+}
+
+.hidBox {
+    display: none;
+}
+
+.setting {
+    position: absolute;
+    right: 2%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.setting-btn:hover {
+    color: dimgrey;
+    transform: rotate(90deg);
+    transition: 1.5s;
+}
+
+
+.setting:hover .list {
+    height: 140px;
+}
+
+.list {
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #2f90b9;
+    width: 100px;
+    position: absolute;
+    top: 40px;
+    right: -25px;
+    height: 0;
+    overflow: hidden;
+    transition: 1.5s;
+}
+
+.author {
+    color: white;
+    font-size: 20px;
+    margin: 20px auto;
+    width: 100%;
+    background: #2f90b9;
+    border: 1px solid #2f90b9;
+}
+
+.logout:hover, .author:hover {
+    background: #63bbd0;
+    color: black;
+    cursor: pointer;
+}
+
+.logout {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.logout a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    display: block;
+}
+
+
+.logout a:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.person_info {
+    width: 40%;
+    height: 60%;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    z-index: 1000;
+    background: white;
+}
+
+.info_header {
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 35px;
+}
+
+.shadow_before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*使用了absolute来脱离文档流，防止其改变其他文档布局*/
+    top: 0;
+    right: 0;
+}
+
+.shadow {
+    background-color: black;
+    opacity: 0.8;
+    z-index: 99;
+}
+
+.showinfo {
+    display: none;
+}
+
+.info_return {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.per_info {
+    margin: 40px;
+    height: 30px;
+}
+
+
+.person_info span {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.one_info {
+    position: absolute;
+    left: 0;
+}
+
+.two_info {
+    position: absolute;
+    left: 60%;
+}
+
+.score_info {
+    width: 100%;
+    height: 10%;
+    color: white;
+}
+
+.score_info div {
+    display: inline-block;
+    margin-right: 110px;
+    margin-left: 29.8px;
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer div {
+    font-size: 20px;
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+    color: white;
+
+}
+
+.class_header {
+    color: white;
+    margin: 20px auto;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.search1, .search2 {
+    position: absolute;
+    right: 10%;
+    top: 0;
+}
+
+.submit1, .submit2 {
+    position: absolute;
+    right: -21px;
+    top: 0;
+    border-radius: 0 10px 10px 0;
+    height: 45px;
+    cursor: pointer;
+}
+
+input {
+    height: 1px;
+    width: 89%;
+    padding: 20px;
+    border-right: 1px solid black;
+    border-radius: 10px 5px 5px 10px;
+}
+
+.editt {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 20px;
+    height: 10px;
+}
+
+.showChange {
+    display: none;
+}
+
+.showSet {
+    display: none;
+}
+
+/*不用跳转页面*/
+iframe {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.btn {
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.reflesh {
+    position: absolute;
+    left: 3%;
+    bottom: 3%;
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.showSearch {
+    display: none;
+}

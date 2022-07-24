@@ -14,6 +14,10 @@
     />
     <link
       rel="stylesheet"
+      href="css/text.css"
+    />
+    <link
+      rel="stylesheet"
       type="text/css"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
@@ -26,63 +30,29 @@
   </head>
 
   <body>
-    <form action="../mysql/add.php?action=serach" method="post">
-      <input type="search" placeholder="Search" name="searchok" />
-      <button type="submit" value="onserach">
-        <span class="fontawesome-search"></span>
-      </button>
-      <input type="checkbox" id="#ck" />
-    </form>
-
-    <div class="search-box">
-      <input class="search-txt" type='text' id='inp' />
-      <input class="search-btn" type='button' id='btn' value='&#xf002' />
-  </div> 
-    <script>
-      var oInp = document.getElementById("inp");
-      var oBtn = document.getElementById("btn");
-
-      oBtn.onclick = function () {
-        Search();
-      };
-      document.onkeydown = function () {
-          Search();
-        
-      };
-      function Search() {
-        var url = "h.html";
-        window.open(url);
-      }
-    </script>
-    <script>
-      $("button")
-        .on("click", function (e) 
-        {
-            e.preventDefault();
-          $("form").addClass("opened");
-          $('input[type="search"]').focus();
-        })
-        // .off("click", function (e) {});
-      $('input[type="search"]').on("focusout", function (e) {
-        $("form").removeClass("opened");
-      });
-    </script>
-
-
-    
-<div class="container">
-  <div>欢</div>
-  <div>迎</div>
-  <div>来</div>
-  <div>到</div>
-  <div>学</div>
-  <div>生</div>
-  <div>管</div>
-<div>理</div>
-<div>系</div>
-<div>统</div>
-</div>
-
-
+    <div class="container">
+      <div>欢</div>
+      <div>迎</div>
+      <div>来</div>
+      <div>到</div>
+      <div>学</div>
+      <div>生</div>
+      <div>管</div>
+      <div>理</div>
+      <div>系</div>
+      <div>统</div>
+    </div>
+    <div class="nav-search-box">
+      <div class="nav-search">
+          <form action="stuserach.php" method="post">
+              <div class="search-box">
+                  <input class="search-txt" type='text' id='inp' name="ser"/>
+                  <input class="search-btn" type='submit' id='btn' value='&#xf002'/>
+              </div>
+          </form>
+      </div>
+  </div>
   </body>
+  
+
 </html>

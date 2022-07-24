@@ -1,0 +1,317 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url("../img/back.png") fixed no-repeat;
+    background-size: 100% 100%;
+    /*position:relative;*/
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+
+}
+
+#username {
+    background: white url("../img/88.png ") no-repeat 7px 11px;
+    background-size: 30px;
+    padding-right: 5px;
+}
+
+#password {
+    padding-right: 5px;
+    background: white url("../img/lock.png") no-repeat 2px 8px;
+    background-size: 30px;
+}
+
+
+.index {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 52.6%;
+    top: 17.8%;
+    z-index: 100;
+}
+
+
+.login-box {
+    height: 500px;
+    width: 800px;
+    border: 1px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    background-color: aliceblue;
+    opacity: 0.9;
+    position: absolute;
+    top: 16%;
+    left: 24%;
+}
+
+.left-picture {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    background: url(../img/backgroundindex.png) no-repeat;
+    background-size: 132%;
+    position: relative;
+}
+
+.email {
+    position: absolute;
+    top: 85%;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin: 20px;
+
+}
+
+.email:hover {
+    background: gray;
+    color: white;
+}
+
+.email-content {
+    width: 364px;
+    height: 495px;
+    position: absolute;
+    top: 16%;
+    left: 0;
+    border: white 1px solid;
+    box-shadow: 1px 2px 5px;
+    z-index: 20;
+    background: url("../img/proFile-bkg.jpg") no-repeat fixed;
+    background-size: contain;
+    display: block;
+}
+
+.email-emerge {
+    display: none;
+}
+
+.email-header {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bolder;
+}
+
+.profile1 {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.profile2 {
+    /*margin-top: 100px;*/
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.pic1,
+.pic2 {
+    margin: 10px;
+    width: 100px;
+    border: 5px solid white;
+    border-radius: 100px;
+    display: inline-block;
+}
+
+.infor {
+    display: inline-block;
+    font-weight: bolder;
+}
+
+.infor .maker,
+.infor .id,
+.infor .qqmail,
+.infor .major {
+    line-height: 40px;
+    font-size: 15px;
+}
+
+
+.pic-header {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+.pic-header span {
+    font-weight: bolder;
+    /*color: #5d655f;*/
+    color: #364780;
+}
+
+.formm {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    float: right;
+}
+
+.header {
+    width: auto;
+    height: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #364780;
+}
+
+.name {
+    font-size: 20px;
+    color: black;
+    margin-top: 30px;
+}
+
+sup,
+.user_comment_user,
+.user_comment_psw {
+
+    display: inline-block;
+    color: grey;
+}
+
+.showRed {
+    color: red;
+}
+
+
+.login-input {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* .formm
+{
+    width:100%;
+} */
+
+.input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 14px 46px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: grey;
+}
+
+.checked {
+    margin-top: 10px;
+}
+
+.remember {
+    font-weight: bolder;
+    line-height: 10px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 6px;
+}
+
+.checked span:last-child {
+    color: grey;
+    font-size: 14px;
+}
+
+.checkbox {
+
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    display: inline-block;
+}
+
+.submit1 {
+    width: 100%;
+    color: white;
+    background: #3498db;
+    border: white 1px solid;
+    margin: 20px auto;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+
+
+.submit1:hover {
+    background: #115bad;
+    color: white;
+}
+
+.formFooter .blank {
+    width: 177px;
+    height: 10px;
+    display: inline-block;
+}
+
+.formFooter a {
+    text-decoration: none;
+    color: #115bad;
+}
+
+.invalid {
+
+    color: red;
+    font-size: 15px;
+    border: red 1px solid;
+}
+
+/* .checkbox
+{
+    display:inline-block;
+    height:20px;
+    width:20px;
+}
+.checkbox:hover
+{
+    cursor:pointer;
+    font-weight:bolder;
+}
+.box
+{
+    height:20px;
+    width:20px;
+}
+
+.check-content
+{
+    width:auto;
+    height:40px;
+    margin-left:10px;
+    font-size:15px;
+    font-weight:bolder;
+    display:inline-block;
+    line-height: 10px;
+} */
+
+.footer {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}

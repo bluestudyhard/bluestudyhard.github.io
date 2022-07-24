@@ -217,18 +217,307 @@ int main()
 
 }*/
 
-class person{
-    private:
-    int a;
-    public:
-    person(int a);
-    bool operator==(person &p1)
+class Vehicle
+{
+protected:
+    string NO;
+
+public:
+    Vehicle();
+    Vehicle(string no) : NO(no) {}
+    virtual void display() = 0;
+};
+class Car : public Vehicle
+{
+private:
+    int number, weight;
+
+public:
+    Car();
+    Car(string no, int number, int weight) : Vehicle(no), number(number), weight(weight)
     {
-        return this->a==p1.a;
+    }
+    void display()
+    {
+        cout << NO << " " << number * 8 + weight * 2 << endl;
+    }
+};
+class Truck : public Vehicle
+{
+private:
+    int weight;
+
+public:
+    Truck();
+    Truck(string no, int weight) : Vehicle(no), weight(weight)
+    {
+    }
+    void display()
+    {
+        cout << NO << " " << weight * 5 << endl;
+    }
+};
+class Bus : public Vehicle
+{
+private:
+    int number;
+
+public:
+    Bus();
+    Bus(string no, int number) : Vehicle(no), number(number)
+    {
+    }
+    void display()
+    {
+        cout << NO << " " << number * 3 << endl;
+    }
+};
+int x, y;
+int f(int x = 0)
+{
+    x++;
+    y++;
+    ::x++;
+    cout << "y=" << y << "\t";
+    return x + y + ::x;
+}
+class Point
+{
+private:
+    double x, y;
+
+public:
+    Point() { x = 0, y = 0; }
+    Point(double x, double y) : x(x), y(y) {}
+    friend double area(Point p1, Point p2);
+    ~Point()
+    {
+        cout << "1" << endl;
+    }
+};
+class Rec
+{
+private:
+    Point p1, p2;
+
+public:
+    Rec(Point &p1, Point &p2) : p1(x, y), p2(x, y) {}
+    ~Rec()
+    {
+        cout << "2" << endl;
+    }
+};
+double area(Point p1, Point p2)
+{
+    double sum = abs(p2.x - p1.x) * abs(p2.y - p1.y);
+    return sum;
+}
+// class Base
+// {
+// private:
+//     char msg[30];
+//     int n;
+
+// public:
+//     Base(char s[], int m = 0)
+//     {
+//         n = m;
+//         strcpy(msg, s);
+//     }
+//     void output(void) { cout << n << "\t" << msg << endl; }
+// };
+// class Derived : public Base
+// {
+// private:
+//     int n;
+
+// public:
+//     Derived(int m = 1) : Base("Base", m)
+//     {
+//         n = m;
+//     }
+//     void output(void)
+//     {
+//         cout << n << endl;
+//         Base ::output();
+//     }
+// };
+// 下列哪一个说法是错误的?
+// A.
+// 当用一个对象去初始化同类的另一个对象时,要调用拷贝构造函数
+// B.
+// 如果某函数有一个参数是类A的对象,那么该函数被调用时,类A的拷贝构造函数将被调用
+// C.
+// 如果函数的返回值是类A的对象时，则函数返回时，类A的拷贝构造函数将被调用
+// D.
+// 拷贝构造函数必须自己编写
+int sb = 25;
+class da
+{
+private:
+    int num;
+    const int a = 2; //常成员
+public:
+    //   int f(int) const; 对常成员函数的正确声明
+    static int quiet; //静态成员
+    //静态数据成员可以成为成员函数的可选参数，而普通数据成员则不可以。
+    //静态数据成员在类内声明，必须在类外定义，因为他相当于全局变量，全部成员都可以调用
+    int m;
+    int *p = &m;
+    da(int n = 0) //缺省参数
+    {
+        num = n;
+        quiet++;
+        //  cout << "gouzao" << endl;
+    }
+    da(const da &d) //默认构造函数，系统会给你自己调用的，但是要知道他的原型。
+    {
+        num = d.num;
+        cout << "copy gouzao" << endl;
+    }
+    void show()
+    {
+        cout << num << endl;
+        // cout << "ss" << endl;
+    }
+    void display() const; // 不能修改值了，相当于上了保护
+    //~da();//析构函数，创建一个对象后系统都会自动的调用，而new出来的，不会主动消亡。
+};
+/*函数重载*/
+/*函数重载，函数名相同，参数列表和返回值都可以自己设定，调用时系统会根据你的参数列表和返回值自己判断调用*/
+int remake(int n)
+{
+    return n * 2;
+}
+double remake(double n, double m)
+{
+    return m * n;
+}
+int da::quiet = 0;
+class person
+{
+private:
+    int m;
+
+public:
+    person();
+    person(int m) : m(m){};
+    person operator+(person &p1)
+    {
+        person temp;
+        temp.m = p1.m + p1.m;
+        return temp;
+    }
+    friend ostream &operator<<(ostream &out, person &p)
+    {
+        out << p.m << endl;
+        return out;
+    }
+    person operator++()
+    {
+        m++;
+        return *this;
+    }
+    person operator++(int) //指定返回值
+    {
+        person tmp(*this);
+        m++;
+        return tmp;
+    }
+    bool operator>(person &p)
+    {
+        return p.m > p.m;
+    }
+    bool operator!=(person &p)
+    {
+        return m != p.m;
+    }
+};
+class aa
+{
+public:
+    aa(int a) : a(a) {}
+    int a;
+    ~aa()
+    {
+        cout << "first?" << endl;
+    }
+};
+class bb : public aa
+{
+public:
+    bb(int a) : aa(a) {}
+    ~bb()
+    {
+        cout << "second?" << endl;
     }
 };
 int main()
 {
-    person p(2);
-    person p1(3);
+    // int sb;
+    // ::sb = 10;
+    //作用域运算符，对于全局变量或者函数，优先级最高，赋值或调用函数都直接在局部使用。
+    // cout << ::sb;
+    // Point p1(1.0, 2.0);
+    // Point p2(4.0, 6.0);
+    // Rec rec(p1, p2);
+    // double sum = area(p1,p2);
+    // cout<<sum;
+
+    da d(2);
+    //有构造函数创造对象的话，不用构造函数会报错，显示没有与参数列表匹配的构造函数
+    //   da d1 = d; //用对象来直接赋值的话会调用拷贝构造函数来为这个新对象赋值。
+    // da d2;
+    //  d2 = d1;//先创建再赋值的话,并不会直接调用d的构造函数，他是做等号运算符,相当于=重载了
+
+    // *d1.p = 2;
+    // cout << d1.m;
+
+    // da *pp; //对象指针
+    // pp = &d;
+    // pp->show();
+    // (*pp).show(); //以上三个等价
+
+    /*对象数组*/
+    //  da *s[2];     //对象数组,里面的数表示会生成多少个对象,赋值的话可以用new 来调用构造函数
+    // s[1] = new da(2);
+    // s[1]->show();
+    // da s1[2] = {da(1), da(2)};
+    // s1[1].show(), s1[2].show();
+
+    /*const 类 */
+    //用const类保护的const类只能调用const函数    const da d1(2);
+    // d1.show();报错
+    // d1.display(); d1.m 正确
+
+    /*静态成员*/
+    // cout<<d.quiet;
+
+    /*函数重载/
+     double b = 10.21;
+     int bb = 2;
+     cout<<remake(bb)<<endl<<remake(b);*/
+
+    /*new 和delete !!!!!*/
+    /*new 运算符 new 的左值必须是个指针，本质就是开辟一个新的内存，如果用于类就是创造一个新的对象 将首地址赋给指针变量*/
+
+    // int *ptr;
+    // ptr = new int; //给ptr分配一个整形的存储空间，并将首地址给了ptr
+    // *ptr = 10;
+    // delete ptr;
+    // int * pi = new int [10];//开辟数组空间
+    // int *pp = new int(99);//()初始化的方法
+    // int (*pi)[10] = new int [10][10];//创建多维数组的方法
+    // person p1(2);
+    // person p2(2);
+    // person p3 = p1+p2;
+    // cout<<p3;
+    /*调用析构是先继承再构造类*/
+    // aa a(1);
+    int x = 10;
+    int &y = x;
+    cout<<y<<endl;
+    int *p = &y;
+    y++, x++;
+  cout<<  *p + y;
 }
