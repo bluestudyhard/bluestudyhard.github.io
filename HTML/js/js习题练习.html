@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js习题练习</title>
+  </head>
+  <body>
+    <script>
+      /*对象那一节 p29*/
+      "use srtict";
+      let salaries = {
+        john: 100,
+        ann: 160,
+        fish: 130,
+      };
+      let sum = 0;
+      for (let key in salaries) {
+        sum += salaries[key];
+      }
+      console.log(sum);
+
+      let bottle = {};
+      function isEmpty(obj) {
+        for (let key in obj) {
+          return false; // 进到循环就说明有属性了。
+        }
+        return true;
+      }
+      console.log(isEmpty(bottle));
+      bottle.water = "100ml";
+      console.log(isEmpty(bottle));
+
+      let munu = {
+        width: 200,
+        height: 300,
+        title: "食补食油饼",
+      };
+      function multiplyNmumeric(obj) {
+        for (let key in obj) {
+          if (typeof obj[key] === Number) obj[key] *= 2;
+        }
+      }
+      multiplyNmumeric(munu);
+      console.log(munu);
+      /* **********/
+      /* 构造器和操作符new */
+      let obj = {};
+      function A() {
+        return obj;
+      }
+      function B() {
+        return obj;
+      }
+      let aa = new A(),
+        bb = new B();
+      console.log(aa == bb); //true;
+
+      function Calculator() {
+        this.read = function () {
+          this.a = +prompt("a");
+          this.b = +prompt("b");
+        };
+        this.sum = function () {
+          return this.a + this.b;
+        };
+      }
+      let cal = new Calculator();
+      //cal.read();
+      console.log(cal.sum());
+
+      function Accumulator(svalue) {
+        this.value = svalue;//赋初值 不能在赋初值时累加
+        this.read = function () {
+          this.value += +prompt("输入你的value");//累加
+        };
+      }
+      accumulator = new Accumulator(1);
+      accumulator.read();
+      accumulator.read();
+      console.log(accumulator.value);
+    </script>
+  </body>
+</html>

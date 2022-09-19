@@ -3,6 +3,7 @@
 # 是注释，python严格区分大小写，不用加;
 # print 直接输出类型
 # python 的编码是Unicode
+import json
 from collections import namedtuple
 from posixpath import split
 from re import I
@@ -397,18 +398,17 @@ print()
 # 序列化 用dump 和 dumps 函数
 # dumps () 转化为字符串对象 写入的话需要手动
 # dump() 不需要再write 只需要
-j_list = [1,2,3]
-import json
+j_list = [1, 2, 3]
 js = json.dumps(j_list)
 print(js)
 
-f = open("text.txt",'w')
+f = open("text.txt", 'w')
 f.write(js)
 
-fp = open("text.txt",'w')
-j_list1 = ["123",'\n'] # dump和dumps只能用一种，另一种会把原本的覆盖掉
-json.dump(j_list1,fp)
-fp = open("text.txt",'r')
+fp = open("text.txt", 'w')
+j_list1 = ["123", '\n']  # dump和dumps只能用一种，另一种会把原本的覆盖掉
+json.dump(j_list1, fp)
+fp = open("text.txt", 'r')
 
 
 result = json.load(fp)
