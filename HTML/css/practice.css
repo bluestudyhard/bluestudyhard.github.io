@@ -1,0 +1,111 @@
+/* .box {
+  display: flex;
+  position: relative;
+  width: 200px;
+}
+.box > div {
+  border: 1px solid;
+  width: 50px;
+  text-align: center;
+}
+.box > div:first-child > div {
+  display: block;
+  background-color: blueviolet;
+}
+.box > div:nth-child(2) > div {
+  background-color: aqua;
+}
+.box > div:nth-child(3) > div {
+  background-color: blue;
+}
+.box > div:last-child > div {
+  background-color: rgb(231, 98, 151);
+}
+.box > :first-child {
+  background: rgba(252, 76, 17, 0.907);
+}
+.box > :nth-child(2) {
+  background: rgba(10, 88, 243, 0.907);
+}
+.box > :nth-child(3) {
+  background: rgba(251, 39, 241, 0.907);
+}
+.box > :last-child {
+  background: rgba(246, 233, 57, 0.907);
+}
+.box > div:hover > div {
+  display: block;
+}
+.box > div > div {
+  position: absolute;
+  top: 23px;
+  width: 190px;
+  padding: 20px;
+  height: 80px;
+  border: 1px solid;
+  display: none;
+  text-align: center;
+} */
+
+.body {
+  width: 50vh;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.anima {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-top: 50%;
+  position: relative;
+}
+.anima::before {
+  content: "";
+  width: 100px;
+  height: 10px;
+  background: #f0808050;
+  position: absolute;
+  top: 100px;
+  left: 0%;
+  border-radius: 50%;
+  animation: shadow01 0.6s linear infinite;
+}
+.anima::after {
+  content: "";
+  width: 90%;
+  height: 90%;
+  background: rgba(247, 177, 189, 0.897);
+  position: absolute;
+  left: 5px;
+  top: 0;
+  border-radius: 20px;
+  animation: jump01 0.6s infinite;
+}
+@keyframes jump01 {
+  15% {
+    border-bottom-right-radius: 20px;
+  }
+  25% {
+    transform: tanslateY(10px) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(5px) scale(1, 0.9) rotate(45deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(67.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
+}
+@keyframes shadow01 {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.2, 1);
+  }
+}

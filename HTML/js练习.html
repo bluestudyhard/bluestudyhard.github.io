@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      // alert('啦啦啦')
+      let bb = 2,
+        c = "script";
+      let aa = 3;
+      let myVerylongName = "wytloveblue";
+      const COLOR_RED = "#F00";
+      let infi = Infinity;
+      // alert(Infinity);
+      //NaN 是一个计算错误，NaN**0 = 1
+      // alert("number"/2); NaN
+      // 类型转换 string(),number(),Boolean()
+      //alert(typeof(String(123)))
+      // ** 求幂
+      let mi = 8 ** 4;
+      //alert(mi);
+      // 如果+应用于单个值，就会转换成数字类型，相当于Number()
+
+      //   alert(+"123"); //123
+
+      // 弹出的这个带有信息的小窗口被称为 模态窗。“modal” 意味着用户不能与页面的其他部分（例如点击其他按钮等）进行交互，直到他们处理完窗口。在上面示例这种情况下 —— 直到用户点击“确定”按钮。
+      //alert('吃了');
+      //let age = prompt('你吃了嘛');// 弹出一个带文本框的模态框 prompt('text',[default]) 返回值为输入的内容，取消就返回null
+      //confirm() 如果是确定返回true 取消返回false
+
+      //let name = prompt('你的名字')
+      // alert(name);
+
+      // 类型转换
+      // alert("6"/"3"); //会自动转换为数字来运算，在算术函数和表达式中都是这样做的
+      // 但如果是 ("1"+2+3) 就会转换成字符串 "123"
+
+      // alert(Number("转换成string123"));//读取到非数组，返回NaN
+      //   alert(Number("\n 123   "));//123
+
+      // 自增
+      let a = 1;
+      let b = 1;
+      // alert(a++);// 1
+      //  alert(++b);// 2
+      //  "" + 1 + 0 = "10"
+      //  "" - 1 + 0 = -1
+      //  true + false = 1
+      //  6 / "3" = 2
+      //  "2" * "3" = 6
+      //  4 + 5 + "px" = "9px"
+      //   "$" + 4 + 5 = "$45"
+      //  "4" - 2 = 2
+      //  "4px" - 2 = NaN
+      //  "  -9  " + 5 = "  -9  5"
+      //   "  -9  " - 5 = -14
+      //   null + 1 = 1
+      //   undefined + 1 = NaN
+      //   " \t \n" - 2 = -2
+
+      //   a = prompt("shuru",1);// 返回的是字符串
+      //   b = prompt("shuchu",2);
+      //   alert(Number(a)+Number(b)); alert(+a++b)
+
+      // js里的比较
+      // 字符串比较，是按照一个个字符去比较的，有大值就返回 true
+      //   alert("abc">"adc"); //false 'd'>'b'
+      //  alert('abc'>'ADC');// true
+
+      // 不同类型的比较 会先转换成数字
+
+      //  alert("2">1);
+      //  alert('002'>1);// true 会转换成2
+
+      // 严格检查 ===
+      // 普通的 == 会进行类型转换，不能区分 0和FALSE，而===可不会进行任何的类型转换，可以严格区分。严格不相等!==
+      //   alert(0==false); true
+      // alert(0===false); false
+
+      //alert(null==undefined); //true
+      // alert(null == 0) // false
+      // alert(null >= 0) true
+      //为什么会出现这种反常结果，这是因为相等性检查 == 和普通比较符 > < >= <= 的代码逻辑是相互独立的。null 变成了0
+
+      //在使用 > 或 < 进行比较时，需要注意变量可能为 null/undefined 的情况。比较好的方法是单独检查变量是否等于 null/undefined。
+
+      //   if('0') {alert('yes');} 非空字符串都是true
+
+      // 空值合并运算符?? a??b 如果a定义了,且非null/undefined ，就返回a，否则返回b
+      //result = (a !== null && a !== undefined) ? a : b; 原理
+      // ?? 不能与&&||一起使用
+      let user;
+      // alert(user??"2333");//2333
+      let user1 = 2;
+      // alert(user1??3);// 2
+
+      // 函数
+      let message = "全局变量";
+      function showMessage() {
+        let show = "局部变量";
+        let message = "遮蔽外部变量";
+        alert(show + message);
+      }
+
+      //showMessage()// 全局变量局部变量 (1)
+      //  showMessage()//  局部变量遮蔽外部变量 (2)
+
+      function display(form, text = "默认参数") {
+        form = "  " + form + "  ";
+        alert(form + text);
+      }
+      //display("带参数");// 如果不打第二个参数的话，就输出undefined
+
+      // 有返回值的
+      function sum(a, b) {
+        return a + b;
+      }
+      let str = "";
+      for (let i = 1; i <= 10; i++) {
+        for (let j = i; j <= 10; j++) {
+          str += "*";
+        }
+        str += "\n";
+      }
+      console.log(str);
+
+      let sayhi = function () // 函数表达式
+      {
+        alert("hello,world");
+      };
+      sayhi();
+
+      function function_expression() {
+        alert("express");
+      }
+      let lalala = function_expression;
+      lalala();
+    </script>
+  </body>
+</html>

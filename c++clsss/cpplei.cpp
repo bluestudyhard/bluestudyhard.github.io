@@ -514,10 +514,10 @@ int main()
     // cout<<p3;
     /*调用析构是先继承再构造类*/
     // aa a(1);
-    int x = 10;
-    int &y = x;
-    cout<<y<<endl;
-    int *p = &y;
-    y++, x++;
-  cout<<  *p + y;
+    //     int x = 10;
+    //     int &y = x;
+    //     cout<<y<<endl;
+    //     int *p = &y;
+    //     y++, x++;
+    //   cout<<  *p + y;
 }

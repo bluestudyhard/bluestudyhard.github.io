@@ -20,4 +20,4 @@ cout<<newone.first<<newone.second;//boy 18
 这样出现的，像圆圈那样的。
 定义：queue<int> name;可以放字符串，int queue<string>
 出队列用 front(); 其他都和栈一致
-size()返回的是队列元素的大小.
+size()返回的是队列元素的大小.*/
