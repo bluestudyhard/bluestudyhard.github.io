@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+ll fib(int n)
+{
+    return fib(n) * fib(n - 1);
+}
 int main()
 {
     // int n;
@@ -82,5 +86,5 @@ int main()
     //     sum += m[i + 1] - m[i];
     // }
     // cout << sum;
-    cout << "s";
+    cout << (4 & 5);
 }

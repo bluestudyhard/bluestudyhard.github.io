@@ -176,14 +176,85 @@
         //因为初始的时候length为0，他随着元素的增加会动态的添加元素。
       }
       console.log(newarr1);
-  
+
       for (let i = 0, j = arr1.length; i < arr1.length; i++, j--) {
-          let temp = 0;
-          temp = arr1[i];
-          arr[i] = arr[j];
-          arr[j] = temp; 
+        let temp = 0;
+        temp = arr1[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
       }
       console.log(arr1);
+
+      let bbs = [4, 6, 5, 10, 9];
+      function Buble_sort(objet) {
+        for (let i = 0; i < objet.length; i++) {
+          for (let j = i + 1; j < objet.length; j++) {
+            if (objet[i] > objet[j]) {
+              let temp = objet[j];
+              objet[j] = objet[i];
+              objet[i] = temp;
+            }
+          }
+        }
+      }
+      Buble_sort(bbs);
+      console.log(bbs);
+      // 预解析 console.log(num),num = 10;因为是在严格模式下，所以大丈夫旦面试用得上
+      // 他会执行一个变量提升的操作，比如
+      // console.log(a),a = 10;a没有被定义，js会把他解析成
+      // let a,console.log(a),a = 10;所以是undefined
+      console.log(Math.SQRT2);
+      //自建math对象//
+      let Mymath = {
+        pi: 31415926,
+        Max: function () {
+          let Max = arguments[0];
+          for (let i = 0; i < arguments.length; i++)
+            if (arguments[i] > Max) Max = arguments[i];
+          return Max;
+        },
+      };
+      console.log(Mymath.Max(1, 3, 5));
+      let coverObj = {
+        objj: { myname: 1, myage: 19 },
+      };
+      console.log(coverObj.objj.myage);
+      console.log(Math.abs(-Math.PI));
+      console.log(Math.floor(1.9), Math.ceil(1.1)); //一个向下取整，一个向上取整。
+      console.log(Math.random()); //默认是一个(0,1)之间的浮点数
+      // 得到一个两点之间的随机数的方法(整)
+      function getRandom(max, min) {
+        return Math.floor(Math.random() * (max - min)) + min; //含最小值
+        //[10,100) 0*90+10 = 10;
+      }
+      console.log(getRandom(10, 50));
+      // 得到两点之间随机数的方法包括最大最小值
+      function getRealRandom(max, min) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      /*Date 内置对象*/
+      let date = new Date(2022, 9, 21); //中国标准时间
+      console.log(date);
+      let date1 = new Date();
+      console.log(date1.getFullYear());
+      console.log(date1.getDay()); //一周的第几天，礼拜日是0
+      console.log(date1.getHours()); //今天的第几点
+      //console.log(date1.getTime());
+      let year = date1.getFullYear(),
+        mounth = date1.getMonth() + 1,
+        day = date1.getDate(),
+        hurs = date1.getHours(),
+        minute = date1.getMinutes(),
+        seconds = date1.getSeconds();
+      console.log(
+        year + "年",
+        mounth + "月"
+       +day , "日",+hurs,
+        "时" + minute,
+        "分" + seconds+"秒"
+      );
     </script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+[toc]
 ## 基本语句
 
 ### 输出 执行语句从上到下
@@ -26,3 +27,26 @@ let person = {firstName:"John", lastName:"Doe"}; // Object 通过对象字面量
   ```html {.line-numbers}
   <button onclick="alert('点一下捏一下wyt的脸');">点我</button>
   ```
+
+## 作用域
+
+- 全局作用域，局部作用域，块级作用域
+
+## 对象
+
+### 对象的创建
+
+- js 的对象，可以理解为 map，字典这样的东西，里面可以套函数，键值，也可以套对象
+
+```js {.line-numbers}
+/*套对象，套key*/
+let Object = {
+  key: "键值",
+  myfunction: function name(params) {},
+};
+/*对象里的对象*/
+let coverObj = {
+  objj: { myname: 1, myage: 19 },
+};
+console.log(coverObj.objj.myage);
+```
