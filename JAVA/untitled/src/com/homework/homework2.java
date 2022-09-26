@@ -59,13 +59,15 @@ public class homework2 {
         /*四*/
         int maxlen = 0;
         int minlen = (int) 1e9;
-        String str[] = new String[0];
-        for (int i = 1; i <= 5; i++) {
+        String[] str = new String[5];
+        for (int i = 0; i < 5; i++) {
             Scanner input = new Scanner(System.in);
-            str[i] = String.valueOf(input);
-            if (str[i].length() < maxlen)
+            str[i] = input.nextLine();
+            if (str[i].length() > maxlen)
                 maxlen = str[i].length();
-            else if (str[i].length() < minlen)
+        }
+        for (int i = 0; i < 5; i++) {
+            if (str[i].length() < minlen)
                 minlen = str[i].length();
         }
         System.out.println(maxlen);

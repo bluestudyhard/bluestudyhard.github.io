@@ -95,6 +95,65 @@
       //         flag = 1;
       //      } else alert("猜错啦");
       //}
+      /*倒计时*/
+      function countDown(deadline) {
+        let time = +new Date(deadline); //距离倒计时结束的时间总的毫秒数
+        let begintime = +new Date(); //现在的时间总的毫秒数
+        if (time < begintime) {
+          console.log("倒计时结束");
+          return;
+        }
+        let times = (time - begintime) / 1000; //总共有多少秒
+        let seconds = parseInt(times % 60); //距离时间的当前秒数
+        let minutes = parseInt((times / 60) % 60);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        let hours = parseInt((times / 60 / 60) % 24);
+        hours = hours < 10 ? "0" + hours : hours;
+        let days = parseInt(times / 60 / 60 / 24);
+        days = days < 10 ? "0" + days : days;
+        console.log(
+          "距离结束还剩" +
+            days +
+            "天" +
+            hours +
+            "时" +
+            minutes +
+            "分" +
+            seconds +
+            "秒"
+        );
+      }
+      countDown("2022-10-1 19:24:00"); //在这里要输入标准时间格式
+      date1 = new Date();
+      console.log(date1);
+      /*统计字符出现的次数*/
+      let countStr = "wytbluelllooovvvveeeee";
+      let cnt = countStr.indexOf("l"); //4
+      let ans = 0;
+      while (cnt !== -1) {
+        console.log(cnt);
+        ans++;
+        cnt = countStr.indexOf("l", cnt + 1);
+      }
+
+      /*统计出现次数最多的字符*/
+      let count = {}; //类比于c++的桶 一个空对象来存字符
+      for (let i = 0; i < countStr.length; i++) {
+        let chars = countStr.charAt(i);
+        if (count[chars]) { //得到的只是属性值
+          count[chars]++;
+        } else {
+          count[chars] = 1;
+        }
+      }
+      console.log(count);
+      /*连续替换*/
+    let strr = "aaaaaabbbsss";
+    while(strr.indexOf('a')!==-1){
+          strr = strr.replace('a','b');
+    }
+    console.log(strr);
+    
     </script>
   </body>
 </html>

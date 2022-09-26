@@ -86,5 +86,65 @@ int main()
     //     sum += m[i + 1] - m[i];
     // }
     // cout << sum;
-    cout << (4 & 5);
+    int n, m;
+
+    cin >> n;
+    while (n--)
+    {
+        cin >> m;
+        int cnt = 0;
+        int a[m + 5];
+        for (int i = 1; i <= m; i++)
+        {
+            cin >> a[i];
+        }
+        sort(a + 1, a + m + 1);
+        int minn = 1e9;
+        int minn1 = 0;
+        for (int i = 1; i <= m - 1; i++)
+        {
+            if (a[i] == a[i + 1] && a[i] == a[i - 1])
+            {
+                cout << "0" << endl;
+                break;
+            }
+            else if (a[i] < minn)
+            {
+                minn = a[i];
+            }
+            else if (a[i] == a[i + 1])
+            {
+                cnt = 1;
+                minn1 = a[i + 2] - a[i + 1];
+                cout << minn1 - minn << endl;
+                break;
+            }
+            else if (a[i - 1] != a[i] && a[i] != a[i + 1] && a[i + 1] != a[i- 1] )
+            {
+                int ans = a[i + 1] - a[i - 1];
+                cout << ans << endl;
+                break;
+            }
+        }
+        // if (cnt == 0)
+        // {
+        //     cout << "0" << endl;
+        // }
+        // else if(cnt==1)
+        // {
+        //     cout<<minn1-minn<<endl;
+        // }
+        // if (cnt == 2)
+        // {
+        //     cout << minn1 - minn << endl;
+        // }
+        // else if (cnt >= 3)
+        // {
+        //     cout << "0" << endl;
+        // }
+        // else if (cnt < 2)
+        // {
+        //     cout << a[m] - a[1] << endl;
+        // }
+    }
 }

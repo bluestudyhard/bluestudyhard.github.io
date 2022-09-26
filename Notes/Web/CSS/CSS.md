@@ -136,3 +136,10 @@ flex-basis	设置弹性盒子伸缩基准值
 
 
 ## 下拉菜单
+
+
+
+
+## background 属性
+
+- background-position:0,xxpx;
