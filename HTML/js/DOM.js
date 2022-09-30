@@ -119,6 +119,59 @@ console.log(circle_li);
 
 for (let i = 0; i < circle_li.length; i++) {
   let index = i * 44;
-  circle_li[i].style.backgroundPosition = "0-"+index+"px";//没逗号的 
-  
+  circle_li[i].style.backgroundPosition = "0-" + index + "px"; //没逗号的
 }
+/*
+仿网购网站的输入框，失去焦点和获取焦点的一些变化
+ */
+let focus = document.querySelector(".missfoucus input");
+let f_value = focus.value;
+focus.onfocus = function () {
+  if (this.value === f_value) {
+    focus.value = "";
+    focus.style.color = "#111";
+  }
+};
+focus.onblur = function () {
+  if (focus.value === "")
+    (focus.value = f_value), (focus.style.color = "#3333");
+  else return;
+};
+
+/*修改样式  */
+let texxt = document.querySelector(".texxt");
+texxt.onclick = function () {
+  this.className = "texxt change";
+};
+
+/*密码输入框，文字警示实例 */
+let changefoucus = document.querySelector(".changefoucus input");
+let changefoucus_text = document.querySelector(".changefoucus span");
+changefoucus.onblur = function () {
+  let len = changefoucus.value.length;
+  if (len < 6 || len > 12) changefoucus_text.className = "changefoucusAf";
+  else changefoucus_text.className = "changefoucusbf";
+};
+
+/*
+ 排他思想实例 
+  
+*/
+let buttons = document.querySelectorAll(".changefoucus button");
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].onclick = function () {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].style.backgroundColor = ""; //每一个循环首先清空颜色
+    }
+    buttons[i].style.backgroundColor = "pink";
+  };
+}
+
+/*节点操作
+ */
+//nodeType 元素节点 1，文本节点3 document对象 9
+// nodeName tagName 可以用来读取dom节点
+let elm = document.body;
+console.log(elm.nodeType); //1
+console.log(elm.firstChild); //是在其中的#text文本
+console.log(elm.firstChild.nodeType); //3

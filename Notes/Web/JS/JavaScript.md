@@ -21,6 +21,8 @@ let cars = ["Saab", "Volvo", "BMW"]; // Array 通过数组字面量赋值
 let person = {firstName:"John", lastName:"Doe"}; // Object 通过对象字面量赋值
 ```
 
+JSON
+
 ### js 引用
 
 - js 可以引用外部 script 标签，外部标签内部不可修改，一般放在网页设计底部以便加载完网页加载
@@ -70,7 +72,22 @@ console.log(coverObj.objj.myage);
 
 ### DOM 树
 
-### 节点
+### DOM 节点类
+
+DOM 节点的层次结构如下图
+![img](./imgg/domnode.png)
+
+- EventTarget 是一切根的抽象类，作为一个基础让所有的节点都支持事件类
+- Node 也是抽象类，然后他提供了树的核心功能
+  parentNode,nextSibling等
+  children —— 仅那些作为元素节点的子代的节点。
+  childNodes
+  firstElementChild，lastElementChild —— 第一个和最后一个子元素。
+  previousElementSibling，nextElementSibling —— 兄弟元素。
+  parentElement —— 父元素。
+- Document 被HTMLDocument 继承，指的是整个HTML的整个文档，document 继承自这个类
+
+
 
 #### 子节点：childNodes，firstChild，lastChild
 
@@ -81,7 +98,7 @@ console.log(coverObj.objj.myage);
 - document.getElementsByClassName 获取 class
 - **其实 H5 以后选择器都用 querySelector 了** 前面的已经成为了时代の眼泪(bushi)
 - querySelector 获取的是第一个元素。用法就是根据元素直接获取就行 比如 id 就#id class 就.class
-  querySelector 还可以直接像css选择器那样获取元素。
+  querySelector 还可以直接像 css 选择器那样获取元素。
   querySelectorAll 获取所有的同类元素
   ` let img4 = document.querySelector(".changstyle img");`
 
@@ -125,7 +142,7 @@ let btn = document.querySelector(".btn");
 
 鼠标事件
 
-- onclick 点击鼠标时触发此事件
+- **onclick** 点击鼠标时触发此事件
 - ondblclick 双击鼠标时触发此事件
 - onmousedown 按下鼠标时触发此事件
 - onmouseup 鼠标按下后又松开时触发此事件
@@ -136,17 +153,25 @@ let btn = document.querySelector(".btn");
 - onkeydown 当按下键盘上的某个按键时触发此事件
 - onkeyup 当放开键盘上的某个按键时触发此事件
 
-窗口事件
+键盘事件
 
--
--
--
--
--
--
--
--
--
+onkeydown 某个键盘按键被按下。
+onkeypress 某个键盘按键被按下并松开。
+onkeyup 某个键盘按键被松开。
+
+表单事件
+
+- **onfocus** 元素获取焦点时触发
+- **onblur 元素失去焦点时触发**
+  **比如说定位了一个文本框，你点击文本框就是 onfocus 有焦点，点击文本框外部就是失去焦点 onblur**
+- onchange 该事件在表单元素的内容改变时触发
+- onfocusin 元素即将获取焦点时触发
+- onfocusout 元素即将失去焦点时触发
+- oninput 元素获取用户输入时触发
+- onreset 表单重置时触发
+- onsearch 用户向搜索域输入文本时触发
+- onselect 用户选取文本时触发
+- onsubmit 表单提交时触发
 
 #### 事件处理程序
 
@@ -186,7 +211,7 @@ let btn = document.querySelector(".btn");
   };
   ```
 
-- Element.style Element.classname
+- Element.style Element.className
 
   直接通过 js 来更改 style 的样式
 
@@ -204,5 +229,15 @@ let btn = document.querySelector(".btn");
       this.style.height = "100px";
       flag = 0;
     }
+  };
+  ```
+
+  可以用 className 直接改变元素的类名，改变这个是直接覆盖，如果需要保留原来的类名，要用 css 多项选择器
+
+  ```js {.line-numbers}
+  let texxt = document.querySelector(".texxt");
+  texxt.onclick = function () {
+    //this.className = "change";//覆盖了原来的.texxt
+    this.className = "texxt change";
   };
   ```

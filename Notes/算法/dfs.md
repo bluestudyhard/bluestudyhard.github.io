@@ -1,8 +1,9 @@
 [toc]
 
-### dfs 暴力枚举，排列问题，组合问题
+## dfs 暴力枚举，排列问题，组合问题
 
 - 暴力枚举排列的题目一般是问:xx 东西在
+
 ```C++ {.line-numbers}
 /*stl里的全排列*/
 要先预先sort好序
@@ -44,18 +45,24 @@ void dfs(int u)//u代表访问的层数
         }
 }
 ```
-- 实现几个数里面选几个数的组合
-- 例题[洛谷P1157 组合的输出](https://www.luogu.com.cn/problem/P1157)
-```C++ {.line-numbers} 
-void dfs(int u)
-{
-   #include <bits/stdc++.h>
+
+### 组合问题
+
+一. **实现几个数里面选几个数的组合**
+
+- 例题[洛谷 P1157 组合的输出](https://www.luogu.com.cn/problem/P1157)
+  牛客[递归实现组合数枚举](https://ac.nowcoder.com/acm/contest/998/B)
+- 题意分析
+  经典的组合模板题，
+
+```C++ {.line-numbers}
+#include <bits/stdc++.h>
 using namespace std;
 int a[10000], b[10000], j, n, k, sum, m;
 bool v[1000];
 void dfs(int u)
 { /*终止条件*/
-    int i;
+    
     if (u > m)
     {
         for (i = 1; i <= m; i++)
@@ -63,7 +70,7 @@ void dfs(int u)
         cout << endl;
         return;
     }
-    for (i = a[u - 1] + 1; i <= n; i+++)
+    for (int i = a[u - 1] + 1; i <= n; i+++)
     {
         a[u] = i; // 1 25
         dfs(u + 1);
@@ -74,7 +81,52 @@ int main()
     cin >> n >> m;
     dfs(1);
 }
+
+```
+
+### 排列选数问题
+
+思路：我们要明白，我们想实现什么，我们要实现的是，将 n 个数中选 m 个数，然后让他们进行排列，不能有重复的数字。2.怎么避免选重复的数字，
+
+```C++ {.line-numbers}
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+bool v[10000];
+int n, m, i, j, sum = 0,k;
+bool isprime(int n)
+{
+   for (i = 2; i <= sqrt(n); i++)
+   {
+      if (n % i == 0)
+         return false;
+   }
+   return true;
 }
+int a[25];
+long long ans;
+void dfs(int m, int sum, int startx)
+{   //边界条件
+   if (m == k)
+   {
+      if (isprime(sum))
+         ans++;
+      return;
+   }
+   for (int i = startx; i < n; i++)
+      dfs(m + 1, sum + a[i], i + 1);
+   return;
+}
+int main()
+{
+   scanf("%d%d", &n, &k);
+   for (int i = 0; i < n; i++)
+      scanf("%d", &a[i]);
+   dfs(0, 0, 0);
+   printf("%d\n", ans);
+   return 0;
+}
+
 ```
 
 ### 经典的迷宫问题
@@ -146,51 +198,7 @@ int main()
 }
 ```
 
-####排列选数问题
-思路：我们要明白，我们想实现什么，我们要实现的是，将 n 个数中选 m 个数，然后让他们进行排列，不能有重复的数字。2.怎么避免选重复的数字，
-
-```C++ {.line-numbers}
-#include <bits/stdc++.h>
-using namespace std;
-typedef long long ll;
-bool v[10000];
-int n, m, i, j, sum = 0,k;
-bool isprime(int n)
-{
-   for (i = 2; i <= sqrt(n); i++)
-   {
-      if (n % i == 0)
-         return false;
-   }
-   return true;
-}
-int a[25];
-long long ans;
-void dfs(int m, int sum, int startx)
-{   //边界条件
-   if (m == k)
-   {
-      if (isprime(sum))
-         ans++;
-      return;
-   }
-   for (int i = startx; i < n; i++)
-      dfs(m + 1, sum + a[i], i + 1);
-   return;
-}
-int main()
-{
-   scanf("%d%d", &n, &k);
-   for (int i = 0; i < n; i++)
-      scanf("%d", &a[i]);
-   dfs(0, 0, 0);
-   printf("%d\n", ans);
-   return 0;
-}
-
-```
-
-#### dfs 标准模版题
+### dfs 标准模版题
 
 - 对于这种题目，我的理解能力比较难以理解，就是为什么递推，一定要回溯
 - 此类题目就是一个很近的
@@ -221,7 +229,7 @@ void dfs(int u)
         dfs(u + 1);
         sum /= a[u];
         sum1 -= b[u];
-        //cout <<"xia: " <<sum << " " << sum1 << endl; 
+        //cout <<"xia: " <<sum << " " << sum1 << endl;
         dfs(u+1);
     }
     if(sum1==1&&sum==0)

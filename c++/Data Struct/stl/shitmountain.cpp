@@ -5,8 +5,49 @@ ll fib(int n)
 {
     return fib(n) * fib(n - 1);
 }
+// vector<int> kk;
+// int n;
+// void dfs(int u)
+// {
+//     if (u > n)
+//     {
+//         for (auto i : kk)
+//             cout << i << " ";
+//         cout << endl;
+//         return;
+//     }
+//     kk.push_back(u);
+//     dfs(u + 1);
+//     kk.pop_back();
+//     dfs(u + 1);
+//     return;
+// }
+int a[50]; // 0
+bool f[50];
+int n, m;
+void dfs(int u) // start 记录节点
+{
+    if (u > m)
+    {
+        for (int i = 1; i <= m; i++)
+        {
+            cout << a[i] << " ";
+        }
+        cout << endl;
+        return;
+    }
+    for (int i = a[u - 1] + 1; i <= n; i++)
+    {
+        a[u] = i;
+        dfs(u + 1);
+        // u-1
+    }
+    return;
+}
 int main()
 {
+    cin >> n >> m;
+    dfs(1);
     // int n;
     // string s;
     // cin >> n;
@@ -86,65 +127,46 @@ int main()
     //     sum += m[i + 1] - m[i];
     // }
     // cout << sum;
-    int n, m;
+    // int n, m;
 
-    cin >> n;
-    while (n--)
-    {
-        cin >> m;
-        int cnt = 0;
-        int a[m + 5];
-        for (int i = 1; i <= m; i++)
-        {
-            cin >> a[i];
-        }
-        sort(a + 1, a + m + 1);
-        int minn = 1e9;
-        int minn1 = 0;
-        for (int i = 1; i <= m - 1; i++)
-        {
-            if (a[i] == a[i + 1] && a[i] == a[i - 1])
-            {
-                cout << "0" << endl;
-                break;
-            }
-            else if (a[i] < minn)
-            {
-                minn = a[i];
-            }
-            else if (a[i] == a[i + 1])
-            {
-                cnt = 1;
-                minn1 = a[i + 2] - a[i + 1];
-                cout << minn1 - minn << endl;
-                break;
-            }
-            else if (a[i - 1] != a[i] && a[i] != a[i + 1] && a[i + 1] != a[i- 1] )
-            {
-                int ans = a[i + 1] - a[i - 1];
-                cout << ans << endl;
-                break;
-            }
-        }
-        // if (cnt == 0)
-        // {
-        //     cout << "0" << endl;
-        // }
-        // else if(cnt==1)
-        // {
-        //     cout<<minn1-minn<<endl;
-        // }
-        // if (cnt == 2)
-        // {
-        //     cout << minn1 - minn << endl;
-        // }
-        // else if (cnt >= 3)
-        // {
-        //     cout << "0" << endl;
-        // }
-        // else if (cnt < 2)
-        // {
-        //     cout << a[m] - a[1] << endl;
-        // }
-    }
+    // cin >> n;
+    // while (n--)
+    // {
+    //     cin >> m;
+    //     int cnt = 0;
+    //     int a[m + 5];
+    //     for (int i = 1; i <= m; i++)
+    //     {
+    //         cin >> a[i];
+    //     }
+    //     sort(a + 1, a + m + 1);
+    //     int minn = 1e9;
+    //     int minn1 = 0;
+    //     for (int i = 1; i <= m - 1; i++)
+    //     {
+    //         if (a[i] == a[i + 1] && a[i] == a[i - 1])
+    //         {
+    //             cout << "0" << endl;
+    //             break;
+    //         }
+    //         else if (a[i] < minn)
+    //         {
+    //             minn = a[i];
+    //         }
+    //         else if (a[i] == a[i + 1])
+    //         {
+    //             cnt = 1;
+    //             minn1 = a[i + 2] - a[i + 1];
+    //             cout << minn1 - minn << endl;
+    //             break;
+    //         }
+    //         else if (a[i - 1] != a[i] && a[i] != a[i + 1] && a[i + 1] != a[i- 1] )
+    //         {
+    //             int ans = a[i + 1] - a[i - 1];
+    //             cout << ans << endl;
+    //             break;
+    //         }
+    //     }
+
+    // }
 }
