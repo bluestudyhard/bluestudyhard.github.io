@@ -87,7 +87,7 @@ DOM 节点的层次结构如下图
   parentElement —— 父元素。
 - Document 被HTMLDocument 继承，指的是整个HTML的整个文档，document 继承自这个类
 
-- Element
+- Element 
 
 #### 子节点：childNodes，firstChild，lastChild
 
