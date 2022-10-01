@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+  margin: 0 auto;
+  background: url(imgg/all.png) no-repeat;
+  background-size: 100%;
+}
+.changeimg img {
+  width: 50px;
+  
+}
+button{
+    border: none;
+    background: none;
+}

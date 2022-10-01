@@ -175,3 +175,4 @@ let elm = document.body;
 console.log(elm.nodeType); //1
 console.log(elm.firstChild); //是在其中的#text文本
 console.log(elm.firstChild.nodeType); //3
+
