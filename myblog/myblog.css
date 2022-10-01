@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
   background: url(imgg/all.png) no-repeat;
   background-size: 100%;
+  display: block;
 }
 .changeimg img {
   width: 50px;
