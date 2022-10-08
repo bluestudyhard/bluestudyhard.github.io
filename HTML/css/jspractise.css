@@ -52,9 +52,59 @@ img {
   width: 25px;
   height: 25px;
 }
-.changefoucusbf{
+.changefoucusbf {
   color: rgb(113, 110, 110);
 }
-.changefoucusAf{
+.changefoucusAf {
   color: rgb(192, 18, 18);
+}
+table {
+  border: 1px solid;
+  border-collapse: collapse; /*折叠成单一边框*/
+  text-align: center;
+}
+td,
+th {
+  border: 1px solid rgb(61, 61, 61);
+  padding: 1.5em;
+}
+tr:nth-child(odd) {
+  background-color: rgb(247, 248, 248);
+}
+tr:nth-child(even) {
+  background-color: rgb(236, 239, 239);
+}
+.tab {
+  width: 200px;
+  text-align: center;
+}
+.tabtop ul {
+  display: flex;
+  width: 200px;
+}
+
+.tabtop li {
+  list-style: none;
+  width: 100px;
+  border: 1px solid;
+}
+.tabtop li:hover {
+  background-color: rgba(222, 32, 32, 0.779);
+}
+.ulfirst{
+  display: flex;
+  
+}
+.ulfirst li{
+  width: 50px;
+  text-align: center;
+  
+}
+.ulfirst ul li{
+  border: 1px solid;
+  border-collapse: collapse;
+  
+}
+li{
+  list-style: none;
 }

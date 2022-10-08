@@ -167,12 +167,144 @@ for (let i = 0; i < buttons.length; i++) {
   };
 }
 
+//全选框
+let firstcheck = document.querySelector(".firstcheck");
+let chooseall = document.querySelectorAll(".changetable input");
+console.log(chooseall);
+flag = 0;
+firstcheck.onclick = function () {
+  if (flag == 0) {
+    for (let i = 0; i < chooseall.length; i++) {
+      chooseall[i].checked = true;
+    }
+    flag = 1;
+  } else {
+    for (let i = 0; i < chooseall.length; i++) {
+      chooseall[i].checked = false;
+    }
+    flag = 0;
+  }
+};
+
 /*节点操作
  */
-//nodeType 元素节点 1，文本节点3 document对象 9
+//nodeType 元素节点 1，文本节点3 document对象 9 nodeType 用于获取节点类型
 // nodeName tagName 可以用来读取dom节点
+// Node.data 获取文本节点的内容
+// hidden 设置为true时 = display:none;
 let elm = document.body;
 console.log(elm.nodeType); //1
 console.log(elm.firstChild); //是在其中的#text文本
 console.log(elm.firstChild.nodeType); //3
+console.log(elm.firstChild.data); //1
 
+let gg = document.getElementsByTagName("tr");
+console.log(gg);
+
+let div = document.querySelector("#first div");
+div.innerHTML = "wytsigiblue";
+
+/**
+ 获取自定义属性
+ getAttribute()
+ setAttribute("属性","值")
+ removeAttribute()
+ */
+let div1 = document.querySelector("div");
+console.log(div1.getAttribute("id")); //first
+div1.setAttribute("class", "111");
+console.log(div1); //class 变成了111
+console.log(div1.dataset); // index: "2"time: "3"[[Prototype]]: DOMStringMap
+console.log(div1.dataset.time); //3
+console.log(div1.dataset.moneyStatic);
+// Tab 切换栏
+let TabUl = document.querySelectorAll(".tabtop li");
+let TabSpan = document.querySelectorAll(".content");
+for (let i = 0; i < TabUl.length; i++) {
+  let index = TabUl[i].getAttribute("index");
+  TabUl[i].onclick = function () {
+    for (let i = 0; i < TabUl.length; i++) {
+      TabSpan[i].style.display = "none";
+    }
+    TabSpan[index].style.display = "block";
+  };
+}
+
+/**
+ 
+节点操作
+parentNode 离元素节点最近的父级节点即亲爹
+childNodes 所有儿子包括文本节点
+children 只返回子元素节点 其余节点不返回 只读属性
+firstchild 第一个子节点 包括文本节点
+lastchild 最后一个子节点 包括文本节点
+firstElementChild 第一个元素节点
+lastElementChild 最后一个元素节点 IE9以上支持
+最好还是用下标访问吧 不用考虑兼容性 children[0];
+nextElementSibling 下一个元素节点
+previousElementSibling 上一个元素节点
+nextSibling 下一个节点
+previousSibling 上一个节点
+ */
+let first = document.querySelector("#first");
+console.log(h1.parentNode); //body
+
+console.log(btn.parentNode); // <div id="first">
+// const Nodes = document.body.childNodes; 可以用这种方式来获取整个html文件的所有元素
+// for (let i = 0; i < Nodes.length; i++) {
+//   console.log(Nodes[i]);
+// }
+console.log(first.childNodes); //17个子元素,包括文本节点 可以用for循环遍历
+console.log(first.children); // 8个子元素不包括文本节点
+
+console.log(first.children[0]); //一样可以直接访问 一般都这样来访问节点元素
+
+console.log(first.firstChild, first.lastChild); //这样获得的是包括文本的第一个节点，所以一般得到的是#text
+
+console.log(first.firstElementChild, first.lastElementChild);
+
+console.log(first.nextElementSibling); //下一个元素节点
+console.log(first.previousElementSibling); //上一个元素节点
+
+let divv = document.createElement("div");
+
+console.log(divv);
+
+/**
+ 节点插入方法 
+ .append()在node末尾插入节点或字符串
+  .prepend() 开头插入节点或字符串
+  before 前面插入
+  after 后面
+  replacewith 将node替换为给定节点或字符串
+ */
+let newnode = document.querySelector(".node");
+let li = document.querySelector(".node li"); //第一个li
+divv.className = "newnode";
+divv.innerHTML = "append"; //这是一个新节点
+newnode.append(divv); // 在这个节点的末尾插入
+
+newnode.before("最前面插入字符串");
+newnode.after("最后面插入字符串");
+let li1 = document.createElement("li");
+li1.innerHTML = "替换掉原本的li";
+li.replaceWith(li1);
+newnode.prepend("prepend"); // 在这个节点的开头插入
+
+newnode.insertAdjacentHTML("beforebegin", "<p>插入在节点前</p>");
+newnode.insertAdjacentHTML("afterbegin", "<p>插入开头</p>");
+newnode.insertAdjacentHTML("afterend", "<p>插入最后</p>");
+newnode.insertAdjacentHTML("beforeend", "<p>插入结尾</p>");
+
+let remoevenode = document.querySelectorAll(".node");
+
+/**
+ * 手动清空方法
+ */
+//newnode.remove();直接删除头节点就完事了
+function clear(elem) {
+  for (let i = 0; i < elem.length; i++) {
+    elem[i].remove();
+  }
+}
+// clear(remoevenode);
