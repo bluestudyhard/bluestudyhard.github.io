@@ -4,9 +4,8 @@ public class CPU {
     private
     int speed;
 
-    public int setSpeed(int speed) {
-        speed = speed;
-        return speed;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     int getSpeed() {
@@ -19,6 +18,8 @@ public class CPU {
         HardDisk hd = new HardDisk();
         hd.setAmount(512);
         PC p = new PC();
+        p.setCPU(c);
+        p.setHd(hd);
         p.Show();
     }
 }
@@ -27,9 +28,8 @@ class HardDisk {
     private
     int amount;
 
-    public int setAmount(int amount) {
-        amount = amount;
-        return amount;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     int getAmount() {
@@ -39,13 +39,19 @@ class HardDisk {
 
 class PC {
     private
-    CPU c1;
+    CPU cpu;
     HardDisk hd;
 
+    public void setCPU(CPU cpu) {
+        this.cpu = cpu;
+    }
+
+    public void setHd(HardDisk hd) {
+        this.hd = hd;
+    }
+
     void Show() {
-        System.out.print(c1.getSpeed());
-        System.out.print("ms ");
-        System.out.print(hd.getAmount());
-        System.out.print("GB ");
+        System.out.println("CPU速度" + cpu.getSpeed() + "ms");
+        System.out.println("硬盘容量" + hd.getAmount() + "GB");
     }
 }
