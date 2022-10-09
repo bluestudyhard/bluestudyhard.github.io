@@ -374,7 +374,25 @@
       let json = JSON.stringify(userr);
       console.log(typeof json); //string
       console.log(json);
-      
+      let aaaa = [1, 2, 3, 4, 5];
+      aaaa.forEach((i) => console.log(i));
+      let point = () => {
+        if (1) console.log("111");
+        else console.log("000");
+      };
+      point();
+      let group = {
+        students: ["blue", "fish", "sheep"],
+        school: "hzxy",
+        show() {
+          this.students.forEach((student) =>
+            console.log(this.school + ":" + student)
+          );
+        },
+      };
+      group.show();
+      let s = prompt("123", "1");
+      console.log(typeof +s);
     </script>
   </body>
 </html>

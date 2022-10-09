@@ -57,20 +57,34 @@ public class homework2 {
 //            System.out.print(" ");
 //        }
         /*四*/
-        int maxlen = 0;
-        int minlen = (int) 1e9;
-        String[] str = new String[5];
-        for (int i = 0; i < 5; i++) {
-            Scanner input = new Scanner(System.in);
-            str[i] = input.nextLine();
-            if (str[i].length() > maxlen)
-                maxlen = str[i].length();
+//        int maxlen = 0;
+//        int minlen = (int) 1e9;
+//        String[] str = new String[5];
+//        for (int i = 0; i < 5; i++) {
+//            Scanner input = new Scanner(System.in);
+//            str[i] = input.nextLine();
+//            if (str[i].length() > maxlen)
+//                maxlen = str[i].length();
+//        }
+//        for (int i = 0; i < 5; i++) {
+//            if (str[i].length() < minlen)
+//                minlen = str[i].length();
+//        }
+//        System.out.println(maxlen);
+//        System.out.println(minlen);
+        String s1 = "123";
+        String s2 = "456";
+        String a[] = new String[3];
+        a[0] = "123";
+        a[1] = "456";
+        a[2] = "456";
+        String temp;
+        temp = a[0];
+        a[0] = a[1];
+        a[1] = temp;
+        System.out.println(a[0]);
+        if (a[0] == a[2]) {
+            System.out.println(a[0]);
         }
-        for (int i = 0; i < 5; i++) {
-            if (str[i].length() < minlen)
-                minlen = str[i].length();
-        }
-        System.out.println(maxlen);
-        System.out.println(minlen);
     }
 }

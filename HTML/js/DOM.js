@@ -308,3 +308,13 @@ function clear(elem) {
   }
 }
 // clear(remoevenode);
+
+let outsidea = document.querySelectorAll(".node a");
+
+for (let i = 0; i < outsidea.length; i++) {
+  let sa = outsidea[i].getAttribute("href");
+
+  if (sa.includes("://")) {
+    outsidea[i].style.color = "orange";
+  }
+}
