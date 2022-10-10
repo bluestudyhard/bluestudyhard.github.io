@@ -318,3 +318,21 @@ for (let i = 0; i < outsidea.length; i++) {
     outsidea[i].style.color = "orange";
   }
 }
+
+let student = [
+  { name: "blue", subject: "js", score: 100 },
+  { name: "blue1", subject: "js1", score: 1010 },
+  { name: "blue2", subject: "js2", score: 1002 },
+];
+
+let tablenode = document.querySelector(".nodetable tbody");
+
+student.forEach((ele) => {
+  const tr = document.createElement("tr");
+  let td = "";
+  for (const value of Object.values(ele)) {
+    td += `<td>${value}</td>`;
+  }
+  tr.innerHTML = td;
+  tablenode.appendChild(tr);
+});

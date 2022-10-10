@@ -62,12 +62,16 @@ table {
   border: 1px solid;
   border-collapse: collapse; /*折叠成单一边框*/
   text-align: center;
+  width: 200px;
 }
 td,
-th {
+th,
+thead {
   border: 1px solid rgb(61, 61, 61);
   padding: 1.5em;
 }
+
+
 tr:nth-child(odd) {
   background-color: rgb(247, 248, 248);
 }
@@ -91,20 +95,17 @@ tr:nth-child(even) {
 .tabtop li:hover {
   background-color: rgba(222, 32, 32, 0.779);
 }
-.ulfirst{
+.ulfirst {
   display: flex;
-  
 }
-.ulfirst li{
+.ulfirst li {
   width: 50px;
   text-align: center;
-  
 }
-.ulfirst ul li{
+.ulfirst ul li {
   border: 1px solid;
   border-collapse: collapse;
-  
 }
-li{
+li {
   list-style: none;
 }
