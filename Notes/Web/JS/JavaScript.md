@@ -191,9 +191,29 @@ function aaa() {
 }
 ```
 
+遍历对象
+
+- **for of**
+
+
 ### 内置对象
 
 #### 数组
+
+- **array.push()** 数组末尾添加一个或者多个元素 数组长度+1
+- **Array.pop();** 删除最后一个
+- **Array.shift();** 删除第一个
+- unshift 数组开头加一个，相当于 pushfont 完成后返回的是新数组的长度
+- sort(), reverse() 属于是懂得都懂了 但是 sort 原型只能实现个位数
+- **sort 实现自定义排序**
+  arry.sort(function (a, b) {
+  return a - b; //升序
+  });
+
+- indexof() latindexof()
+
+遍历数组方法
+forEach();
 
 #### String
 
