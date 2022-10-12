@@ -1,398 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      "use strict";
-      let str = "";
-      function print_func(n) {
-        for (let i = 1; i <= n; ++i) {
-          for (let j = 1; j <= i; j++) {
-            str += "*";
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    "use strict";
+    let str = "";
+    function print_func(n) {
+      for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= i; j++) {
+          str += "*";
+        }
+        str += "\n";
+      }
+    }
+    print_func(5);
+    console.log(str);
+    let func = (ag1, ag2 = 2) => ag1 + ag2;
+    console.log(func(1));
+    function ask(question, yes, no) {
+      if (confirm(question)) yes();
+      else no();
+    }
+    //  ask(
+    //     ()=>console.log("youre great"),
+    //     ()=>console.log("love you")
+    //  );
+    //  ask("why are you so serious?");
+
+    // js特性
+    console.log("其实可以不用打分号,换行默认带分号");
+    console.log("你看直接切行也没啥,但还是不建议，严格模式会寄");
+    // x = 2; 严格模式下未定义报错
+    // 字符串中包含变量的方法 用反引号 ` ${} `
+    let n = 233;
+    let Str = ` 反引号 ${n}`;
+    console.log(Str);
+
+    // 对象 类比c++的 map python 的字典
+
+    let user = {
+      name: "blue",
+      age: "18",
+    };
+    console.log(user.name);
+
+    /* 增删改查
+     */
+    user.isAdmit = true; // 增 直接新增元素
+    user.lover = "wyt";
+    console.log(user.isAdmit);
+    console.log(user.lover);
+    console.log(user); // 直接打印
+    delete user.age; // 直接用delete删除键值
+    console.log(user.age); // undefined
+
+    let account = {
+      balance: 1e9,
+    };
+
+    //user.love bb = "233";
+    let key = "likes birds";
+    user["likes wyt"] = true;
+    console.log(user);
+
+    // 方括号提供了一种可以通过任意表达式来获取属性名的方式。
+    // 当创建一个对象时，我们在对象字面量中使用方括号叫计算属性。
+    // 计算属性就是属性名从变量中获取
+    //let fruit = prompt("which fruits do you like", "apple");
+    let cup = "cola";
+    let book = "math";
+    let bag = {
+      //    [fruit]: 5,//从fruit 获取了apple 然后他的值就是5
+      [cup]: "200ml",
+      [cup + "qixi"]: "300ml", // 加长
+      book, // 属性值简写，前提是变量要存在
+    };
+    console.log(bag.apple); // 5 如果输入的是apple
+    console.log(bag.cola);
+    console.log(bag.colaqixi);
+    console.log(bag.book);
+
+    //
+
+    console.log(bag.noSuchFile == undefined); // true表示不存在这个属性
+
+    console.log("noSuchFile" in bag); //不存在 true
+    console.log("cola" in bag); // 存在 FALSE
+    /* 遍历所有键的方法 —— for in循环 */
+    let salaries = {
+      john: 100,
+      ann: 160,
+      fish: 130,
+    };
+    let sum = 0;
+    for (let key in salaries) {
+      sum += salaries[key];
+    }
+    console.log(sum);
+
+    /*new 一个对象 函数*/
+    // 条件，要大写字母，然后只能用new操作符操作
+    function User(name) {
+      this.name = name;
+      console.log(new.target);
+    }
+    // new.target 可以被用在函数内部，来判断该函数是被通过 new 调用的“构造器模式”，还是没被通过 new 调用的“常规模式”。
+    let newuser = new User("new函数");
+    console.log(newuser.name);
+    //User(); undefined
+
+    // 如果返回的是一个对象，那么不返回this
+
+    function Biguser() {
+      this.name = "blue";
+      return { name: "blue1" };
+    }
+    console.log(new Biguser().name); // blue1
+
+    function Cal() {
+      this.read = function () {
+        this.a = +prompt("shurua");
+        this.b = +prompt("shurub");
+      };
+      this.sum = function () {
+        return this.a + this.b;
+      };
+      this.mul = function () {
+        return this.a * this.b;
+      };
+    }
+    let cal = new Cal();
+    //  cal.read();
+    console.log(cal.sum());
+    console.log(cal.mul());
+    /*对象引用和copy，其实你让一个对象相等，只是表示新的对象可以指向原本对象中的元素罢了，他们本身并不会直接相等*/
+
+    /*开数组*/
+    let arr = new Array();
+    let array = []; //空数组
+    array = [1, 2, "blue"];
+    console.log(array);
+    console.log(array[2]); //
+    for (let i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+    sum = 0;
+    let maxx = 0;
+    array = [1, 1, 4, 5, 1, 4];
+    let StrArray = ["blue", "si", "gi", "wyt"];
+    str = "";
+    for (let i = 0; i < array.length; i++) {
+      sum += array[i];
+      if (array[i] > maxx) maxx = array[i];
+    }
+    console.log(sum, maxx);
+    for (let i = 0; i < StrArray.length; i++) {
+      str += StrArray[i] + "|";
+    }
+    console.log(str);
+    let arr1 = [];
+    for (let i = 1; i <= 10; i++) {
+      arr1[i] = i;
+    }
+    console.log(arr1);
+    arr1 = [100, 20, 22, 3, 4, 5, 6];
+    let newarr1 = [];
+    // 其实这也是筛选元素的方法，把指定的元素存入新数组
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] > 10) newarr1[newarr1.length] = arr1[i];
+      //因为初始的时候length为0，他随着元素的增加会动态的添加元素。
+    }
+    console.log(newarr1);
+
+    for (let i = 0, j = arr1.length; i < arr1.length; i++, j--) {
+      let temp = 0;
+      temp = arr1[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+    console.log(arr1);
+
+    let bbs = [4, 6, 5, 10, 9];
+    function Buble_sort(objet) {
+      for (let i = 0; i < objet.length; i++) {
+        for (let j = i + 1; j < objet.length; j++) {
+          if (objet[i] > objet[j]) {
+            let temp = objet[j];
+            objet[j] = objet[i];
+            objet[i] = temp;
           }
-          str += "\n";
         }
       }
-      print_func(5);
-      console.log(str);
-      let func = (ag1, ag2 = 2) => ag1 + ag2;
-      console.log(func(1));
-      function ask(question, yes, no) {
-        if (confirm(question)) yes();
-        else no();
-      }
-      //  ask(
-      //     ()=>console.log("youre great"),
-      //     ()=>console.log("love you")
-      //  );
-      //  ask("why are you so serious?");
+    }
+    Buble_sort(bbs);
+    console.log(bbs);
+    // 预解析 console.log(num),num = 10;因为是在严格模式下，所以大丈夫旦面试用得上
+    // 他会执行一个变量提升的操作，比如
+    // console.log(a),a = 10;a没有被定义，js会把他解析成
+    // let a,console.log(a),a = 10;所以是undefined
+    console.log(Math.SQRT2);
+    //自建math对象//
+    let Mymath = {
+      pi: 31415926,
+      Max: function () {
+        let Max = arguments[0];
+        for (let i = 0; i < arguments.length; i++)
+          if (arguments[i] > Max) Max = arguments[i];
+        return Max;
+      },
+    };
+    console.log(Mymath.Max(1, 3, 5));
+    let coverObj = {
+      objj: { myname: 1, myage: 19 },
+    };
+    console.log(coverObj.objj.myage);
+    console.log(Math.abs(-Math.PI));
+    console.log(Math.floor(1.9), Math.ceil(1.1)); //一个向下取整，一个向上取整。
+    console.log(Math.random()); //默认是一个(0,1)之间的浮点数
+    // 得到一个两点之间的随机数的方法(整)
+    function getRandom(max, min) {
+      return Math.floor(Math.random() * (max - min)) + min; //含最小值
+      //[10,100) 0*90+10 = 10;
+    }
+    console.log(getRandom(10, 50));
+    // 得到两点之间随机数的方法包括最大最小值
+    function getRealRandom(max, min) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    /*Date 内置对象*/
+    let date = new Date(2022, 9, 21); //中国标准时间
+    console.log(date);
+    let date1 = new Date();
+    console.log(date1.getFullYear());
+    console.log(date1.getDay()); //一周的第几天，礼拜日是0
+    console.log(date1.getHours()); //今天的第几点
+    //console.log(date1.getTime());
+    let year = date1.getFullYear(),
+      mounth = date1.getMonth() + 1,
+      day = date1.getDate(), //这个月的第几天
+      hurs = date1.getHours(),
+      minute = date1.getMinutes(),
+      seconds = date1.getSeconds();
+    console.log(
+      "今天是" +
+      year +
+      "年" +
+      mounth +
+      "月" +
+      day +
+      "日" +
+      hurs +
+      "时" +
+      minute +
+      "分" +
+      seconds +
+      "秒"
+    );
+    /*获得时间戳*/
+    let totaltime = date1.getTime(); //现在时间距离1970的总的毫秒数。
+    let total = +new Date();
+    console.log(totaltime, total);
+    console.log(Date.now()); //这三个都可以
+    //instanceof instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。人话来说，a instanceof b 检测a 的原型是不是b，比如说，Array,Object
+    let arry = []; //  ==  arry = new Array;
+    let objj = {};
+    console.log(arry instanceof Array); //true
+    console.log(objj instanceof Object); //true
 
-      // js特性
-      console.log("其实可以不用打分号,换行默认带分号");
-      console.log("你看直接切行也没啥,但还是不建议，严格模式会寄");
-      // x = 2; 严格模式下未定义报错
-      // 字符串中包含变量的方法 用反引号 ` ${} `
-      let n = 233;
-      let Str = ` 反引号 ${n}`;
-      console.log(Str);
+    /*数组方法*/
+    /*push 数组末尾添加一个或者多个元素 数组长度+1
+     arry.pop(); 删除最后一个
+    arry.shift(); 删除第一个
+    */
+    /*unshift 数组开头加一个，相当于pushfont 完成后返回的是新数组的长度 */
+    arry.unshift(1);
+    arry.unshift(233);
+    arry.push("blue", "focus", "your", "study", "aaa");
+    console.log(arry);
+    arry.pop();
+    arry.shift();
+    console.log(arry);
+    /*sort(),  reverse() 属于是懂得都懂了 但是sort原型只能实现个位数*/
+    arry = [3, 2, 4]; //只能个位数 像100 3 2 就不行
+    arry.sort();
+    console.log(arry);
+    arry = [1000, 2, 39, 24];
+    /*让sort变成完全体的方法*/
+    arry.sort(function (a, b) {
+      return a - b; //升序
+    });
+    console.log(arry); //就可以了
 
-      // 对象 类比c++的 map python 的字典
+    /*查找索引 indexof() latindexof()*/
+    console.log(arry.indexOf(1000));
+    console.log(arry.lastIndexOf());
 
-      let user = {
-        name: "blue",
-        age: "18",
-      };
-      console.log(user.name);
+    /*转化为字符串的方法 toString() 的话分隔符是, 
+    join join话可以决定分隔符  */
+    console.log(arry.toString());
+    console.log(arry.join("-"));
+    console.log(arry.join("lulu"));
+    /*基本包装类型 通过基本包装类型可以使简单的数据类型变成复杂的数据类型 就是说可以让基本的数据类型有属性和方法*/
+    let packstr = "bluea ";
+    // console.log(packstr.length); 可以使用对象的方法
+    /*实现原理*/
+    let temp = new String("bluea");
+    packstr = temp;
+    temp = null;
 
-      /* 增删改查
-       */
-      user.isAdmit = true; // 增 直接新增元素
-      user.lover = "wyt";
-      console.log(user.isAdmit);
-      console.log(user.lover);
-      console.log(user); // 直接打印
-      delete user.age; // 直接用delete删除键值
-      console.log(user.age); // undefined
+    /*String 对象*/
+    // 对字符串进行重新赋值其实是更改了地址，原先的值不会消失。
+    //返回字符位置  indexof()
+    console.log(packstr.indexOf("l")); //0开始 找到的第一个元素，和find()一样
+    /*根据位置返回字符 重点
+      charAt(index),
+      charCodeAt(index) 返回ascll码的值
+      str[index];
+    */
+    console.log(packstr.charAt(3)); //e
+    console.log(packstr.charCodeAt(3)); //101
+    //
+    let objjj = {
+      name: "blue",
+    };
+    console.log(objjj["name"]); //对象可以通过["key"]得到value
+    /*拼接，截取， 和mysql差不多
+    concat(str1+str2) 拼接
+    substr('截取的起始位置','截取几个字符');
+    spilt('分隔符');//字符串转数组
+    replace('被替换的字符','替换为');
+    */
+    console.log(packstr.concat("2333"));
+    let str2 = packstr.substr(0, 4);
+    console.log(str2);
+    console.log(packstr.replace("a", "b")); //只会替换一个第一个字符
+    console.log(packstr);
+    //使用这些函数后，原字符串不会改变
+    let strr = "blue,red,yello";
+    console.log(strr.split(","));
 
-      let account = {
-        balance: 1e9,
-      };
+    function Complex(name) {
+      this.name = name;
+    }
+    function f1(x) {
+      console.log(x, name);
+      x.name = "wwyytt";
+      console.log(x.name);
+    }
+    let pp = new Complex("blue");
+    console.log(pp); //blue
+    f1(pp); //wwyytt
+    console.log(pp); //改变成了wytt
+    window.currentUser = {
+      name: "blue",
+    };
+    let global = {
+      name: "blue",
+    };
+  </script>
+  <script>
+    let userr = {
+      name: "blue",
+      age: "19",
+      dd: "llulu",
+    };
+    let json = JSON.stringify(userr);
+    console.log(typeof json); //string
+    console.log(json);
+    let aaaa = [1, 2, 3, 4, 5];
+    aaaa.forEach((i) => console.log(i));
+    let point = () => {
+      if (1) console.log("111");
+      else console.log("000");
+    };
+    point();
+    let group = {
+      students: ["blue", "fish", "sheep"],
+      school: "hzxy",
+      show() {
+        this.students.forEach((student) =>
+          console.log(this.school + ":" + student)
+        );
+      },
+    };
+    group.show();
+    //let s = prompt("123", "1");
+    //console.log(typeof +s);
 
-      //user.love bb = "233";
-      let key = "likes birds";
-      user["likes wyt"] = true;
-      console.log(user);
+    let array1 = [1, 2, 3, 4, 5];
+    let array2 = [array1, arr1];//数组套数组
+    let array3 = [{ name: "blue", age: "18" }, { name: "blue", age: "18" }, { name: "blue", age: "18" },];
+    array1.forEach(function (elem) {
+      console.log(elem);
+    })
+    array1.forEach(elm => console.log(elm))
+    
+  </script>
+</body>
 
-      // 方括号提供了一种可以通过任意表达式来获取属性名的方式。
-      // 当创建一个对象时，我们在对象字面量中使用方括号叫计算属性。
-      // 计算属性就是属性名从变量中获取
-      //let fruit = prompt("which fruits do you like", "apple");
-      let cup = "cola";
-      let book = "math";
-      let bag = {
-        //    [fruit]: 5,//从fruit 获取了apple 然后他的值就是5
-        [cup]: "200ml",
-        [cup + "qixi"]: "300ml", // 加长
-        book, // 属性值简写，前提是变量要存在
-      };
-      console.log(bag.apple); // 5 如果输入的是apple
-      console.log(bag.cola);
-      console.log(bag.colaqixi);
-      console.log(bag.book);
-
-      //
-
-      console.log(bag.noSuchFile == undefined); // true表示不存在这个属性
-
-      console.log("noSuchFile" in bag); //不存在 true
-      console.log("cola" in bag); // 存在 FALSE
-      /* 遍历所有键的方法 —— for in循环 */
-      let salaries = {
-        john: 100,
-        ann: 160,
-        fish: 130,
-      };
-      let sum = 0;
-      for (let key in salaries) {
-        sum += salaries[key];
-      }
-      console.log(sum);
-
-      /*new 一个对象 函数*/
-      // 条件，要大写字母，然后只能用new操作符操作
-      function User(name) {
-        this.name = name;
-        console.log(new.target);
-      }
-      // new.target 可以被用在函数内部，来判断该函数是被通过 new 调用的“构造器模式”，还是没被通过 new 调用的“常规模式”。
-      let newuser = new User("new函数");
-      console.log(newuser.name);
-      //User(); undefined
-
-      // 如果返回的是一个对象，那么不返回this
-
-      function Biguser() {
-        this.name = "blue";
-        return { name: "blue1" };
-      }
-      console.log(new Biguser().name); // blue1
-
-      function Cal() {
-        this.read = function () {
-          this.a = +prompt("shurua");
-          this.b = +prompt("shurub");
-        };
-        this.sum = function () {
-          return this.a + this.b;
-        };
-        this.mul = function () {
-          return this.a * this.b;
-        };
-      }
-      let cal = new Cal();
-      //  cal.read();
-      console.log(cal.sum());
-      console.log(cal.mul());
-      /*对象引用和copy，其实你让一个对象相等，只是表示新的对象可以指向原本对象中的元素罢了，他们本身并不会直接相等*/
-
-      /*开数组*/
-      let arr = new Array();
-      let array = []; //空数组
-      array = [1, 2, "blue"];
-      console.log(array);
-      console.log(array[2]); //
-      for (let i = 0; i < array.length; i++) {
-        console.log(array[i]);
-      }
-      sum = 0;
-      let maxx = 0;
-      array = [1, 1, 4, 5, 1, 4];
-      let StrArray = ["blue", "si", "gi", "wyt"];
-      str = "";
-      for (let i = 0; i < array.length; i++) {
-        sum += array[i];
-        if (array[i] > maxx) maxx = array[i];
-      }
-      console.log(sum, maxx);
-      for (let i = 0; i < StrArray.length; i++) {
-        str += StrArray[i] + "|";
-      }
-      console.log(str);
-      let arr1 = [];
-      for (let i = 1; i <= 10; i++) {
-        arr1[i] = i;
-      }
-      console.log(arr1);
-      arr1 = [100, 20, 22, 3, 4, 5, 6];
-      let newarr1 = [];
-      // 其实这也是筛选元素的方法，把指定的元素存入新数组
-      for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] > 10) newarr1[newarr1.length] = arr1[i];
-        //因为初始的时候length为0，他随着元素的增加会动态的添加元素。
-      }
-      console.log(newarr1);
-
-      for (let i = 0, j = arr1.length; i < arr1.length; i++, j--) {
-        let temp = 0;
-        temp = arr1[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-      }
-      console.log(arr1);
-
-      let bbs = [4, 6, 5, 10, 9];
-      function Buble_sort(objet) {
-        for (let i = 0; i < objet.length; i++) {
-          for (let j = i + 1; j < objet.length; j++) {
-            if (objet[i] > objet[j]) {
-              let temp = objet[j];
-              objet[j] = objet[i];
-              objet[i] = temp;
-            }
-          }
-        }
-      }
-      Buble_sort(bbs);
-      console.log(bbs);
-      // 预解析 console.log(num),num = 10;因为是在严格模式下，所以大丈夫旦面试用得上
-      // 他会执行一个变量提升的操作，比如
-      // console.log(a),a = 10;a没有被定义，js会把他解析成
-      // let a,console.log(a),a = 10;所以是undefined
-      console.log(Math.SQRT2);
-      //自建math对象//
-      let Mymath = {
-        pi: 31415926,
-        Max: function () {
-          let Max = arguments[0];
-          for (let i = 0; i < arguments.length; i++)
-            if (arguments[i] > Max) Max = arguments[i];
-          return Max;
-        },
-      };
-      console.log(Mymath.Max(1, 3, 5));
-      let coverObj = {
-        objj: { myname: 1, myage: 19 },
-      };
-      console.log(coverObj.objj.myage);
-      console.log(Math.abs(-Math.PI));
-      console.log(Math.floor(1.9), Math.ceil(1.1)); //一个向下取整，一个向上取整。
-      console.log(Math.random()); //默认是一个(0,1)之间的浮点数
-      // 得到一个两点之间的随机数的方法(整)
-      function getRandom(max, min) {
-        return Math.floor(Math.random() * (max - min)) + min; //含最小值
-        //[10,100) 0*90+10 = 10;
-      }
-      console.log(getRandom(10, 50));
-      // 得到两点之间随机数的方法包括最大最小值
-      function getRealRandom(max, min) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-      /*Date 内置对象*/
-      let date = new Date(2022, 9, 21); //中国标准时间
-      console.log(date);
-      let date1 = new Date();
-      console.log(date1.getFullYear());
-      console.log(date1.getDay()); //一周的第几天，礼拜日是0
-      console.log(date1.getHours()); //今天的第几点
-      //console.log(date1.getTime());
-      let year = date1.getFullYear(),
-        mounth = date1.getMonth() + 1,
-        day = date1.getDate(), //这个月的第几天
-        hurs = date1.getHours(),
-        minute = date1.getMinutes(),
-        seconds = date1.getSeconds();
-      console.log(
-        "今天是" +
-          year +
-          "年" +
-          mounth +
-          "月" +
-          day +
-          "日" +
-          hurs +
-          "时" +
-          minute +
-          "分" +
-          seconds +
-          "秒"
-      );
-      /*获得时间戳*/
-      let totaltime = date1.getTime(); //现在时间距离1970的总的毫秒数。
-      let total = +new Date();
-      console.log(totaltime, total);
-      console.log(Date.now()); //这三个都可以
-      //instanceof instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。人话来说，a instanceof b 检测a 的原型是不是b，比如说，Array,Object
-      let arry = []; //  ==  arry = new Array;
-      let objj = {};
-      console.log(arry instanceof Array); //true
-      console.log(objj instanceof Object); //true
-
-      /*数组方法*/
-      /*push 数组末尾添加一个或者多个元素 数组长度+1
-       arry.pop(); 删除最后一个
-      arry.shift(); 删除第一个
-      */
-      /*unshift 数组开头加一个，相当于pushfont 完成后返回的是新数组的长度 */
-      arry.unshift(1);
-      arry.unshift(233);
-      arry.push("blue", "focus", "your", "study", "aaa");
-      console.log(arry);
-      arry.pop();
-      arry.shift();
-      console.log(arry);
-      /*sort(),  reverse() 属于是懂得都懂了 但是sort原型只能实现个位数*/
-      arry = [3, 2, 4]; //只能个位数 像100 3 2 就不行
-      arry.sort();
-      console.log(arry);
-      arry = [1000, 2, 39, 24];
-      /*让sort变成完全体的方法*/
-      arry.sort(function (a, b) {
-        return a - b; //升序
-      });
-      console.log(arry); //就可以了
-
-      /*查找索引 indexof() latindexof()*/
-      console.log(arry.indexOf(1000));
-      console.log(arry.lastIndexOf());
-
-      /*转化为字符串的方法 toString() 的话分隔符是, 
-      join join话可以决定分隔符  */
-      console.log(arry.toString());
-      console.log(arry.join("-"));
-      console.log(arry.join("lulu"));
-      /*基本包装类型 通过基本包装类型可以使简单的数据类型变成复杂的数据类型 就是说可以让基本的数据类型有属性和方法*/
-      let packstr = "bluea ";
-      // console.log(packstr.length); 可以使用对象的方法
-      /*实现原理*/
-      let temp = new String("bluea");
-      packstr = temp;
-      temp = null;
-
-      /*String 对象*/
-      // 对字符串进行重新赋值其实是更改了地址，原先的值不会消失。
-      //返回字符位置  indexof()
-      console.log(packstr.indexOf("l")); //0开始 找到的第一个元素，和find()一样
-      /*根据位置返回字符 重点
-        charAt(index),
-        charCodeAt(index) 返回ascll码的值
-        str[index];
-      */
-      console.log(packstr.charAt(3)); //e
-      console.log(packstr.charCodeAt(3)); //101
-      //
-      let objjj = {
-        name: "blue",
-      };
-      console.log(objjj["name"]); //对象可以通过["key"]得到value
-      /*拼接，截取， 和mysql差不多
-      concat(str1+str2) 拼接
-      substr('截取的起始位置','截取几个字符');
-      spilt('分隔符');//字符串转数组
-      replace('被替换的字符','替换为');
-      */
-      console.log(packstr.concat("2333"));
-      let str2 = packstr.substr(0, 4);
-      console.log(str2);
-      console.log(packstr.replace("a", "b")); //只会替换一个第一个字符
-      console.log(packstr);
-      //使用这些函数后，原字符串不会改变
-      let strr = "blue,red,yello";
-      console.log(strr.split(","));
-
-      function Complex(name) {
-        this.name = name;
-      }
-      function f1(x) {
-        console.log(x, name);
-        x.name = "wwyytt";
-        console.log(x.name);
-      }
-      let pp = new Complex("blue");
-      console.log(pp); //blue
-      f1(pp); //wwyytt
-      console.log(pp); //改变成了wytt
-      window.currentUser = {
-        name: "blue",
-      };
-      let global = {
-        name: "blue",
-      };
-    </script>
-    <script>
-      let userr = {
-        name: "blue",
-        age: "19",
-        dd: "llulu",
-      };
-      let json = JSON.stringify(userr);
-      console.log(typeof json); //string
-      console.log(json);
-      let aaaa = [1, 2, 3, 4, 5];
-      aaaa.forEach((i) => console.log(i));
-      let point = () => {
-        if (1) console.log("111");
-        else console.log("000");
-      };
-      point();
-      let group = {
-        students: ["blue", "fish", "sheep"],
-        school: "hzxy",
-        show() {
-          this.students.forEach((student) =>
-            console.log(this.school + ":" + student)
-          );
-        },
-      };
-      group.show();
-      let s = prompt("123", "1");
-      console.log(typeof +s);
-    </script>
-  </body>
 </html>

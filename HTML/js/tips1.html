@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM实例</title>
+</head>
+<style>
+    .movemouse {
+        width: 200px;
+        height: 200px;
+        background-color: rgb(53, 205, 154);
+        border: 2px solid;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .movemouse img {
+        position: absolute;
+        transition: 0.8s all;
+        left: 0;
+        top: 0;
+    }
+
+    body {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <p>Click on a field to move the ball there.</p>
+    <div class="movemouse">
+        <img src="https://en.js.cx/clipart/ball.svg">
+    </div>
+</body>
+<script>
+    //获取 div 元素的宽度，包含内边距（padding）和边框（border）.offsetWidth
+    // 
+    let movemouse = document.querySelector(".movemouse");
+    let moveimg = document.querySelector(".movemouse img");
+    movemouse.onclick = function (event) {
+
+        let field = this.getBoundingClientRect();
+        console.log(field.top);//52
+        console.log(field.left);//281
+        console.log(event.clientX);
+
+        console.log(moveimg.clientWidth + " " + moveimg.clientHeight);
+        console.log(movemouse.clientLeft);
+        let left = event.clientX - field.left - movemouse.clientLeft - moveimg.clientWidth / 2;
+        let top = event.clientY - field.top - movemouse.clientTop - moveimg.clientHeight / 2;
+
+        moveimg.style.left = left + 'px';
+        moveimg.style.top = top + 'px';
+    }
+</script>
+
+</html>

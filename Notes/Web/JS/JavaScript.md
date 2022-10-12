@@ -19,7 +19,7 @@
   字符串中包含变量的方法 用反引号 `${}`
   ```js {.line-numbers}
   let n = 233;
-  let Str = ` 反引号 ${n}`;
+  let Str = ` 反引号 ${n} `;
   console.log(Str);
   ```
 - boolean — 逻辑值：true/false，
@@ -191,10 +191,28 @@ function aaa() {
 }
 ```
 
-遍历对象
+### 遍历对象方法
 
-- **for of**
+- **for in**
+  一般都是用 for in 方法，for of 可以遍历对象但是没那么方便
+  **value 指的是对象的键 key** obj[key] = value;
 
+```js {.line-numbers}
+let obj = { name: "blue", age: 18 };
+for (let value in obj) {
+  console.log(value); //name age
+  console.log(obj[value]); // blue 18
+}
+```
+
+- **for..of**
+
+```js {.line-numbers}
+let obj = { name: "blue", age: 18 };
+for (let value of Object.values(value)) {
+  console.log(value);
+}
+```
 
 ### 内置对象
 
@@ -212,8 +230,49 @@ function aaa() {
 
 - indexof() latindexof()
 
-遍历数组方法
-forEach();
+**遍历数组方法**
+**forEach();**
+array.forEach((currentValue,index,arr),thisValue)
+**currentValue 必选，一般用 elm，element。当前元素**
+index 当前元素的下标
+arr 当前元素的所属的数组对象
+**常用箭头函数调用内部的 function**
+例
+
+```js {.line-numbers}
+let array1 = [1, 2, 3, 4, 5];
+array1.forEach(function (elem) {
+  console.log(elem); //1 2 3 4 5
+});
+// 和下面这个是等价的
+array1.forEach((elem) => {
+  console.log(elem); //1 2 3 4 5
+});
+```
+
+**forEach 带其他参数**
+
+```js {.line-numbers}
+let array2 = [array1, array1];
+array2.forEach((elm, index, arr) => console.log(elm, index, arr));
+// [1,2,3,4,5] 0 [Array(5),Array(5)] 指的是数组套数组里的那个数组
+array1.forEach((elm, index, arr) => console.log(elm, index, arr)); // 1 0 [1,2,3,4,5]
+```
+
+**利用 foreach 和 for..in 遍历数组里的对象**
+
+```js {.line-numbers}
+let array3 = [
+  { name: "blue", age: "18" },
+  { name: "fish", age: "18" },
+  { name: "sheep", age: "18" },
+];
+array3.forEach(elm=>for (value in elm) {
+   {
+      console.log(value);
+  }
+})
+```
 
 #### String
 
@@ -380,6 +439,8 @@ console.log(document.querySelector("ul")); //只会获取第一个ul
 ```
 
 ### 事件
+
+#### 事件流
 
 - 事件由 3 部分组成————事件源，事件类型，事件处理程序。事件三要素
 - **操作事件三要素可以分为 1.获取事件源，2.绑定事件，3.添加事件处理程序**

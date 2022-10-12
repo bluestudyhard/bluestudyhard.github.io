@@ -311,13 +311,15 @@ function clear(elem) {
 
 let outsidea = document.querySelectorAll(".node a");
 
-for (let i = 0; i < outsidea.length; i++) {
-  let sa = outsidea[i].getAttribute("href");
+outsidea.forEach((elm) => {
+  let sa = elm.getAttribute("href");
+  if (sa.includes("://")) elm.style.color = "orange";
+});
+// let sa = outsidea[i].getAttribute("href");
 
-  if (sa.includes("://")) {
-    outsidea[i].style.color = "orange";
-  }
-}
+// if (sa.includes("://")) {
+//   outsidea[i].style.color = "orange";
+// }
 
 let student = [
   { name: "blue", subject: "js", score: 100 },
@@ -336,3 +338,77 @@ student.forEach((ele) => {
   tr.innerHTML = td;
   tablenode.appendChild(tr);
 });
+
+/**
+ * 重写数组方法
+ *
+ */
+
+let array1 = [1, 2, 3, 4, 5];
+let array2 = [array1, array1]; //数组套数组
+let array3 = [
+  { name: "blue", age: "18" },
+  { name: "fish", age: "18" },
+  { name: "sheep", age: "18" },
+];
+
+array1.forEach((elm) => console.log(elm));
+
+array1.forEach((elm, index, arr) => console.log(elm, index, arr));
+
+array2.forEach((elm, index, arr) => console.log(elm, index, arr));
+
+array3.forEach((elm) => {
+  for (let value in elm) console.log(value + ":" + elm[value]);
+});
+
+array3.forEach((elm) => {
+  for (let value of Object.values(elm)) console.log(value);
+});
+
+/**
+ * 事件监听 目的是为了给一个事件分配多个处理程序
+ * addEventListener(event, handler[, options]) 为事件分配处理程序
+ * event 事件
+ * handler 处理程序
+ * options 
+ * once：如果为 true，那么会在被触发后自动删除监听器。
+capture：事件处理的阶段，我们稍后将在 冒泡和捕获 一章中介绍。由于历史原因，options 也可以是 false/true，它与 {capture: false/true} 相同。
+passive：如果为 true，那么处理程序将不会调用 preventDefault()，我们稍后将在 浏览器默认行为 一章中介绍。
+
+ * removeEventListener(event, handler[, options]) 移除处理程序 
+ * 移除处理程序我们需要传入与分配的函数完全相同的函数
+ * btnns[0].removeEventListener("click", () => alert("listen!")); 这样并不会移除处理程序
+ * 一定要和传入分配的函数，内容都要一样的才行，所以如果要删除事件，建议先先好函数，不要用箭头函数
+ */
+
+let btnns = document.querySelectorAll(".listener button");
+
+btnns[0].addEventListener("click", () => alert("listen!"));
+// btnns[0].removeEventListener("click", () => alert("listen!"));
+function handler() {
+  alert("listenTwice");
+}
+btnns[0].addEventListener("click", handler); //会在第一个事件响应以后再次响应。
+btnns[0].removeEventListener("click", handler); //成功移除
+
+btnns[1].addEventListener("click", () => (btnns[1].style.display = "none"));
+
+//有些事件无法通过 DOM 属性进行分配。只能使用 addEventListener。
+// 例如，DOMContentLoaded 事件，该事件在文档加载完成并且 DOM 构建完成时触发。
+
+/**
+ * 事件对象
+ * event.type 事件类型
+ * event.currentTarget 处理事件的元素 相当于this
+ * event.clientX,Y 返回鼠标指针的水平坐标(根据客户端区域，即当前窗口) 而且只在那个设置了事件的区域 比如说我设置了button，那我在button的不同区域点击，会返回不同的坐标
+ */
+
+//事件发生时，浏览器会创建一个event对象
+
+btnns[2].onclick = function (event) {
+  alert(event.type + " " + event.currentTarget); //  [object HTMLButtonElement]  button事件监听
+  alert(event.clientX + ":" + event.clientY); //相对点击位置一直在变
+};
+
+
