@@ -377,6 +377,7 @@ capture：事件处理的阶段，我们稍后将在 冒泡和捕获 一章中�
 passive：如果为 true，那么处理程序将不会调用 preventDefault()，我们稍后将在 浏览器默认行为 一章中介绍。
 
  * removeEventListener(event, handler[, options]) 移除处理程序 
+ * 
  * 移除处理程序我们需要传入与分配的函数完全相同的函数
  * btnns[0].removeEventListener("click", () => alert("listen!")); 这样并不会移除处理程序
  * 一定要和传入分配的函数，内容都要一样的才行，所以如果要删除事件，建议先先好函数，不要用箭头函数
@@ -390,8 +391,8 @@ function handler() {
   alert("listenTwice");
 }
 btnns[0].addEventListener("click", handler); //会在第一个事件响应以后再次响应。
-btnns[0].removeEventListener("click", handler); //成功移除
-
+//btnns[0].removeEventListener("click", handler); //成功移除
+btnns[0].onclick = () => alert("click event");
 btnns[1].addEventListener("click", () => (btnns[1].style.display = "none"));
 
 //有些事件无法通过 DOM 属性进行分配。只能使用 addEventListener。
@@ -407,8 +408,49 @@ btnns[1].addEventListener("click", () => (btnns[1].style.display = "none"));
 //事件发生时，浏览器会创建一个event对象
 
 btnns[2].onclick = function (event) {
-  alert(event.type + " " + event.currentTarget); //  [object HTMLButtonElement]  button事件监听
+  alert(event.type + " " + event.currentTarget); //  click [object HTMLButtonElement]
   alert(event.clientX + ":" + event.clientY); //相对点击位置一直在变
 };
 
+/**
+ * 冒泡事件 捕获事件
+ * event.stopPropagation()
+ * 捕获路线 document -> html -> body -> father ->target
+ */
+const body = document.querySelector("body");
+let father = document.querySelector(".father");
+let son = document.querySelector(".son");
+let taget = document.querySelector(".target");
+/**
+ * 冒泡
+ * 阻止冒泡
+ * event.stopImmediatePropagation()
+ * event.stopPropagation() 停止向上移动
+ */
+son.addEventListener("click", function (ele) {
+  alert("son");
+  ele.stopPropagation(); //不会在继续冒泡
+}); //点击son father 先弹出son 随后father也会弹出
+father.addEventListener("click", () => alert("father"));
 
+//body.addEventListener("click", () => alert("还会往上冒泡"));
+
+/**
+ * 捕获
+ */
+
+// son.addEventListener("click", function () {
+//   alert("son", true); // capture:true;
+// }); //点击son father 先弹出father 随后弹出son
+// father.addEventListener("click", () => alert("father"), true);
+//console.log(document.querySelectorAll("*"));
+// document.querySelectorAll("*")获取的是所有的元素节点
+
+// for (let ele of document.querySelectorAll("*")) {
+//   ele.addEventListener(
+//     "click",
+//     () => console.log(`capture:${ele.tagName}`),
+//     true
+//   );
+//   ele.addEventListener("click", () => console.log(`bubble:${ele.tagName}`));
+// }

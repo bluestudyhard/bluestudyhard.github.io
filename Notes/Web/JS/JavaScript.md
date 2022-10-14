@@ -438,11 +438,11 @@ console.log(document.querySelector("#first"));
 console.log(document.querySelector("ul")); //只会获取第一个ul
 ```
 
-### 事件
+### DOM 事件
 
-#### 事件流
+事件简介 事件其实就是元素发生了什么事情，比如说点击，那么就是一个点击事件，让他发生什么事情，那就是事件处理程序该做的。
 
-- 事件由 3 部分组成————事件源，事件类型，事件处理程序。事件三要素
+- 事件由 3 部分组成————**事件源，事件类型，事件处理程序**。事件三要素
 - **操作事件三要素可以分为 1.获取事件源，2.绑定事件，3.添加事件处理程序**
 
 一 . **事件源 事件触发的对象 以按钮为例**
@@ -477,8 +477,8 @@ let btn = document.querySelector(".btn");
 - ondblclick 双击鼠标时触发此事件
 - onmousedown 按下鼠标时触发此事件
 - onmouseup 鼠标按下后又松开时触发此事件
-- onmouseover 当鼠标移动到某个元素上方时触发此事件
-- onmousemove 移动鼠标时触发此事件
+- **onmouseover** 当鼠标移动到某个元素上方时触发此事件
+- **onmousemove** 移动鼠标时触发此事件
 - onmouseout 当鼠标离开某个元素范围时触发此事件
 - onkeypress 当按下并松开键盘上的某个键时触发此事件
 - onkeydown 当按下键盘上的某个按键时触发此事件
@@ -486,7 +486,7 @@ let btn = document.querySelector(".btn");
 
 键盘事件
 
-onkeydown 某个键盘按键被按下。
+**onkeydown** 某个键盘按键被按下。
 onkeypress 某个键盘按键被按下并松开。
 onkeyup 某个键盘按键被松开。
 
@@ -506,9 +506,19 @@ onkeyup 某个键盘按键被松开。
 
 #### 事件处理程序
 
-一.函数处理
+有三种方法可以设置事件处理程序
 
-二.修改元素
+- HTML 特性（attribute）：onclick="..."。
+- **DOM 属性（property）：elem.onclick = function**。
+- **方法（method）：elem.addEventListener(event, handler[, phase]) 用于添加，removeEventListener 用于移除。**
+
+```js {.line-numbers}
+xx.onclick = function () {
+  /**/
+};
+```
+
+二.通过 DOM 属性修改元素
 
 - element.innerHTML
   可以直接获取,改变 html 的元素,可加标签。不能修改表单
@@ -585,7 +595,186 @@ for (let i = 0; i < buttons.length; i++) {
     }
     buttons[i].style.backgroundColor = "pink";
   };
+
+  buttons.forEach((elem) => {
+    elem.onclick = function () {};
+  });
 }
+```
+
+**三. 通过方法执行事件处理程序**
+
+**事件监听**
+元素执行事件时，像 onclick，只能执行一个事件处理程序，而你更改事件处理程序时，就会覆盖原本的程序。所以事件监听就是为了解决这一问题的
+事件监听可以使一个事件执行多个事件处理程序
+
+addEventListener(event, handler(), options) 为事件分配处理程序
+removeEventListener(event, handler()) 移除事件分配的处理程序，**要注意移除的事件处理程序一定要和监听事件的一致，所以这个时候不能使用箭头函数**
+
+- **event 事件**
+- **handler 处理程序**
+- options
+- once：如果为 true，那么会在被触发后自动删除监听器。
+  **capture：事件处理的阶段，我们稍后将在 冒泡和捕获 一章中介绍。由于历史原因，options 也可以是 false/true，它与 {capture: false/true} 相同。**
+  passive：如果为 true，那么处理程序将不会调用 preventDefault
+
+如果想让他除了多个程序，只需要再写一样的监听事件，再加一个函数就可以了。
+
+```js {.line-numbers}
+let father = document.querySelector(".father");
+father.addEventListener("click", () => alert("father"));
+father.addEventListener("click", () => alert("fatherTwice"));
+/*点击以后*/
+//father fatherTwice
+```
+
+监听事件和原本的事件是不冲突的，比如 addEventListener 和 onclick 事件可以兼容
+
+```js {.line-numbers}
+let btnns = document.querySelectorAll(".listener button");
+
+btnns[0].addEventListener("click", () => alert("listen!"));
+// btnns[0].removeEventListener("click", () => alert("listen!"));
+function handler() {
+  alert("listenTwice");
+}
+btnns[0].addEventListener("click", handler); //会在第一个事件响应以后再次响应。
+btnns[0].onclick = () => alert("click event"); //会在最后弹出 click event
+```
+
+移除事件分配的处理程序
+注意 funtion()一定要先定义
+
+```js {.line-numbers}
+btnns[0].addEventListener("click", ()=>alert());
+btnns[0].removeEventListener("click", =>alert());//移除失败
+function handler() {
+  alert("listenTwice");
+}
+btnns[0].addEventListener("click", handler); //会在第一个事件响应以后再次响应。
+btnns[0].removeEventListener("click", handler); //成功移除
+```
+
+#### 事件对象
+
+浏览器在事件发生时，会在事件处理函数里自带一个事件对象，可以获取事件到底发生了什么事情
+当事件发生时，浏览器会创建一个 event 对象，将详细信息放入其中，并将其作为参数传递给处理程序。
+
+**event 对象的一些属性：**
+
+- **event.type**
+  事件类型，这里是 "click"。
+- **event.currentTarget**
+  处理事件的元素。这与 this 相同，除非处理程序是一个箭头函数，或者它的 this 被绑定到了其他东西上，之后我们就可以从 event.currentTarget 获取元素了。
+- **event.clientX / event.clientY**
+  指针事件（pointer event）的指针的窗口相对坐标。返回鼠标指针的水平坐标(根据客户端区域，即当前窗口) 而且只在那个设置了事件的区域 比如说我设置了 button，那我在 button 的不同区域点击，会返回不同的坐标
+- 例:
+
+```js {.line-numbers}
+<div class="listener">
+  <button>事件监听</button>
+  <button>事件监听</button>
+  <button>事件监听</button>
+</div>;
+btnns[2].onclick = function (event) {
+  alert(event.type + " " + event.currentTarget); //  click [object HTMLButtonElement]
+  alert(event.clientX + ":" + event.clientY); //相对点击位置一直在变
+};
+```
+
+
+#### 事件流
+
+**DOM 事件流的方向**
+DOM 事件流分为 3 个阶段
+
+- 捕获阶段
+- 当前目标阶段即我要执行目标处理函数的阶段
+- 冒泡阶段
+  ![img](imgg/dom事件流.png)
+  ![img](imgg/事件流.png)
+
+  **DOM 事件执行是有方向的分为捕获阶段和冒泡阶段，一般来说我们关注的是冒泡阶段。**
+
+**冒泡阶段**
+以下面为例，**我要点击的 son，就是我要执行的目标阶段**，而平时的事件操作只会执行当前目标阶段的原因是，我们没有对他的**父节点 div**,body 节点添加事件处理程序。一旦我们添加了程序，他也会执行相应的操作。我点击了 son，然后给 father 一个监听事件，father 也会弹出内容
+
+```js {.line-numbers}
+<div class="father">
+  father
+  <div class="son">son</div>
+</div>;
+let father = document.querySelector(".father");
+let son = document.querySelector(".son");
+son.addEventListener("click", () => alert("son"));
+father.addEventListener("click", () => alert("father"));
+/*
+son
+father
+*/
+```
+
+点击 son，father 也会弹出内容，说明，事件结束了以后，继续往上一个元素执行了，这就是冒泡。和递归的进栈到栈底再出栈很像，从下往上。
+
+**阻止冒泡事件**
+不建议这样做
+
+- 阻止冒泡
+- event.stopImmediatePropagation()
+- event.stopPropagation() 停止冒泡
+  **注意**
+  这两个方法是函数里的方法，而不是事件本身的方法。
+
+```js {.line-numbers}
+<div class="father">
+  father
+  <div class="son">son</div>
+</div>;
+let father = document.querySelector(".father");
+let son = document.querySelector(".son");
+son.addEventListener("click", function (ele) {
+  alert("son");
+  ele.stopPropagation(); //不会再继续冒泡
+});
+father.addEventListener("click", () => alert("father"));
+
+/*
+ * son
+ */
+```
+
+**捕获阶段**
+和冒泡阶段是反过来的，如果要执行捕获阶段，把监听事件的最后一个参数改成 true。
+
+```js {.line-numbers}
+<div class="father">
+  father
+  <div class="son">son</div>
+</div>;
+let father = document.querySelector(".father");
+let son = document.querySelector(".son");
+son.addEventListener("click", () => alert("son"), true);
+father.addEventListener("click", () => alert("father"), true);
+/* 点击son以后
+ * father
+ * son
+ */
+```
+
+**该例子描述了冒泡和捕获阶段的全过程**
+点击结果
+![img](imgg/bubble.png)
+
+```js {.line-numbers}
+
+document.querySelectorAll("*")获取的是所有的元素节点
+for (let ele of document.querySelectorAll("*")) {
+  ele.addEventListener(
+    "click",
+    () => console.log(`capture:${ele.tagName}`),
+    true
+  );
+  ele.addEventListener("click", () => console.log(`bubble:${ele.tagName}`));
 ```
 
 ### DOM 属性
