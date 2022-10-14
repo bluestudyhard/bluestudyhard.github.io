@@ -659,7 +659,15 @@ btnns[0].removeEventListener("click", handler); //成功移除
 
 浏览器在事件发生时，会在事件处理函数里自带一个事件对象，可以获取事件到底发生了什么事情
 当事件发生时，浏览器会创建一个 event 对象，将详细信息放入其中，并将其作为参数传递给处理程序。
+**事件对象指的是这个事件的一些相关的属性，比如说 click 事件**
 
+```C++ {.line-numbers}
+father.onclick = function (element) {
+  console.log(element);
+};
+```
+
+![img](imgg/click属性.png)
 **event 对象的一些属性：**
 
 - **event.type**
@@ -682,6 +690,40 @@ btnns[2].onclick = function (event) {
 };
 ```
 
+**关于 this，target,currentTarget 的区别**
+this 和 currentTarget 可以说是一样的，指的是，当前执行事件处理函数的注册元素。一个事件处理函数只能注册一个元素。 比如例子中的 father
+而 target 指的是当前执行事件的元素 比如例子中的 son
+
+**当注册事件的元素和执行事件的元素相同时，他们三个是一样的**
+
+```js {.line-numbers}
+function elee(ele) {
+  console.log(ele.target);
+  console.log(ele.currentTarget);
+  console.log(this);
+  console.log(ele.target === ele.currentTarget);
+  console.log(ele.target === this);
+  console.log(ele.currentTarget === this);
+}
+father.onclick = elee; //一个事件处理程序只能注册一个函数,函数注册了father
+```
+
+![img](imgg/target1.png)
+
+```js {.line-numbers}
+function elee(ele) {
+  console.log(ele.target);
+  console.log(ele.currentTarget);
+  console.log(this);
+  console.log(ele.target === ele.currentTarget);
+  console.log(ele.target === this);
+  console.log(ele.currentTarget === this);
+}
+son.onclick = elee;
+```
+
+**当注册事件的元素和执行事件的元素不同时，他们不同，在这里执行事件的是 son，所以 ele.target 指向的就是 son。**
+![img](imgg/target2.png)
 
 #### 事件流
 
@@ -776,6 +818,11 @@ for (let ele of document.querySelectorAll("*")) {
   );
   ele.addEventListener("click", () => console.log(`bubble:${ele.tagName}`));
 ```
+
+#### 事件委托
+
+**事件委托的原理**
+不是每个子节点都单独设置一个事件监听器，而是将监听器设置在其父节点上，然后利用冒泡原理影响设置的每个子节点。提高程序性能。
 
 ### DOM 属性
 

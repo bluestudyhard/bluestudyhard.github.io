@@ -427,11 +427,16 @@ let taget = document.querySelector(".target");
  * event.stopImmediatePropagation()
  * event.stopPropagation() 停止向上移动
  */
-son.addEventListener("click", function (ele) {
-  alert("son");
+
+son.addEventListener("click", function (e) {
+  // console.log(ele.target);
+  // console.log(ele.currentTarget);
+  // console.log(this);
+  // console.log(ele.target === ele.currentTarget);
+  // console.log(ele.target === this);
+  // console.log(ele.currentTarget === this);
   ele.stopPropagation(); //不会在继续冒泡
 }); //点击son father 先弹出son 随后father也会弹出
-father.addEventListener("click", () => alert("father"));
 
 //body.addEventListener("click", () => alert("还会往上冒泡"));
 
@@ -454,3 +459,46 @@ father.addEventListener("click", () => alert("father"));
 //   );
 //   ele.addEventListener("click", () => console.log(`bubble:${ele.tagName}`));
 // }
+/**
+ * 事件对象
+ */
+function elee(ele) {
+  console.log(ele.target);
+  console.log(ele.currentTarget);
+  console.log(this);
+  console.log(ele.target === ele.currentTarget);
+  console.log(ele.target === this);
+  console.log(ele.currentTarget === this);
+}
+// father.onclick = function (ele) {
+//   console.log(ele.target);
+//   console.log(ele.currentTarget);
+//   console.log(this);
+//   console.log(ele.target === ele.currentTarget);
+//   console.log(ele.target === this);
+//   console.log(ele.currentTarget === this);
+// };
+/**相当于 */
+father.onclick = elee; //一个事件处理程序只能绑定一个函数
+/**
+ * ele.target 当前执行事件的元素,也就是实际目标元素 比如说son
+ * ele.currentTarget 是当前执行函数绑定的事件 在这里的father
+ * this = currentTarget
+ */
+
+son.onclick = elee;
+
+/**阻止默认事件，比如阻止a跳转，表单提交 */
+
+outsidea.forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
+});
+
+let apply = document.querySelector(".eventapply table");
+let tdd = document.querySelector(".eventapply table td");
+// 无论点哪个都会alert
+apply.addEventListener("click", () => {
+  alert("nice");
+});
