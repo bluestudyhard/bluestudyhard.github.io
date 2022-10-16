@@ -92,7 +92,8 @@
     "uses_allocator.h": "c",
     "move.h": "c",
     "c++config.h": "c",
-    "charconv": "cpp"
+    "charconv": "cpp",
+    "list.C": "cpp"
   },
   "cSpell.words": [
     "aabab",

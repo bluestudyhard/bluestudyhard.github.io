@@ -497,8 +497,16 @@ outsidea.forEach((ele) => {
 });
 
 let apply = document.querySelector(".eventapply table");
-let tdd = document.querySelector(".eventapply table td");
+let tdd = document.querySelectorAll(".eventapply table td");
 // 无论点哪个都会alert
-apply.addEventListener("click", () => {
-  alert("nice");
-});
+// 我们只注册了apply 但是 target返回的是触发事件的对象。
+apply.onclick = function (ele) {
+  let target = ele.target;
+  target.onclick = function () {
+    tdd.forEach((e) => {
+      e.style.backgroundColor = "";
+    });
+    this.style.backgroundColor = "red";
+  };
+};
+

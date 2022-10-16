@@ -46,8 +46,9 @@ void dfs(int u) // start 记录节点
 }
 int main()
 {
-    cin >> n >> m;
-    dfs(1);
+    // cin >> n >> m;
+    // dfs(1);
+
     // int n;
     // string s;
     // cin >> n;
@@ -169,7 +170,50 @@ int main()
     //     }
 
     // }
-    int a[5] = {1,2,3,4,5};
-    int b[5] = {2,3,4};
-    
+
+    //  Read()
+    // {
+    //     int x,len,a;
+    //     scanf("%d",&x);
+    //     len = x;
+    //     Node p;
+    //     p = (PtrToNode)malloc(sizeof(Node));
+    //     for(int i = 0;i<len;i++)
+    //     {
+    //         scanf("%d",&a);
+    //         p->Data = a;
+    //         p = p->next;
+    //     }
+    //     p->next = null;
+    //     return p;
+    // }
+    // Print(List L)
+    // {
+    //    Node p;
+    //     p = (PtrToNode)malloc(sizeof( Node));
+    //     while(p->next!=null)
+    //     {
+    //         printf("%d ",p->Data);
+    //         p = p->next;
+    //     }
+    // }
+    int *p1, *p2, *p3;
+    p1 = new int[10];
+    p2 = p1; //对p2 操作就是对p1操作,p2指向了另一个指针，但是原本的已经改变了的p1，是不会一起变的
+    p2[0] = 1;
+    p2 = p3;
+    for (int i = 0; i < 4; i++)
+    {
+        cout << p1[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 4; i++)
+    {
+        cout << p2[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 4; i++)
+    {
+        cout << p3[i] << " ";
+    }
 }

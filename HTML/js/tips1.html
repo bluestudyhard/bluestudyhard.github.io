@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM实例</title>
 </head>
 <style>
@@ -27,35 +27,65 @@
     body {
         text-align: center;
     }
+
+    .change-list {
+        width: 300px;
+        margin: 0 auto;
+
+    }
+
+    .change-list li {
+        background-color: rgb(248, 255, 219);
+        border: 1px solid;
+        position: relative;
+    }
+
+    .change-list button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background: none;
+    }
 </style>
 
 <body>
     <p>Click on a field to move the ball there.</p>
     <div class="movemouse">
-        <img src="https://en.js.cx/clipart/ball.svg">
+        <img src="https://en.js.cx/clipart/ball.svg" />
+    </div>
+    <div class="change-list">
+        <ul>
+            <li>
+                <div >
+                    <span class="bbc">Horse The horse is one of two extant subspecies of Equus ferus. It
+                        is an odd-toed ungulate mammal belonging to the taxonomic family
+                        Equidae. The horse has evolved over t
+                        <button class="bbt">[X]</button>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span>Horse The horse is one of two extant subspecies of Equus ferus. It
+                        is an odd-toed ungulate mammal belonging to the taxonomic family
+                        Equidof
+                        <button class="bbt">[X]</button>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span>Horse The horse is one of two extant subspecies of Equus ferus. It
+                        is an years from a small multi-toed creature, Eohippus, into the
+                        large, single-toed animal of today.
+                        <button class="bbt">[X]</button>
+                    </span>
+                </div>
+            </li>
+        </ul>
     </div>
 </body>
-<script>
-    //获取 div 元素的宽度，包含内边距（padding）和边框（border）.offsetWidth
-    // 
-    let movemouse = document.querySelector(".movemouse");
-    let moveimg = document.querySelector(".movemouse img");
-    movemouse.onclick = function (event) {
-
-        let field = this.getBoundingClientRect();
-        console.log(field.top);//52
-        console.log(field.left);//281
-        console.log(event.clientX);
-
-        console.log(moveimg.clientWidth + " " + moveimg.clientHeight);
-        console.log(movemouse.clientLeft);
-        let left = event.clientX - field.left - movemouse.clientLeft - moveimg.clientWidth / 2;
-        let top = event.clientY - field.top - movemouse.clientTop - moveimg.clientHeight / 2;
-
-        moveimg.style.left = left + 'px';
-        moveimg.style.top = top + 'px';
-    }
-    //movemouse.onclick = ""; 移除click事件
-</script>
+<script src="tips.js"></script>
 
 </html>

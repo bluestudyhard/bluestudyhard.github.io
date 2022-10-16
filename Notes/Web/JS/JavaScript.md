@@ -670,6 +670,16 @@ father.onclick = function (element) {
 ![img](imgg/click属性.png)
 **event 对象的一些属性：**
 
+- **event.target**
+  指的是当前触发事件的对象(元素)，比如说我绑定了一个点击事件，我绑定的元素是 table，但是我点击的是 td，所以 target 返回的是 td，而不是 table。
+
+  ```js {.line-numbers}
+  apply.onclick = function (ele) {
+    let target = ele.target;
+    console.log(target);
+  }; //td
+  ```
+
 - **event.type**
   事件类型，这里是 "click"。
 - **event.currentTarget**
@@ -691,8 +701,8 @@ btnns[2].onclick = function (event) {
 ```
 
 **关于 this，target,currentTarget 的区别**
-this 和 currentTarget 可以说是一样的，指的是，当前执行事件处理函数的注册元素。一个事件处理函数只能注册一个元素。 比如例子中的 father
-而 target 指的是当前执行事件的元素 比如例子中的 son
+this 和 currentTarget 可以说是一样的，指的是，**当前执行事件处理函数的注册元素。一个事件处理函数只能注册一个元素。** 比如例子中的 father
+**而 target 指的是当前执行事件的元素**比如例子中的 son
 
 **当注册事件的元素和执行事件的元素相同时，他们三个是一样的**
 
