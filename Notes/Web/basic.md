@@ -110,3 +110,29 @@ http://www.xxxxx.com/index.html?test123123&id=blue
 - WebSocket
 
 ### http 协议
+详见网络是怎样连接的.md
+
+
+
+### API
+#### API的基本概念
+API Application Programming Interface 
+简单来说就是 程序之间的接口。
+
+这个接口，其实就像现成的工具一样，不需要我们做什么事情，我们只需要根据我们的需求，利用这个api来实现一些操作就可以了。
+举个例子，我需要请人帮我做家务，我需要叫家政公司为我提供服务，在这里，家政公司就是API。 而怎么请阿姨，阿姨的打扫方法，都不是我需要考虑的。我需要做的只是，表明我的需求，她需要打扫卧室啊，什么的就可以了。
+**也就是说API的实现细节，很多时候我们是不需要知道的。**
+
+- 下图表示在前后端直接API 的作用
+![img](webimg/api.png)
+
+
+
+
+#### 现在API最常用的形式——以网络请求为基础的API
+
+![img](webimg/api-relationship.webp)
+
+
+### cookie
+
