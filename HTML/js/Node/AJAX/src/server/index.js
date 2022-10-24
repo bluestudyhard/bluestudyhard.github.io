@@ -1,3 +1,4 @@
+const { json } = require("body-parser");
 const express = require("express");
 
 const app = express(); //express 对象
@@ -10,6 +11,7 @@ const app = express(); //express 对象
  */
 app.get("/aj", (request, response) => {
   //设置响应头 设置允许跨域
+  response.setHeader("Access-Control-Allow-Headers", "*");
   response.setHeader("Access-Control-Allow-Origin", "*");
   //设置响应体
   response.send("hello ajax");
@@ -18,7 +20,25 @@ app.get("/aj", (request, response) => {
 app.post("/aj", (req, response) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
   // 响应信息
-  response.send("post ajax");
+  response.setHeader("Access-Control-Allow-Headers", "*");
+  let data = {
+    name: "blue",
+    age: "18",
+  };
+  let str = JSON.stringify(data);
+  response.send(str);
+});
+
+// 表示可以接受所有方法
+app.all("/aj", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // 响应信息
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  let json = {
+    name: "blue",
+    age: "18",
+  };
+  response.send(json.stringify);
 });
 
 app.listen(8000, () => {

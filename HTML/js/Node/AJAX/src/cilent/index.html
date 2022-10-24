@@ -6,7 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
+  <style>
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+    .move {
+      border: 1px solid;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
   <body>
     <div>
       <input class="firstinput" type="text" value="blue" />
@@ -15,6 +26,14 @@
       <button class="btn1">点击发送请求</button>
       <div class="result"></div>
     </div>
+    <div class="firstlable">
+      <label>
+        <input type="text" class="secondinput" />
+        <input type="password" class="secondpassword" />
+        <input type="submit" class="secondsubmit" />
+      </label>
+    </div>
+    <div class="move"></div>
     <script src="client.js"></script>
   </body>
 </html>
