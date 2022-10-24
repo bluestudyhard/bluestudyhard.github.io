@@ -50,7 +50,7 @@ move.addEventListener("click", () => {
   const xhr1 = new XMLHttpRequest();
   // open 和 send 一定要在响应函数的外面，然后要先open再send
   xhr1.open("POST", "http://localhost:8000/aj", true);
-  xhr1.responseType = "json";
+  xhr1.responseType = "json"; // 固定的接受json响应 但是指定了这个只能接受json
   //xhr1.setRequestHeader("content-type", "text/html; charset=utf-8");
   //xhr1.setRequestHeader("name", "blue");
   xhr1.send();
@@ -58,6 +58,7 @@ move.addEventListener("click", () => {
     if (xhr1.readyState === 4) {
       if (xhr1.status >= 200 && xhr1.status < 300) {
         move.innerHTML = xhr1.response.name;
+        
       }
     }
   };

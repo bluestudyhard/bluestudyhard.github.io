@@ -1,4 +1,5 @@
 const { json } = require("body-parser");
+const { response } = require("express");
 const express = require("express");
 
 const app = express(); //express 对象
@@ -38,7 +39,6 @@ app.all("/aj", (req, res) => {
     name: "blue",
     age: "18",
   };
-  response.send(json.stringify);
 });
 
 app.listen(8000, () => {
