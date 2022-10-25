@@ -21,7 +21,6 @@
       background-size: 100%;
       background-position: 10% 43%;
       transition: all 2s;
-      overflow: hidden;
     }
     .body-after {
       background: url(zumutoyo.jpg) no-repeat;
@@ -30,7 +29,6 @@
       background-position: 10% 43%;
       transition: all 2s;
       backdrop-filter: blur(3px);
-      overflow: hidden;
     }
     .serachbody {
       width: 250px;
@@ -41,7 +39,6 @@
       background-color: rgba(245, 246, 247, 0.719);
       color: rgba(77, 176, 219, 0.514);
       border: 0.5px rgba(255, 245, 238, 0.129);
-      
     }
     .serachbody:hover {
       width: 400px;
@@ -60,36 +57,20 @@
     .searchbutton {
       display: none;
     }
-    .right-side {
-      width: 300px;
-      height: 300px;
-      border: 1px solid;
-      float: right;
-    }
   </style>
   <body>
-    <div class="second-body">
-      <div class="page-search">
-        <form method="get" action="https://cn.bing.com/search" target="_blank">
-          <input
-            type="text"
-            class="serachbody"
-            placeholder="请输入内容"
-            name="q"
-            autocomplete="off"
-          />
-          <input type="submit" value="搜索" class="searchbutton" />
-        </form>
-      </div>
-      <!-- <div class="right-side">
-      <canvas width="200px" height="200px">
-        s 
-      </canvas>
-
-      </div>
-    </div> -->
+    <div class="page-search">
+      <form method="get" action="https://cn.bing.com/search" target="_blank">
+        <input
+          type="text"
+          class="serachbody"
+          placeholder="请输入内容"
+          name="q"
+          autocomplete="off"
+        />
+        <input type="submit" value="搜索" class="searchbutton" />
+      </form>
     </div>
   </body>
   <script src="page.js"></script>
-  <script src="ani.js"></script>
 </html>
