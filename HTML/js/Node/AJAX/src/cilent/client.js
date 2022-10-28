@@ -58,8 +58,31 @@ move.addEventListener("click", () => {
     if (xhr1.readyState === 4) {
       if (xhr1.status >= 200 && xhr1.status < 300) {
         move.innerHTML = xhr1.response.name;
-        
       }
     }
   };
 });
+
+let btn2 = document.querySelector(".secondsubmit");
+let secondinput = document.querySelector(".secondinput");
+btn2.onclick = () => {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:8000/delay");
+  // 设置响应延迟
+  xhr.timeout = 2000;
+  xhr.ontimeout = () => {
+    alert("请求超时,请稍后重试");
+  };
+  // 网络异常回调
+  xhr.onerror = () => {
+    alert("你的网络出现了一些问题");
+  };
+  xhr.send();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        secondinput.value = xhr.response;
+      }
+    }
+  };
+};

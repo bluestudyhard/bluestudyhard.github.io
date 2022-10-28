@@ -510,3 +510,4 @@ apply.onclick = function (ele) {
   };
 };
 
+setTimeout(alert("blue"),3000 );

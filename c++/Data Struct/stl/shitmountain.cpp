@@ -217,18 +217,28 @@
 //         cout << p3[i] << " ";
 //     }
 // }
+
 #include <bits/stdc++.h>
 using namespace std;
+int minn_p, max_p;
 int maxsum(int *a, int n)
 {
-    int maxx, cur_sum;
-    maxx = -1e8, cur_sum = 0;
+    int maxx = -1e8, cur_sum = 0, temp = 0;
+    minn_p = 0, max_p = n - 1;
     for (int i = 0; i < n; i++)
     {
         cur_sum += a[i];
-        maxx = max(maxx, cur_sum);
         if (cur_sum < 0)
+        {
             cur_sum = 0;
+            temp = i + 1; // 如果该数小于0 那么可以直接跳过，因为小于0的只会减小总和，然后temp跳到下一个元素。
+        }
+        else if (cur_sum > maxx)
+        {
+            maxx = cur_sum;
+            minn_p = temp;
+            max_p = i;
+        }
     }
     if (maxx < 0)
         return 0;
@@ -241,5 +251,5 @@ int main()
     int a[n + 5];
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    cout << maxsum(a, n);
+    cout << maxsum(a, n) << " " << a[minn_p] << " " << a[max_p];
 }

@@ -916,3 +916,15 @@ index 属性不是元素本身自带的 class 这样的属性，是我们人为�
 alert(div.style); // [object CSSStyleDeclaration]
 alert(div.style.color); // red
 ```
+
+## BOM
+
+### window 方法
+
+- setTimeout(function,ms); 是设定一个指定等候时间 (单位是千分之一秒, millisecond), 时间到了, 浏览器就会执行一个指定的代码
+  例:
+
+```js {.line-numbers}
+setTimeout(() => {}, 3000);
+```
+

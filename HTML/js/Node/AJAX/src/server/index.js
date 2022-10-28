@@ -41,6 +41,19 @@ app.all("/aj", (req, res) => {
   };
 });
 
+/**
+ * 延迟响应
+ */
+app.get("/delay", (request, response) => {
+  //设置响应头 设置允许跨域
+  response.setHeader("Access-Control-Allow-Headers", "*");
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  //设置响应体 延迟响应
+  setTimeout(() => {
+    response.send("hello delay");
+  }, 3000);
+});
+
 app.listen(8000, () => {
   console.log("http://localhost:8000/aj");
   console.log("服务已启动，8000 端口监听中");
