@@ -10,6 +10,7 @@ const app = express(); //express 对象
  * 第一个参数 请求根路径 若传 "/" url为 根目录 /xx 就是url的xxx
  * 第二个参数是一个函数 (request,response)
  */
+
 app.get("/aj", (request, response) => {
   //设置响应头 设置允许跨域
   response.setHeader("Access-Control-Allow-Headers", "*");

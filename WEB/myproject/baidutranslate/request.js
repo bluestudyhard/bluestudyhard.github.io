@@ -3,19 +3,25 @@ const xhr = new XMLHttpRequest();
 const appid = "20221028001422420";
 const key = "bsyZYm3NFJLCQWjPwsKE";
 let salt = new Date().getTime();
+let btn = document.querySelector("button");
+let result = document.querySelector(".result-content");
 let from = "en";
 let to = "zh";
-let btn = document.querySelector("button");
-let result = document.querySelector(".result");
+// Unicode汉字范围 19968-40869
 btn.onclick = function () {
-  let contents = $("#srctext").val();
+  let contents = $("#srctext").val(); //用了jquery
+  console.log(contents.charCodeAt(0));
+  if (contents.charCodeAt(0) >= 19968 && contents.charCodeAt(0) <= 40869) {
+    from = "zh";
+    to = "en";
+  }
   let str = appid + contents + salt + key;
   let sign = MD5(str);
+  let issending = false;
   let url = `https://fanyi-api.baidu.com/api/trans/vip/translate?q=${encodeURIComponent(
     contents
-  )}&from=en&to=zh&appid=${appid}&salt=${salt}&sign=${sign}&callback=callback`;
+  )}&from=${from}&to=${to}&appid=${appid}&salt=${salt}&sign=${sign}&callback=callback`;
   console.log(url);
-
   //   xhr.open("GET", url);
   //   xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
   //   xhr.send();
@@ -28,13 +34,18 @@ btn.onclick = function () {
   //       }
   //     }
   //   };
-
+  // 用jsonp的方法向api请求
+  result.innerHTML = "";
   let script = document.createElement("script");
   script.src = url;
   console.log(script);
   document.body.append(script);
+  issending = true;
+  script.remove();
+  // console.log(contents);
 };
 function callback(data) {
-  alert(data.trans_result.dst);
+  data.trans_result.forEach((element) => {
+    result.innerHTML += element.dst;
+  });
 }
-// console.log(contents);
