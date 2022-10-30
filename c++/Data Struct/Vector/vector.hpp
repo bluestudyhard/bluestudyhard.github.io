@@ -102,6 +102,10 @@ public:
     {
         return thesize;
     }
+    T &operator[](int i)
+    {
+        return v[i];
+    }
     void display()
     {
         for (int i = 1; i <= thesize; i++)
