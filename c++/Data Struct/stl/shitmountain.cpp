@@ -217,39 +217,70 @@
 //         cout << p3[i] << " ";
 //     }
 // }
-
 #include <bits/stdc++.h>
 using namespace std;
-int minn_p, max_p;
-int maxsum(int *a, int n)
-{
-    int maxx = -1e8, cur_sum = 0, temp = 0;
-    minn_p = 0, max_p = n - 1;
-    for (int i = 0; i < n; i++)
-    {
-        cur_sum += a[i];
-        if (cur_sum < 0)
-        {
-            cur_sum = 0;
-            temp = i + 1; // 如果该数小于0 那么可以直接跳过，因为小于0的只会减小总和，然后temp跳到下一个元素。
-        }
-        else if (cur_sum > maxx)
-        {
-            maxx = cur_sum;
-            minn_p = temp;
-            max_p = i;
-        }
-    }
-    if (maxx < 0)
-        return 0;
-    return maxx;
-}
+// int minn_p, max_p;
+// int maxsum(int *a, int n)
+// {
+//     int maxx = -1e8, cur_sum = 0, temp = 0;
+//     minn_p = 0, max_p = n - 1;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cur_sum += a[i];
+//         if (cur_sum < 0)
+//         {
+//             cur_sum = 0;
+//             temp = i + 1; // 如果该数小于0 那么可以直接跳过，因为小于0的只会减小总和，然后temp跳到下一个元素。
+//         }
+//         else if (cur_sum > maxx)
+//         {
+//             maxx = cur_sum;
+//             minn_p = temp;
+//             max_p = i;
+//         }
+//     }
+//     if (maxx < 0)
+//         return 0;
+//     return maxx;
+// }
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     int a[n + 5];
+//     for (int i = 0; i < n; i++)
+//         cin >> a[i];
+//     cout << maxsum(a, n) << " " << a[minn_p] << " " << a[max_p];
+// }
+
+vector<pair<int, int>> a(100);
+vector<pair<int, int>> b(100);
+vector<pair<int, int>> c(100);
+vector<pair<int, int>> d(100);
 int main()
 {
-    int n;
+    int m, n, k = 0;
+    cin >> m;
+    for (int i = 1; i <= m; i++)
+        cin >> a[i].first >> a[i].second;
     cin >> n;
-    int a[n + 5];
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-    cout << maxsum(a, n) << " " << a[minn_p] << " " << a[max_p];
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> b[i].first >> b[i].second;
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            ++k;
+            c[k].first = a[j].first * b[i].first;    // 3 * 5  -5*5 6*5 -2*5
+            c[k].second = a[j].second + b[i].second; // 4 + 20
+            // 15 24
+        }
+    }
+    for (int i = 1; i <= k; i++)
+    {
+        cout << c[i].first << " " << c[i].second << " ";
+    }
+    cout << endl;
 }

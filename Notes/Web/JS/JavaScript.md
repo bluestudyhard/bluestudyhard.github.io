@@ -494,8 +494,23 @@ let btn = document.querySelector(".btn");
 
 键盘事件
 
-**onkeydown** 某个键盘按键被按下。
-onkeypress 某个键盘按键被按下并松开。
+- **onkeydown** 某个键盘按键被按下。
+  例：按下回车键触发事件
+  可以获取键盘按键属性的方法有：
+  charCode 属性返回 onkeypress 事件触发键值的字母代码。**如果该属性用于 onkeydown 或 onkeyup 事件，返回值总为 "0"**。
+  **event.Key** 返回按键事件的按键名称 比如回车就是 Enter
+  **event.which** 返回按键事件的按键的 ascll 码。比如"a" 就是 65 回车是 13
+
+```js {.line-numbers}
+xx.onkeydown = (e) => {
+  let code = e.key;
+  let code1 = e.which;
+  console.log(code); //Enter if press Enter
+  console.log(code); //13 if press Enter
+};
+```
+
+onkeypress 某个键盘按键被按下并松开。该特性已被遗弃
 onkeyup 某个键盘按键被松开。
 
 表单事件
@@ -927,4 +942,3 @@ alert(div.style.color); // red
 ```js {.line-numbers}
 setTimeout(() => {}, 3000);
 ```
-

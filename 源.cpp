@@ -34,6 +34,7 @@ void Sqlist<T>::lnitlist_Sq(Sqlist &L)
 	}
 	L.length = 0; //空表长度为0
 	cout << "存储分配成功";
+	return OK;
 }
 //构造函数——赋初值
 template <typename T>

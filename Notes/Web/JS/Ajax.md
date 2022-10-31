@@ -70,3 +70,12 @@ xhr.onreadystatechange = () => {
 ## Axio
 
 ### promise
+
+## 通过 JSONP 解决跨域问题
+
+[好东西](https://www.cnblogs.com/soyxiaobi/p/9616011.html)
+
+### 什么是 JSONP
+
+JSONP 是 JSON with Padding 的简称
+JSONP是JSON with Padding的略称。它是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式

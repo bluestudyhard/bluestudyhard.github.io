@@ -1,132 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <title>blue的新页标签</title>
+  </head>
+  <style>
+    .page-search {
+      width: 600px;
+      height: 100px;
+      margin: 0 auto;
+      margin-top: 120px;
+      text-align: center;
+      line-height: 50px;
+      position: relative;
+    }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
-  <title>blue的新页标签</title>
-</head>
-<style>
-  .page-search {
-    width: 600px;
-    height: 100px;
-    margin: 0 auto;
-    margin-top: 120px;
-    text-align: center;
-    line-height: 50px;
-    position: relative;
-  }
+    body {
+      background: url(page/page0.png) no-repeat;
+      background-size: 100%;
+      transition: all 2.3s;
+      overflow: hidden;
+    }
 
-  body {
-    background: url(page/page0.png) no-repeat;
-    background-size: 100%;
-    transition: all 2.3s;
-    overflow: hidden;
-  }
+    .body-after {
+      background: url(page/page0.png) no-repeat;
+      background-size: 150%;
 
-  .body-after {
-    background: url(page/page0.png) no-repeat;
-    background-size: 150%;
-    
-    transition: all 2.3s;
-    backdrop-filter: blur(3px);
-    overflow: hidden;
-  }
+      transition: all 2.3s;
+      backdrop-filter: blur(3px);
+      overflow: hidden;
+    }
 
-  .serachbody {
-    width: 250px;
-    height: 24px;
-    border-radius: 10px;
-    transition: 1s all;
-    border: 0.5px solid;
-    background-color: rgba(245, 246, 247, 0.719);
-    color: rgba(77, 176, 219, 0.514);
-    border: 0.5px rgba(255, 245, 238, 0.129);
-  }
+    .serachbody {
+      width: 250px;
+      height: 24px;
+      border-radius: 10px;
+      transition: 1s all;
+      border: 0.5px solid;
+      background-color: rgba(245, 246, 247, 0.719);
+      color: rgba(77, 176, 219, 0.514);
+      border: 0.5px rgba(255, 245, 238, 0.129);
+    }
 
-  .serachbody:hover {
-    width: 400px;
-    height: 34px;
-  }
+    .serachbody:hover {
+      width: 400px;
+      height: 34px;
+    }
 
-  .change-search {
-    width: 500px;
-    height: 34px;
-    border-radius: 10px;
-    transition: 1s all;
-    background-color: rgba(254, 254, 254, 0.733);
-    backdrop-filter: blur(8px);
-    border: 0.1px rgba(255, 245, 238, 0.129);
-    color: rgba(5, 5, 5, 0.745);
-  }
+    .change-search {
+      width: 500px;
+      height: 34px;
+      border-radius: 10px;
+      transition: 1s all;
+      background-color: rgba(254, 254, 254, 0.733);
+      backdrop-filter: blur(8px);
+      border: 0.1px rgba(255, 245, 238, 0.129);
+      color: rgba(5, 5, 5, 0.745);
+    }
 
-  .searchbutton {
-    display: none;
-  }
+    .searchbutton {
+      display: none;
+    }
+    .page-body {
+      height: 20px;
+    }
+    .right-side {
+      width: 30%;
+      height: 200px;
+      position: relative;
+      float: right;
+    }
 
-  .right-side {
-    width: 30%;
-    height: 200px;
+    .left-side {
+      width: 30%;
+      height: 200px;
+      position: relative;
+      float: left;
+    }
 
-    float: right;
-  }
+    .button-right {
+      left: 85%;
+      top: 40%;
+      border: none;
+      outline: none;
+      background-color: rgba(225, 225, 225, 0.022);
+      position: absolute;
+      transition: background-color 1s ease;
+    }
 
-  .left-side {
-    width: 30%;
-    height: 200px;
+    .button-left {
+      left: 0;
+      top: 40%;
+      border: none;
+      outline: none;
+      background-color: rgba(225, 225, 225, 0.022);
+      position: absolute;
+      transition: background-color 1s ease;
+    }
 
-    float: left;
-  }
-
-  button {
-    border: none;
-    outline: none;
-    background-color: rgba(225, 225, 225, 0.022);
-    position: absolute;
-    transition: background-color 1s ease;
-  }
-
-  .button-right {
-    position: relative;
-    left: 85%;
-    top: 40%;
-  }
-
-  .button-left {
-    position: relative;
-    left: 0;
-    top: 40%;
-  }
-
-  button:hover {
-    background-color: rgba(251, 251, 251, 0.234);
-  }
-</style>
-
-<body>
-  <div class="second-body">
-    <div class="page-search">
-      <form method="get" action="https://cn.bing.com/search" target="_blank">
-        <input type="text" class="serachbody" placeholder="请输入内容" name="q" autocomplete="off" />
-        <input type="submit" value="搜索" class="searchbutton" />
-      </form>
+    button:hover {
+      background-color: rgba(251, 251, 251, 0.234);
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      width: 100px;
+      position: relative;
+      left: 0;
+    }
+    li {
+      padding-left: 100px;
+    }
+    li button {
+      width: 80px;
+      height: 40px;
+    }
+    .page-bottom {
+      /* border: 1px solid; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .translatebox {
+      display: flex;
+      transition: 2s all;
+    }
+    textarea {
+      background-color: rgba(148, 179, 211, 0.336);
+      font-size: 24px;
+      font-family: STKaiti;
+      transition: 2s all;
+    }
+    textarea:hover {
+      background-color: rgba(74, 146, 197, 0.26);
+      border: none;
+    }
+  </style>
+  <body>
+    <div class="second-body">
+      <div class="top" style="position: relative">
+        <ul>
+          <li>
+            <button class="translate">翻译</button>
+          </li>
+        </ul>
+      </div>
+      <div class="page-search">
+        <form method="get" action="https://cn.bing.com/search" target="_blank">
+          <input
+            type="text"
+            class="serachbody"
+            placeholder="请输入内容"
+            name="q"
+            autocomplete="off"
+          />
+          <input type="submit" value="搜索" class="searchbutton" />
+        </form>
+      </div>
+      <div class="page-body">
+        <div class="right-side">
+          <button class="button-right">
+            <i
+              class="fa fa-chevron-right"
+              style="font-size: 80px; color: rgba(70, 236, 236, 0.738)"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+        <div class="left-side">
+          <button class="button-left">
+            <i
+              class="fa fa-chevron-left"
+              style="font-size: 80px; color: rgba(249, 167, 217, 0.738)"
+            ></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="right-side">
-      <button class="button-right">
-        <i class="fa fa-chevron-right" style="font-size:80px;color:rgba(70, 236, 236, 0.738)"
-          aria-hidden="true"></i></button>
+    <div class="page-bottom">
+      <div class="translatebox" style="display: none">
+        <div class="translate-text">
+          <textarea id="srctext" style="width: 200px; height: 200px"></textarea>
+        </div>
+        <div class="result">
+          <textarea
+            style="width: 200px; height: 200px"
+            class="result-content"
+          ></textarea>
+        </div>
+        <button class="result-btn">翻译</button>
+      </div>
     </div>
-    <div class="left-side">
-      <button class="button-left">
-        <i class="fa fa-chevron-left" style="font-size:80px;color:rgba(249, 167, 217, 0.738)"></i>
-      </button>
-    </div>
-  </div>
-  </div>
-</body>
-<script src="page.js"></script>
-<script src="ani.js"></script>
-
+  </body>
+  <script src="page.js"></script>
+  <script src="ani.js"></script>
+  <script src="md5.js"></script>
+  <script src="request.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </html>
