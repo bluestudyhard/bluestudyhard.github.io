@@ -215,4 +215,18 @@ public:
         }
         head = newhead;
     }
+    void reverse()
+    {
+        Node *cur = head;
+        Node *pre = nullptr;
+        Node *temp;
+        while (cur)
+        {
+            temp = cur->next; // 指向下一个节点
+            cur->next = pre;  // 下一个节点指向前一个节点
+            pre = cur;        // 让前一个节点等于当前节点
+            cur = temp;       // 当前节点等于下一个节点
+        }
+        head = pre;
+    }
 };
