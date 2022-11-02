@@ -23,7 +23,13 @@ public:
     }
     ~List()
     {
-        delete head;
+        Node *p = head;
+        while (p->next != nullptr)
+        {
+            delete p;
+            p = p->next;
+        }
+        p->next = head->next = nullptr;
     }
     int get_len()
     {
@@ -70,7 +76,7 @@ public:
             exit(-1);
         }
         Node *p = head;
-        while (p->next != nullptr)
+        while (p->next)
         {
             p = p->next;
             cout << p->data << " ";
@@ -175,5 +181,38 @@ public:
             ptemp = nullptr;
             length--;
         }
+    }
+    void reverse_list()
+    {
+        Node *cur = head;
+        cout << head << endl;
+        cout << cur << endl;
+        Node *pre = nullptr;
+        while (cur)
+        {
+            Node *temp = cur->next; // 储存cur的下一个节点，以防断链
+            cur->next = pre;
+            pre = cur;
+            cur = temp;
+            cout << pre << " ";
+        }
+        head = pre;
+        cout << endl;
+        cout << pre << endl;
+
+        cout << head << endl;
+    }
+    void reverse_list1()
+    {
+        Node *newhead = nullptr;
+        Node *cur = head;
+        while (cur)
+        {
+            Node *temp = cur->next;
+            cur->next = newhead;
+            newhead = cur;
+            cur = temp;
+        }
+        head = newhead;
     }
 };
