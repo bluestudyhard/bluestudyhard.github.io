@@ -30,6 +30,7 @@ int main()
 
     List<int> l1;
     l1.Create_list1(5);
+    //l1.show_list();
     // l1.show_list();
     // l1.reverse_list();
     // l1.show_list();

@@ -24,12 +24,14 @@ public:
     ~List()
     {
         Node *p = head;
+        Node *s = nullptr;
         while (p->next != nullptr)
         {
-            delete p;
+            s = p;
             p = p->next;
+            delete s;
         }
-        p->next = head->next = nullptr;
+        delete p;
     }
     int get_len()
     {
@@ -46,6 +48,7 @@ public:
             p->next = pnew;        // p的next指针指向下一个节点。
             p = pnew;              //因为pnew 的地址是new出来的地址，p = pnew 表示，将此时头结点的地址，指向了第i个节点的地址。
         }
+        p->next = nullptr;
     }
 
     void Create_list(int size) //创建一个链表
@@ -70,7 +73,7 @@ public:
     //遍历链表 打印
     void show_list()
     {
-        if (head == nullptr && head->next == nullptr)
+        if (head == nullptr && head->next == nullptr) // head 1 2 3 4 5 pre->5 head
         {
             cout << "empty list" << endl;
             exit(-1);
@@ -185,22 +188,21 @@ public:
     void reverse_list()
     {
         Node *cur = head;
-        cout << head << endl;
-        cout << cur << endl;
+        Node *temp;
+        // cout << head << endl;
+        // cout << cur << endl;
         Node *pre = nullptr;
+        int flag = 1;
         while (cur)
         {
-            Node *temp = cur->next; // 储存cur的下一个节点，以防断链
+            temp = cur->next;
+            cout << cur << endl;
             cur->next = pre;
             pre = cur;
             cur = temp;
-            cout << pre << " ";
         }
-        head = pre;
-        cout << endl;
-        cout << pre << endl;
-
-        cout << head << endl;
+        head->next->next = nullptr;
+        head->next = pre;
     }
     void reverse_list1()
     {
@@ -213,20 +215,29 @@ public:
             newhead = cur;
             cur = temp;
         }
+        head = nullptr;
         head = newhead;
     }
     void reverse()
     {
-        Node *cur = head;
-        Node *pre = nullptr;
-        Node *temp;
-        while (cur)
+        Node *p = head->next;
+        Node *pp = head->next->next;
+        cout << " head-next " << p << " head->next->next " << pp << endl;
+        Node *after = head->next->next;
+        Node *cur = head->next;
+        Node *t = nullptr;
+        cout << " cur " << cur << " head: " << head << endl;
+        while (after)
         {
-            temp = cur->next; // 指向下一个节点
-            cur->next = pre;  // 下一个节点指向前一个节点
-            pre = cur;        // 让前一个节点等于当前节点
-            cur = temp;       // 当前节点等于下一个节点
+            t = after->next;   // 获取当前节点的后一个节点 3 null
+            after->next = cur; // 下一个节点指向当前的节点 2->1
+            cur = after;       // 当前节点等于下一个节点 1=>2=>3
+            after = t;         // 下一个节点等于下下个节点 2=>3 null
+            cout << cur << endl;
         }
-        head = pre;
+        cout << " cur " << cur << " head: " << head << endl;
+        cout << " head-next " << p << " head->next->next " << pp << endl;
+        head->next->next = nullptr; // 特判，让第1个节点的下一个节点指向空 因为我们是从第一个节点开始操作的，原本第一个的节点还指向第二个节点 如果不特判 第一个节点指向第二个节点，然后第二个节点指向第一个节点，就死循环了
+        head->next = cur;           // 让头指向尾
     }
 };

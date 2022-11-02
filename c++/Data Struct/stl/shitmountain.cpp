@@ -253,34 +253,60 @@ using namespace std;
 //     cout << maxsum(a, n) << " " << a[minn_p] << " " << a[max_p];
 // }
 
-vector<pair<int, int>> a(100);
-vector<pair<int, int>> b(100);
-vector<pair<int, int>> c(100);
-vector<pair<int, int>> d(100);
+// vector<pair<int, int>> a(100);
+// vector<pair<int, int>> b(100);
+// vector<pair<int, int>> c(100);
+// vector<pair<int, int>> d(100);
+// int main()
+// {
+//     int m, n, k = 0;
+//     cin >> m;
+//     for (int i = 1; i <= m; i++)
+//         cin >> a[i].first >> a[i].second;
+//     cin >> n;
+//     for (int i = 1; i <= n; i++)
+//     {
+//         cin >> b[i].first >> b[i].second;
+//     }
+//     for (int i = 1; i <= n; i++)
+//     {
+//         for (int j = 1; j <= m; j++)
+//         {
+//             ++k;
+//             c[k].first = a[j].first * b[i].first;    // 3 * 5  -5*5 6*5 -2*5
+//             c[k].second = a[j].second + b[i].second; // 4 + 20
+//             // 15 24
+//         }
+//     }
+//     for (int i = 1; i <= k; i++)
+//     {
+//         cout << c[i].first << " " << c[i].second << " ";
+//     }
+//     cout << endl;
+// }
+
 int main()
 {
-    int m, n, k = 0;
-    cin >> m;
-    for (int i = 1; i <= m; i++)
-        cin >> a[i].first >> a[i].second;
+    int n;
     cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> b[i].first >> b[i].second;
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
+    int m;
+    int m1, n1;
+    vector<int> kk;
+        while (cin >> m)
         {
-            ++k;
-            c[k].first = a[j].first * b[i].first;    // 3 * 5  -5*5 6*5 -2*5
-            c[k].second = a[j].second + b[i].second; // 4 + 20
-            // 15 24
+            kk.push_back(m);
         }
-    }
-    for (int i = 1; i <= k; i++)
+    
+    sort(kk.begin(), kk.end() + 1);
+    for (int i = 1; i <= kk.size(); i++)
     {
-        cout << c[i].first << " " << c[i].second << " ";
+        cout << kk[i] << " ";
+        if (kk[i] == kk[i + 1] || kk[i - 1] == kk[i])
+        {
+            n1 = kk[i];
+        }
+        else if (kk[i] + 1 != kk[i + 1] || kk[i] - 1 != kk[i - 1])
+            m1 = kk[i] + 1;
     }
-    cout << endl;
+    cout << m1 << " " << n1;
 }

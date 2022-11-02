@@ -20,6 +20,7 @@ public:
     {
         head = nullptr;
         tail = nullptr;
+        head->data = 0;
     }
     ~double_list()
     {
