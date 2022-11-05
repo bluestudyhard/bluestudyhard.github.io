@@ -107,19 +107,24 @@
     button:hover {
       background-color: rgba(251, 251, 251, 0.234);
     }
-    ul {
+    .top ul {
       display: flex;
       list-style: none;
-      width: 100px;
       position: relative;
-      left: 0;
-    }
-    li {
-      padding-left: 100px;
+      left: 92%;
     }
     li button {
-      width: 80px;
-      height: 40px;
+      width: 44px;
+      height: 41px;
+      border-radius: 50%;
+      border: 0.1px;
+      background-color: #a7c1e3c2;
+      /* background: #6494ed89; */
+      font-family: STKaiti;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(66, 66, 66);
+      transition: 1s all;
     }
     .page-bottom {
       /* border: 1px solid; */
@@ -132,14 +137,30 @@
       transition: 2s all;
     }
     textarea {
+      display: flex;
+      width: 0px;
+      height: 0px;
       background-color: rgba(148, 179, 211, 0.336);
       font-size: 24px;
       font-family: STKaiti;
-      transition: 2s all;
+      transition: 1.5s all;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      resize: none;
+      position: relative;
+      bottom: 20px;
+      left: 0;
+      border: 0.1px;
+      color: rgb(255, 255, 255);
     }
     textarea:hover {
       background-color: rgba(74, 146, 197, 0.26);
       border: none;
+    }
+    .textarea-after {
+      width: 300px;
+      height: 300px;
+      transition: all 2s;
     }
   </style>
   <body>
@@ -184,17 +205,14 @@
       </div>
     </div>
     <div class="page-bottom">
-      <div class="translatebox" style="display: none">
+      <div class="translatebox">
         <div class="translate-text">
-          <textarea id="srctext" style="width: 200px; height: 200px"></textarea>
+          <textarea id="srctext"></textarea>
         </div>
         <div class="result">
-          <textarea
-            style="width: 200px; height: 200px"
-            class="result-content"
-          ></textarea>
+          <textarea class="result-content"></textarea>
         </div>
-        <button class="result-btn">翻译</button>
+        <button class="result-btn" style="display: none">翻译</button>
       </div>
     </div>
   </body>

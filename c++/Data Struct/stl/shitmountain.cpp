@@ -287,26 +287,35 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    int m;
-    int m1, n1;
-    vector<int> kk;
-        while (cin >> m)
-        {
-            kk.push_back(m);
-        }
-    
-    sort(kk.begin(), kk.end() + 1);
-    for (int i = 1; i <= kk.size(); i++)
+    // int n;
+    // cin >> n;
+    // int m;
+    // int m1, n1;
+    // vector<int> kk;
+    //     while (cin >> m)
+    //     {
+    //         kk.push_back(m);
+    //     }
+
+    // sort(kk.begin(), kk.end() + 1);
+    // for (int i = 1; i <= kk.size(); i++)
+    // {
+    //     cout << kk[i] << " ";
+    //     if (kk[i] == kk[i + 1] || kk[i - 1] == kk[i])
+    //     {
+    //         n1 = kk[i];
+    //     }
+    //     else if (kk[i] + 1 != kk[i + 1] || kk[i] - 1 != kk[i - 1])
+    //         m1 = kk[i] + 1;
+    // }
+    // cout << m1 << " " << n1;
+
+    int m, n, v, w, sum_min = 0, sum_max = 0;
+    cin >> m >> n;
+    int maxx = -1e8, mainn = 1e8;
+    for (int i = 1; i <= m; i++)
     {
-        cout << kk[i] << " ";
-        if (kk[i] == kk[i + 1] || kk[i - 1] == kk[i])
-        {
-            n1 = kk[i];
-        }
-        else if (kk[i] + 1 != kk[i + 1] || kk[i] - 1 != kk[i - 1])
-            m1 = kk[i] + 1;
+        cin >> v >> w;
+        sum_min+=v;
     }
-    cout << m1 << " " << n1;
 }

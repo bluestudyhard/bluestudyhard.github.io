@@ -55,13 +55,25 @@ changeImage();
 
 let btnts = document.querySelector(".translate");
 let translate = document.querySelector(".translatebox");
+let textareas = document.querySelectorAll("textarea");
+console.log(textareas);
 let isdisplay = false;
 btnts.onclick = () => {
   if (!isdisplay) {
-    translate.style.display = "none";
+    textareas.forEach((e) => {
+      e.innerHTML = "";
+      e.style.width = "0px";
+      e.style.height = "0px";
+    });
+    textareas[1].style.display = "none";
     isdisplay = true;
   } else {
     isdisplay = false;
-    translate.style.display = "flex";
+    textareas.forEach((e) => {
+      e.innerHTML = "";
+      e.style.width = "400px";
+      e.style.height = "400px";
+    });
+    textareas[1].style.display = "flex";
   }
 };

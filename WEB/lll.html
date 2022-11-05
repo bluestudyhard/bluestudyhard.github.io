@@ -27,12 +27,36 @@
         background-color: #01af63;
         color: #ffffff;
       }
+      .text {
+        height: 0px;
+        width: 0px;
+        transition: all 2s;
+      }
+      .text-after {
+        height: 200px;
+        width: 200px;
+        transition: all 2s;
+      }
     </style>
   </head>
   <body>
-    <form target="_blank" method="get" action="https://www.baidu.com/s">
-      <input type="text" placeholder="请输入关键词" name="word" class="text" />
-      <input type="submit" value="搜索" class="search" />
-    </form>
+    <textarea class="text"> </textarea>
+    <button></button>
   </body>
+  <script>
+    const textarea = document.querySelector("textarea");
+    const btn = document.querySelector("button");
+    let isdisplay = false;
+    btn.onclick = () => {
+      if (!isdisplay) {
+        
+        isdisplay = true;
+      } else {
+        isdisplay = false;
+        textarea.style.display = "flex";
+        // textarea.style.width = "200px";
+        textarea.className = "text-after";
+      }
+    };
+  </script>
 </html>

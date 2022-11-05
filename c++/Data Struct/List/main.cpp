@@ -20,22 +20,16 @@ int main()
     // l.insert_tail(4);
     // // l.show_list();
 
-    // double_list<int> dl;
-    // dl.create_list(5);
-    // dl.insert(3, 4);
-    // dl.showhead();
-    // dl.delete_index(2);
-    // dl.showhead();
-    // dl.showtail();
+    double_list<int> dl;
+    dl.create_list(5);
+    dl.insert(3, 4);
+    dl.showhead();
+    dl.delete_index(2);
+    dl.showhead();
+    dl.showtail();
 
-    List<int> l1;
-    l1.Create_list1(5);
-    //l1.show_list();
+    // List<int> l1;
+    // l1.Create_list1(5);
+    // l1.reverse();
     // l1.show_list();
-    // l1.reverse_list();
-    // l1.show_list();
-    // l1.reverse_list1();
-    // l1.show_list();
-    l1.reverse();
-    l1.show_list();
 }
