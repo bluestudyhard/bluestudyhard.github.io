@@ -173,3 +173,47 @@ backdrop-filter: inherit;
 backdrop-filter: initial;
 backdrop-filter: revert;
 backdrop-filter: unset;
+
+## 图标 iconfont
+
+[阿里巴巴 iconfont 库](https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a)
+**iconfont 图标是一些好看的矢量图，比如说音乐播放器的开启，暂停键等等。**
+
+可以说是 font-awsome 的升级版，而且好用
+
+### 引用方式
+
+一. 以 png,svg 图片的形式引用 不推荐这种。
+
+**二. 以 font-class 的形式引用，这种最简单**
+把想要的图标全部添加进购物车，然后下载源代码，看到里面的 css 和 ttf 文件，把他放在一个文件夹里，然后在 html 里用 class 引用就好了。可以直接在 iconfont.css 里更改样式。
+
+- **如果我们想添加单个图标的话，下载以后，把 ttf 和 css 改名字，引用就好**
+
+```js {.line-numbers}
+<link rel="stylesheet" href="iconfont/iconfont.css" />
+// class 引用
+<i id="voice" class="iconfont icon-shengyin_shiti"></i>
+```
+
+- 更改样式
+
+```js {.line-numbers}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconfont:nth-child(odd):hover {
+  transition: font-size 0.25s linear;
+  font-size: 30px;
+}
+.iconfont:nth-child(even):hover {
+  transition: font-size 0.25s linear;
+  font-size: 30px;
+}
+```
+
+- symbol 引用。

@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
     />
+    <link rel="stylesheet" href="iconfont/iconfont.css" />
+    <link rel="stylesheet" href="iconfont/iconfont1.css" />
     <title>blue的新页标签</title>
   </head>
   <style>
@@ -111,7 +113,10 @@
       display: flex;
       list-style: none;
       position: relative;
-      left: 92%;
+      left: 90%;
+    }
+    .top li {
+      padding-left: 3px;
     }
     li button {
       width: 44px;
@@ -162,6 +167,11 @@
       height: 300px;
       transition: all 2s;
     }
+    .music-player {
+      text-align: center;
+      color: rgb(233, 87, 255);
+    }
+
   </style>
   <body>
     <div class="second-body">
@@ -169,6 +179,9 @@
         <ul>
           <li>
             <button class="translate">翻译</button>
+          </li>
+          <li>
+            <button class="translate">music</button>
           </li>
         </ul>
       </div>
@@ -214,11 +227,27 @@
         </div>
         <button class="result-btn" style="display: none">翻译</button>
       </div>
+      <div class="music-player">
+        <div class="music-icon">
+          <p>0.00</p>
+          <p>3.51</p>
+          <span><i id="pre" class="iconfont icon-shangyishou"></i></span>
+          <span><i id="pause" class="iconfont icon-Playerpause"></i></span>
+          <span><i id="next" class="iconfont icon-xiayishou"></i></span>
+          <span><i id="voice" class="iconfont icon-shengyin_shiti"></i></span>
+        </div>
+        <section>
+          <audio class="audio">
+            <source src="media/music1.mp3" />
+          </audio>
+        </section>
+      </div>
     </div>
   </body>
-  <script src="page.js"></script>
-  <script src="ani.js"></script>
-  <script src="md5.js"></script>
-  <script src="request.js"></script>
+  <script src="js/page.js"></script>
+  <script src="js/ani.js"></script>
+  <script src="js/md5.js"></script>
+  <script src="js/request.js"></script>
+  <script src="js/musicplayer.js"></script>
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </html>
