@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url("iconfont1.ttf") format("truetype");
+}
+
+.iconfont1 {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconfont1:nth-child(odd):hover {
+  transition: font-size 0.25s linear;
+  font-size: 30px;
+}
+.icon-bofang:before {
+  content: "\e8a3";
+}

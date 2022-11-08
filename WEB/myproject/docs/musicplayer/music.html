@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易音乐播放器</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="iconfont/iconfont.css" />
+    <link rel="stylesheet" href="iconfont/iconfont1.css" />
+</head>
+<style>
+    body{
+        margin-left: 40%;
+    }
+
+    .music-player {
+      text-align: center;
+      color: rgb(23, 55, 241);
+      border: 0.5px solid;
+      width: 380px;
+      height: 240px;
+      background-color: rgb(251, 251, 251);
+      user-select: none;
+      object-fit: cover;
+      position: relative;
+    }
+    .music-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .music-img {
+      width: 60%;
+      object-fit: cover;
+    }
+    .music-img img {
+      width: 100%;
+      object-fit: cover;
+    }
+    .music-control{
+        position: absolute;
+    }
+    
+</style>
+<body>
+    <div class="music-player">
+        <!-- 插图 -->
+        <section>
+          <div class="music-img">
+            <img src="page0.png" />
+          </div>
+        </section>
+        <!-- 音乐信息 -->
+          <section>
+            <!-- 时间轴 -->
+          <div class="music-icon">
+            <div class="music-time">
+              <p>0.00</p>
+              <p>3.51</p>
+            </div>
+          
+          <!-- 控制栏 -->
+            <div class="music-control">
+              <span><i id="pre" class="iconfont icon-shangyishou"></i></span>
+              <span><i id="pause" class="iconfont icon-Playerpause"></i></span>
+              <span><i id="next" class="iconfont icon-xiayishou"></i></span>
+              <span
+                ><i id="voice" class="iconfont icon-shengyin_shiti"></i
+              ></span>
+            </div>
+            <!-- 歌曲信息 -->
+            <div class="song-info">
+              <span></span>
+              <span></span>
+            </div>
+        </section>
+        <!-- 歌曲播放 -->
+        <section>
+          <audio class="audio">
+            <source src="media/music2.mp3" />
+          </audio>
+        </section>
+</body>
+</html>

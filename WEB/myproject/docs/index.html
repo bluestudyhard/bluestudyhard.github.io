@@ -132,7 +132,7 @@
       transition: 1s all;
     }
     .page-bottom {
-      /* border: 1px solid; */
+      width:30%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -169,9 +169,31 @@
     }
     .music-player {
       text-align: center;
-      color: rgb(233, 87, 255);
+      color: rgb(23, 55, 241);
+      border: 0.5px solid;
+      width: 380px;
+      height: 240px;
+      background-color: rgb(251, 251, 251);
+      user-select: none;
     }
-
+    .music-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .music-img {
+      width: 100%;
+      height: 100%;
+    }
+    .music-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .music-icon {
+      border: 1px solid;
+      width: 100%;
+    }
   </style>
   <body>
     <div class="second-body">
@@ -228,17 +250,40 @@
         <button class="result-btn" style="display: none">翻译</button>
       </div>
       <div class="music-player">
-        <div class="music-icon">
-          <p>0.00</p>
-          <p>3.51</p>
-          <span><i id="pre" class="iconfont icon-shangyishou"></i></span>
-          <span><i id="pause" class="iconfont icon-Playerpause"></i></span>
-          <span><i id="next" class="iconfont icon-xiayishou"></i></span>
-          <span><i id="voice" class="iconfont icon-shengyin_shiti"></i></span>
-        </div>
+        <!-- 插图 -->
+        <section>
+          <div class="music-img">
+            <img src="page/music2.jpg" />
+          </div>
+        </section>
+        <!-- 音乐信息 -->
+          <section>
+            <!-- 时间轴 -->
+          <div class="music-icon">
+            <div class="music-time">
+              <p>0.00</p>
+              <p>3.51</p>
+            </div>
+          
+          <!-- 控制栏 -->
+            <div class="music-control">
+              <span><i id="pre" class="iconfont icon-shangyishou"></i></span>
+              <span><i id="pause" class="iconfont icon-Playerpause"></i></span>
+              <span><i id="next" class="iconfont icon-xiayishou"></i></span>
+              <span
+                ><i id="voice" class="iconfont icon-shengyin_shiti"></i
+              ></span>
+            </div>
+            <!-- 歌曲信息 -->
+            <div class="song-info">
+              <span></span>
+              <span></span>
+            </div>
+        </section>
+        <!-- 歌曲播放 -->
         <section>
           <audio class="audio">
-            <source src="media/music1.mp3" />
+            <source src="media/music2.mp3" />
           </audio>
         </section>
       </div>

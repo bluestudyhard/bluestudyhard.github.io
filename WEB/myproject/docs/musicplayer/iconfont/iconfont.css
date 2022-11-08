@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url("iconfont.ttf?t=1667749102235") format("truetype");
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iconfont:nth-child(odd):hover {
+  transition: font-size 0.25s linear;
+  font-size: 30px;
+}
+.iconfont:nth-child(even):hover {
+  transition: font-size 0.25s linear;
+  font-size: 30px;
+}
+.icon-shengyin_shiti:before {
+  content: "\eca5";
+}
+
+.icon-24gf-volumeCross:before {
+  content: "\ea0f";
+}
+
+.icon-24gf-playlistMusic3:before {
+  content: "\ea86";
+}
+
+.icon-shangyishou:before {
+  content: "\e63c";
+}
+
+.icon-xiayishou:before {
+  content: "\e63e";
+}
+
+.icon-Notesmusic:before {
+  content: "\e6af";
+}
+
+.icon-Playerplay:before {
+  content: "\e6b0";
+}
+
+.icon-Playernext:before {
+  content: "\e6b1";
+}
+
+.icon-Playerfastforward:before {
+  content: "\e6b2";
+}
+
+.icon-Playerpause:before {
+  content: "\e6b3";
+}
+.icon-Playerpause:hover {
+  transition: font-size 0.25s linear, width 0.25s linear;
+  font-size: 30px;
+}

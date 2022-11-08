@@ -310,12 +310,12 @@ int main()
     // }
     // cout << m1 << " " << n1;
 
-    int m, n, v, w, sum_min = 0, sum_max = 0;
-    cin >> m >> n;
-    int maxx = -1e8, mainn = 1e8;
-    for (int i = 1; i <= m; i++)
-    {
-        cin >> v >> w;
-        sum_min+=v;
-    }
+    // int m, n, v, w, sum_min = 0, sum_max = 0;
+    // cin >> m >> n;
+    // int maxx = -1e8, mainn = 1e8;
+    // for (int i = 1; i <= m; i++)
+    // {
+    //     cin >> v >> w;
+    //     sum_min+=v;
+    // }
 }
