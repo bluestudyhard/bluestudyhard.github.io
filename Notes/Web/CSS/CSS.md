@@ -55,6 +55,13 @@
 
 ## 布局
 
+### 开局布局
+
+- margin 0
+- padding 0
+### border-sizing
+
+
 ### display 的种类
 
 #### flex
