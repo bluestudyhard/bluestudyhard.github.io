@@ -3,43 +3,43 @@ using namespace std;
 typedef long long ll;
 int main()
 { // 洛谷 计数游戏
-    // char c;
-    // char s[100000];
-    // int cnt = 0, w = 0, l = 0;
-    // while (cin >> c && c != 'E')
-    // {
-    //     s[++cnt] = c;
-    // }
-    // // 11
-    // for (int i = 1; i <= cnt; i++)
-    // {
-    //     if (s[i] == 'W')
-    //         w++;
-    //     else if (s[i] == 'L')
-    //         l++;
-    //     // 分差大于11 比如说 11 10 还得打
-    //     if ((w >= 11 || l >= 11) && abs(w - l) > 2)
-    //     {
-    //         cout << w << ":" << l << endl;
-    //         w = 0, l = 0;
-    //     }
-    // }
-    // cout << w << ":" << l << endl;
-    // w = 0, l = 0;
-    // cout << endl;
-    // for (int i = 1; i <= cnt; i++)
-    // {
-    //     if (s[i] == 'W')
-    //         w++;
-    //     else if (s[i] == 'L')
-    //         l++;
-    //     if ((w >= 21 || l >= 21) && abs(w - l) > 2)
-    //     {
-    //         cout << w << ":" << l << endl;
-    //         w = 0, l = 0;
-    //     }
-    // }
-    // cout << w << ":" << l << endl;
+  // char c;
+  // char s[100000];
+  // int cnt = 0, w = 0, l = 0;
+  // while (cin >> c && c != 'E')
+  // {
+  //     s[++cnt] = c;
+  // }
+  // // 11
+  // for (int i = 1; i <= cnt; i++)
+  // {
+  //     if (s[i] == 'W')
+  //         w++;
+  //     else if (s[i] == 'L')
+  //         l++;
+  //     // 分差大于11 比如说 11 10 还得打
+  //     if ((w >= 11 || l >= 11) && abs(w - l) > 2)
+  //     {
+  //         cout << w << ":" << l << endl;
+  //         w = 0, l = 0;
+  //     }
+  // }
+  // cout << w << ":" << l << endl;
+  // w = 0, l = 0;
+  // cout << endl;
+  // for (int i = 1; i <= cnt; i++)
+  // {
+  //     if (s[i] == 'W')
+  //         w++;
+  //     else if (s[i] == 'L')
+  //         l++;
+  //     if ((w >= 21 || l >= 21) && abs(w - l) > 2)
+  //     {
+  //         cout << w << ":" << l << endl;
+  //         w = 0, l = 0;
+  //     }
+  // }
+  // cout << w << ":" << l << endl;
     /**
      * 洛谷 扫雷
      */
@@ -90,53 +90,35 @@ int main()
     /**
      * 洛谷 p1563
      */
-    int n, m, cnt, a1, a2;
-
-    string s1, s2;
-    vector<string> k1;
-    vector<string> k2;
-    vector<string> k3;
+    /*
+    vector<pair<int, string>> k;
+    int n, m;
     cin >> n >> m;
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cin >> cnt;
-        if (cnt == 0)
+        int nums;
+        string name;
+        cin >> nums >> name; // 0 s
+        k.push_back(make_pair(nums, name));
+    }
+    int ans = 0;
+    int a, b;
+    while (m--)
+    {
+        cin >> a >> b;
+        if (k[ans % n].first == a) // 00 表示-，11表示-，相同为-
         {
-
-            cin >> s1;
-            if (isupper(s1[0]))
-                continue;
-            k1.push_back(s1);
+            ans -= b;
         }
-        else
+        else // 方向相反就＋
+            ans += b;
+        if (ans < 0)
         {
-            cin >> s2;
-            if (isupper(s2[0]))
-                continue;
-            k2.push_back(s2);
+            ans = (ans + n) % n;
         }
     }
-    k3.insert(k3.begin(), k1.begin(), k1.end());
-    k3.insert(k3.end(), k2.begin(), k2.end());
-    int len = k3.size(); // 7
-                         //  cout << len << endl;
-    int p = 0;
-    for (int j = 1; j <= m; j++)
-    {
-        cin >> a1 >> a2;
-        if (a1 == 0)
-        {
-            p = (p + a2) % len;
-        }
-        else
-        {
-            p = p - a2;
-            if (p <= 0)
-                p = (len - a2) % len;
-        }
-        //  cout << p << endl;
-    }
-
-    cout << k3[p - 1];
+    cout << k[ans % n].second << endl;
     return 0;
+*/
+
 }

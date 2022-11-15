@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/com/homework7/Test.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/com/homework8/window.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/发牌游戏/Poke.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/发牌游戏/PokeFrame.java" charset="GBK" />
   </component>

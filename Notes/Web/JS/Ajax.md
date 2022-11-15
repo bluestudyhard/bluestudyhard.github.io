@@ -1,3 +1,5 @@
+[toc]
+
 ## 原生 ajax
 
 ### ajax 简介
@@ -70,6 +72,13 @@ xhr.onreadystatechange = () => {
 ## Axio
 
 ### promise
+- promise的概念
+promise
+
+- promise的用法
+
+
+
 
 ## 通过 JSONP 解决跨域问题
 
@@ -78,4 +87,4 @@ xhr.onreadystatechange = () => {
 ### 什么是 JSONP
 
 JSONP 是 JSON with Padding 的简称
-JSONP是JSON with Padding的略称。它是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式
+JSONP 是 JSON with Padding 的略称。它是一个非官方的协议，它允许在服务器端集成 Script tags 返回至客户端，通过 javascript callback 的形式实现跨域访问（这仅仅是 JSONP 简单的实现形式
