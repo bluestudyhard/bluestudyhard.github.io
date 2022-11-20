@@ -22,6 +22,15 @@ public class window {
         jb.setBounds(100, 100, 100, 100);
         con1.add(jb);
 
+        /**
+         * if(!ря╣Ц)
+         * {
+         *      for(int i = 0;i<12;i++)
+         *      {
+         *          jb[i] =
+         *      }
+         * }
+         */
 
     }
 }

@@ -21,7 +21,7 @@ public:
     }
     ~list_queue()
     {
-        Node *p = front;
+        clear();// 调用清空函数
     }
     void push(T e)
     {
@@ -91,5 +91,6 @@ public:
             len--;
             delete p;
         }
+        rear = nullptr;
     }
 };

@@ -509,5 +509,15 @@ apply.onclick = function (ele) {
     this.style.backgroundColor = "red";
   };
 };
-
-setTimeout(alert("blue"),3000 );
+/**
+ * if(!已点)
+ * {
+ *    for(int i = 0 ;i<12;i++)
+ *      {
+ *           jb[i].setBounds(x,y,134,201);//遍历每一个，清空坐标
+ *      }
+ *      jb[i].setBound(x,y-50,134,201);
+ *      已点 = true;
+ * }
+ */
+// setTimeout(alert("blue"),3000 );

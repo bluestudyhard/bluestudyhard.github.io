@@ -51,7 +51,11 @@ public:
     }
     T get_rear()
     {
-        cout << "队尾元素为" << endl;
+        if (isempty())
+        {
+            cout << "队尾元素为空" << endl;
+        }
+        cout << "队尾元素为 :";
         cout << arr[rear] << endl;
         return arr[rear];
     }
@@ -72,9 +76,9 @@ public:
     }
     bool isempty()
     {
-        if (front == rear && front == 0 || front == 0 && rear == 0)
+        if (front == 0 && rear == -1 || len == 0)
         {
-            cout << "队列为空" << endl;
+
             return true;
         }
         else
@@ -98,7 +102,8 @@ public:
     }
     void clear()
     {
-        front = rear = 0;
+        front = 0;
+        rear = -1;
         len = 0;
     }
     void show_queue()
