@@ -3,43 +3,43 @@ using namespace std;
 typedef long long ll;
 int main()
 { // 洛谷 计数游戏
-  // char c;
-  // char s[100000];
-  // int cnt = 0, w = 0, l = 0;
-  // while (cin >> c && c != 'E')
-  // {
-  //     s[++cnt] = c;
-  // }
-  // // 11
-  // for (int i = 1; i <= cnt; i++)
-  // {
-  //     if (s[i] == 'W')
-  //         w++;
-  //     else if (s[i] == 'L')
-  //         l++;
-  //     // 分差大于11 比如说 11 10 还得打
-  //     if ((w >= 11 || l >= 11) && abs(w - l) > 2)
-  //     {
-  //         cout << w << ":" << l << endl;
-  //         w = 0, l = 0;
-  //     }
-  // }
-  // cout << w << ":" << l << endl;
-  // w = 0, l = 0;
-  // cout << endl;
-  // for (int i = 1; i <= cnt; i++)
-  // {
-  //     if (s[i] == 'W')
-  //         w++;
-  //     else if (s[i] == 'L')
-  //         l++;
-  //     if ((w >= 21 || l >= 21) && abs(w - l) > 2)
-  //     {
-  //         cout << w << ":" << l << endl;
-  //         w = 0, l = 0;
-  //     }
-  // }
-  // cout << w << ":" << l << endl;
+    // char c;
+    // char s[100000];
+    // int cnt = 0, w = 0, l = 0;
+    // while (cin >> c && c != 'E')
+    // {
+    //     s[++cnt] = c;
+    // }
+    // // 11
+    // for (int i = 1; i <= cnt; i++)
+    // {
+    //     if (s[i] == 'W')
+    //         w++;
+    //     else if (s[i] == 'L')
+    //         l++;
+    //     // 分差大于11 比如说 11 10 还得打
+    //     if ((w >= 11 || l >= 11) && abs(w - l) > 2)
+    //     {
+    //         cout << w << ":" << l << endl;
+    //         w = 0, l = 0;
+    //     }
+    // }
+    // cout << w << ":" << l << endl;
+    // w = 0, l = 0;
+    // cout << endl;
+    // for (int i = 1; i <= cnt; i++)
+    // {
+    //     if (s[i] == 'W')
+    //         w++;
+    //     else if (s[i] == 'L')
+    //         l++;
+    //     if ((w >= 21 || l >= 21) && abs(w - l) > 2)
+    //     {
+    //         cout << w << ":" << l << endl;
+    //         w = 0, l = 0;
+    //     }
+    // }
+    // cout << w << ":" << l << endl;
     /**
      * 洛谷 扫雷
      */
@@ -124,4 +124,11 @@ int main()
         有两个想法，一个是用二维数组，把他有没有被点的状态，就是二维数组里面存true false 判断下一个有没有被点，被点就变成true
         就这个而言，可以再整一个bool数组，来判断每一个牌是否被点，全部默认为FALSE 反正你这牌也就12张
     */
+    int n, m;
+    cin >> n >> m;
+    int maxx = -1e8;
+    for (int i = min(n, m) + 1; i <= 1e5; i++)
+    {
+        if (i % n != 0 && i % m != 0)
+    }
 }
