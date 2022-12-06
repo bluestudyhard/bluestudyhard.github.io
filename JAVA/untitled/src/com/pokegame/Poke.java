@@ -1,4 +1,4 @@
-package ·¢ÅÆÓÎÏ·;
+package com.pokegame;
 import java.util.Objects;
 import java.util.Random;
 public class Poke {

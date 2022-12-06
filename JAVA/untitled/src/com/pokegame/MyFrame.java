@@ -13,18 +13,18 @@ public class MyFrame implements ActionListener {
     JButton 已选牌;
 
     public MyFrame() {
-        发牌游戏.Poke p = new 发牌游戏.Poke();
+        com.pokegame.Poke p = new com.pokegame.Poke();
         JFrame jf = new JFrame("我的窗体");
         jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
         int w = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         int h = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-        ImageIcon img = new ImageIcon("src/img/bj.jpg");
+        ImageIcon img = new ImageIcon("img/bj.jpg");
         JLabel jl = new JLabel(img);
         jl.setBounds(0, 0, w, h);
         jf.add(jl);
         JLayeredPane jp = jf.getLayeredPane();
         for (int i = 0; i <= 12; i++) {
-            ImageIcon imag1 = new ImageIcon("src/img/fang" + (i + 1) + ".jpg");
+            ImageIcon imag1 = new ImageIcon("img/fang" + (i + 1) + ".jpg");
             jb[i] = new JButton(imag1);
             jb[i].setBounds(i * 120, 600, 134, 201);
             jb[i].setVisible(true);

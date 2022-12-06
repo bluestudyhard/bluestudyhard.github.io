@@ -27,6 +27,21 @@ string tostring(int n)
 }
 ```
 
+**后面回来写的一个比较好看的版本**
+
+```C++ {.line-numbers}
+template <typename in, typename out>
+out transf(const in &value)
+{
+    stringstream stream;                              // stringstream 输入流
+    out result;                                       // 转换后输出的结果
+    stream << value, stream >> result, stream.sync(); // 将想转换成字符串的输入流
+                                                      // 转换成字符串
+                                                      // 清空流
+    return result;
+}
+```
+
 ## 判断回文数
 
 ```C++ {.line-numbers}
@@ -111,3 +126,25 @@ int main()
     }
 }
 ```
+
+## sprintf 的用法
+
+- sprintf()函数可以将一个 10 进制数转换为指定格式的 n 进制字符串。
+- `%o` 转化为八进制 `%x` 转换位 16 进制
+- 也可以和 printf 输出一样%.2f 省略小数
+  **具体实例**
+
+```C++ {.line-numbers}
+char str[100];
+    int n = 100;
+    sprintf(str, "%4d", 123); // 宽度不足左边补空格 %04d补0
+    cout << str << endl;
+    sprintf(str, "%4d%3d", 1234, 567); // 这个用法就像concat，可以将一串数字转字符串再拼接
+    cout << str << endl;
+    sprintf(str, "%8o", 123), cout << str << endl; // oct八进制输出，占8个位置，右对齐。即前面8个空格
+    sprintf(str, "%8x", 123), cout << str << endl; // 转16进制小写
+    sprintf(str, "%.2f", double(n)), cout << str << endl;
+```
+
+**以上运行结果**
+![img](运行结果.png)

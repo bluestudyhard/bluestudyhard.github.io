@@ -5,6 +5,7 @@
 
     <body>
       <div class="heart"></div>
+      <div class="name" style="position: absolute">刘浩东sb</div>
       <style>
         .heart {
           width: 120px;
@@ -16,30 +17,35 @@
           animation: love 0.7s infinite;
         }
         .heart::before,
-        .heart::after{
-            content: '';
-            position:absolute;
-            width: 120px;
-            height: 120px;
-            background: rgb(255, 0, 0);
-            border-radius: 50%;
+        .heart::after {
+          content: "";
+          position: absolute;
+          width: 120px;
+          height: 120px;
+          background: rgb(255, 0, 0);
+          border-radius: 50%;
         }
-        .heart::before{
-            left: -68px;
+        .heart::before {
+          left: -68px;
         }
-        .heart::after{
-            top: -68px;
+        .heart::after {
+          top: -68px;
         }
         @keyframes love {
-            0%{
-                transform: rotate(45deg) scale(0.85);
-            }
-            50%{
-                transform: rotate(45deg) scale(1);
-            }
-            100%{
-                transform: rotate(45deg) scale(1);
-            }
+          0% {
+            transform: rotate(45deg) scale(0.85);
+          }
+          50% {
+            transform: rotate(45deg) scale(1);
+          }
+          100% {
+            transform: rotate(45deg) scale(1);
+          }
+        }
+        .name {
+          left: 46%;
+          top: 25%;
+          color: white;
         }
       </style>
     </body>

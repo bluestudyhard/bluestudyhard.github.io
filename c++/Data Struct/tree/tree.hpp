@@ -268,19 +268,23 @@ public:
     Node *midpostcreate(vector<T> in, vector<T> post, int left, int right)
     {
         static int cnt = post.size() - 1; // 遍历后序的指针
-        if (left >= right)
+        int flag = -1;
+        for (int i = left; i <= right; i++)
+        {
+            if (post[cnt] == in[i])
+            {
+                flag = i;
+                break;
+            }
+        }
+        if (flag == -1)
             return nullptr;
-        Node *p;
-        T value = post[cnt]; // 一开始指向根 然后每次往后递减
-        //中后序创建和前中序创建并无太大区别，前面遍历指针的方式还是一样的
-        int i = left;
-        while (post[cnt] != in[i] && i < right)
-            i++; // 第一次i = 3
-        --cnt;
-        p = new Node(value);
-        // cout << p->data << " ";
-        p->right = midpostcreate(in, post, i + 1, right);
-        p->left = midpostcreate(in, post, left, i);
+        Node *p = new Node(post[cnt--]);
+        if (left < right)
+        {
+            p->right = midpostcreate(in, post, flag + 1, right);
+            p->left = midpostcreate(in, post, left, flag - 1);
+        }
         return p;
     }
     /*

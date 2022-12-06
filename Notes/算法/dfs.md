@@ -62,7 +62,7 @@ int a[10000], b[10000], j, n, k, sum, m;
 bool v[1000];
 void dfs(int u)
 { /*终止条件*/
-    
+
     if (u > m)
     {
         for (i = 1; i <= m; i++)
