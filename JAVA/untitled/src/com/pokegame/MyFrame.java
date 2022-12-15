@@ -23,12 +23,13 @@ public class MyFrame implements ActionListener {
         jl.setBounds(0, 0, w, h);
         jf.add(jl);
         JLayeredPane jp = jf.getLayeredPane();
+        jp.setBounds(300, 600, 1000, 1000);
         for (int i = 0; i <= 12; i++) {
             ImageIcon imag1 = new ImageIcon("img/fang" + (i + 1) + ".jpg");
             jb[i] = new JButton(imag1);
-            jb[i].setBounds(i * 120, 600, 134, 201);
+            jb[i].setBounds(i * 100, 600, 134, 201);
             jb[i].setVisible(true);
-            jb[i].addActionListener(this);
+            //jb[i].addActionListener(this);
             jp.add(jb[i], new Integer(i));
             jf.setVisible(true);
             jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

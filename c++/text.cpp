@@ -124,5 +124,47 @@ int main()
         有两个想法，一个是用二维数组，把他有没有被点的状态，就是二维数组里面存true false 判断下一个有没有被点，被点就变成true
         就这个而言，可以再整一个bool数组，来判断每一个牌是否被点，全部默认为FALSE 反正你这牌也就12张
     */
-/**/
+    /**/
+    int m, a[7], b[7], flag = 1000;
+    string s1;
+    for (int i = 0; i < 6; i++)
+    {
+        cin >> a[i];
+    }
+    cin >> s1 >> m;
+    while (m)
+    {
+        if (m <= 6)
+        {
+            break;
+        }
+        m %= 6;
+    }
+    for (int i = 0, j = m; j < 6 + m; i++, j++)
+    {
+        b[j % 6] = a[i];
+    }
+    for (int i = 0; i < 6; i++)
+    {
+        cout << b[i] << " ";
+        if (b[i] == 1)
+        {
+            flag = min(flag, i); // 第一个出现子弹的位置
+        }
+    }
+    cout << endl;
+    if (flag % 2 == 0)
+    {
+        if (s1 == "sheep")
+            cout << "fish" << endl;
+        else
+            cout << "sheep" << endl;
+    }
+    else
+    {
+        if (s1 == "sheep")
+            cout << s1 << endl;
+        else
+            cout << "fish" << endl;
+    }
 }
