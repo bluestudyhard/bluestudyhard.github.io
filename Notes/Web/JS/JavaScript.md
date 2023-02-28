@@ -1,5 +1,4 @@
 [toc]
-
 ## js 基础
 
 ### 输出 执行语句从上到下
@@ -129,7 +128,7 @@ this.students.forEach((function(student){
 
 ### 运算符
 
-比较重要的**"+"** 运算符
+比较重要的$+$运算符
 **+string 可以实现字符串转数字**
 string + int = "string";
 例
@@ -367,7 +366,7 @@ parent.insertBefore(node, nextSibling)
 parent.removeChild(node)
 parent.replaceChild(newElem, node)
 
-```js {.line-numbers}
+```js {.line-numbers }
 <html>
   <ol class="node">
     <li>1</li>

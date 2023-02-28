@@ -222,11 +222,9 @@ public:
     {
         Node *p = head->next;
         Node *pp = head->next->next;
-        cout << " head-next " << p << " head->next->next " << pp << endl;
         Node *after = head->next->next;
         Node *cur = head->next;
         Node *t = nullptr;
-        cout << " cur " << cur << " head: " << head << endl;
         while (after)
         {
             t = after->next;   // 获取当前节点的后一个节点 3 null
@@ -235,8 +233,6 @@ public:
             after = t;         // 下一个节点等于下下个节点 2=>3 null
             cout << cur << endl;
         }
-        cout << " cur " << cur << " head: " << head << endl;
-        cout << " head-next " << p << " head->next->next " << pp << endl;
         head->next->next = nullptr; // 特判，让第1个节点的下一个节点指向空 因为我们是从第一个节点开始操作的，原本第一个的节点还指向第二个节点 如果不特判 第一个节点指向第二个节点，然后第二个节点指向第一个节点，就死循环了
         head->next = cur;           // 让头指向尾
     }

@@ -47,3 +47,77 @@ int main()
         cout << i << " ";
     }
 }
+
+/*#include <iostream>
+
+// 交换两个元素的值
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// 向下调整最大堆
+void maxheap_down(int a[], int start, int end) {
+    // 当前节点的位置
+    int c = start;
+    // 左孩子的位置
+    int l = 2 * c + 1;
+    // 右孩子的位置
+    int r = 2 * c + 2;
+
+    // 如果左孩子存在且大于当前节点
+    if (l <= end && a[l] > a[c]) {
+        // 更新当前节点为左孩子
+        c = l;
+    }
+
+    // 如果右孩子存在且大于当前节点
+    if (r <= end && a[r] > a[c]) {
+        // 更新当前节点为右孩子
+        c = r;
+    }
+
+    // 如果当前节点不是最大的
+    if (c != start) {
+        // 交换当前节点和最大的孩子
+        swap(a[c], a[start]);
+        // 继续向下调整以保持最大堆性质
+        maxheap_down(a, c, end);
+    }
+}
+
+// 建立最大堆
+void make_maxheap(int a[], int n) {
+
+   for (int i = n / 2 - 1; i >= 0; i--) {
+       maxheap_down(a, i, n - 1);
+   }
+}
+
+// 堆排序（升序）
+void heap_sort_asc(int a[], int n) {
+
+   make_maxheap(a, n);
+
+   for (int i = n - 1; i > 0; i--) {
+       swap(a[0], a[i]);
+       maxheap_down(a, 0, i - 1);
+   }
+}
+
+int main() {
+
+   int arr[] = {10,20,15,12,40,25,18};
+   int len = sizeof(arr) / sizeof(arr[0]);
+
+   heap_sort_asc(arr,len);
+
+   for (int x : arr) {
+       std::cout << x << " ";
+   }
+
+   std::cout << "\n";
+
+   return 0;
+}*/

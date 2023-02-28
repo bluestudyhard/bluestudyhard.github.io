@@ -93,7 +93,7 @@ public:
             reserve(thecapacity * 2 + 1);
         }
         v[++thesize] = e; // thesize 默认为0，所以要先自增才插入
-    }
+    }                                          
     void pop_back()
     {
         --thesize;
