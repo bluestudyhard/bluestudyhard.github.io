@@ -2,12 +2,18 @@ node_modules
 .idea
 .vs
 
+<<<<<<< HEAD
 out/
 dist/
+=======
+out
+dist
+>>>>>>> 4cd690d9bfaa7ec1d09a6acc3633a2f7aebb8b17
 
 *[Bb]uild*
 *[Dd]ebug*
 
+<<<<<<< HEAD
 [Bb]uild/
 [Dd]ebug/
 [Rr]elease/
@@ -16,6 +22,16 @@ x86/
 [Bb]u/
 [Oo]bj/
 [Ll]ib/
+=======
+[Bb]uild
+[Dd]ebug
+[Rr]elease
+x64
+x86
+[Bb]in
+[Oo]bj
+[Ll]ib
+>>>>>>> 4cd690d9bfaa7ec1d09a6acc3633a2f7aebb8b17
 
 .VSCodeCounter
 
