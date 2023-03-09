@@ -1,0 +1,64 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Xmake cache
+.xmake/
+build/
+makefile
+
+# Ignore packaging files
+winenv/
+*.exe
+*.zip
+*.gz
+*.bz2
+*.xz
+*.7z
+*.run
+
+.idea
+.vs
+
+out/
+dist/
+lib/
+
+*[Bb]uild*
+*[Dd]ebug*
+
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]ib/
+
+*ignore*
+!.gitignore
