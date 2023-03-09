@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+void quick_sort(vector<int> &arr, int len)
+{
+    quick_sort(0, len - 1, arr);
+}
 void quick_sort(int left, int right, vector<int> &arr)
 {
     if (left >= right)

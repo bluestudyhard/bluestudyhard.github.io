@@ -1,123 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-// 先将序列变为大顶堆
-void MakeHeap(vector<int> &arr, int start, int end)
-{ // 100 5 3 11 6 8 7
-    int parent = start;
-    int son = start * 2 + 1; // 我们构建完全二叉树的下标，他的子节点的下标是跨过
-    // 在范围内
-    while (son <= end)
+
+/*堆排序*/
+void make_heap(int *arr, int start, int end)
+{ // start 就是开始的父节点，end 就是右节点
+    int dad = start;
+    int left = 2 * dad + 1;
+    int right = 2 * dad + 2;
+
+    if (left <= end && right <= end)
     {
-        // 第一步左右儿子开始比较，得到较大的儿子
-        if (son + 1 <= end && arr[son] < arr[son + 1])
-            son++;
-        // 如果父节点已经够大了，表示不用换，就直接return
-        if (arr[parent] > arr[son])
-            return;
-        // 如果父节点比较小，交换，然后继续和孙节点比较，如果已经到叶子节点了，就会跳出循环
-        else
+        if (arr[left] > arr[dad])
+        { // 先比较做左儿子节点和父节点，谁大谁做爹
+            dad = left;
+        }
+        if (arr[right] > arr[dad])
         {
-            swap(arr[parent], arr[son]);
-            parent = son;
-            son = parent * 2 + 1;
+            dad = right;
+        }
+        // 表示父节点已经更换了，那么再放回堆里面去向下调整
+        if (dad != start)
+        {
+            swap(arr[dad], arr[start]);
+            make_heap(arr, dad, end);
         }
     }
 }
-void heap_sort(vector<int> &arr, int len)
+void heap_sort(int *arr, int len)
 {
-    // 先从最后一个非叶子节点开始
     for (int i = len / 2 - 1; i >= 0; i--)
     {
-        MakeHeap(arr, i, len - 1);
+        make_heap(arr, i, len - 1);
     }
-    // 调整好后将尾和头交换，然后缩短长度，表示已经调整过了
+    // 走完上面那一步以后我们已经建立好了一个大顶堆，然后这个时候我们要交换当前堆的父节点，和大顶堆的堆顶
     for (int i = len - 1; i > 0; i--)
     {
         swap(arr[0], arr[i]);
-        MakeHeap(arr, 0, i - 1);
+        make_heap(arr, 0, i - 1);
     }
 }
+
 int main()
-{
-    vector<int> arr{100, 5, 3, 11, 33, 6, 8, 7};
-    heap_sort(arr, arr.size());
-    for (auto i : arr)
+{                             // 生成随机数
+    srand((unsigned)time(0)); // 随机种子
+    // for (int i = 1; i <= 10000; i++)
+    //     cout << rand() % 10000 + 1 << endl; // 生成 1-6的随机数
+    // for (int i = 1; i <= 10; i++)
+    //     cout << (rand() % (100 - 10) + 10) << endl; // 10-100 任意区间
+    int arr[10];
+    for (int i = 1; i <= 10; i++)
     {
-        cout << i << " ";
+        int temp = rand() % 10 + 1;
+        arr[i] = temp;
     }
+    for (int i : arr)
+        cout << arr[i] << " ";
+    heap_sort(arr, 10);
+    cout << endl;
+    for (int i : arr)
+        cout << arr[i] << " ";
 }
-
-/*#include <iostream>
-
-// 交换两个元素的值
-void swap(int& a, int& b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
-
-// 向下调整最大堆
-void maxheap_down(int a[], int start, int end) {
-    // 当前节点的位置
-    int c = start;
-    // 左孩子的位置
-    int l = 2 * c + 1;
-    // 右孩子的位置
-    int r = 2 * c + 2;
-
-    // 如果左孩子存在且大于当前节点
-    if (l <= end && a[l] > a[c]) {
-        // 更新当前节点为左孩子
-        c = l;
-    }
-
-    // 如果右孩子存在且大于当前节点
-    if (r <= end && a[r] > a[c]) {
-        // 更新当前节点为右孩子
-        c = r;
-    }
-
-    // 如果当前节点不是最大的
-    if (c != start) {
-        // 交换当前节点和最大的孩子
-        swap(a[c], a[start]);
-        // 继续向下调整以保持最大堆性质
-        maxheap_down(a, c, end);
-    }
-}
-
-// 建立最大堆
-void make_maxheap(int a[], int n) {
-
-   for (int i = n / 2 - 1; i >= 0; i--) {
-       maxheap_down(a, i, n - 1);
-   }
-}
-
-// 堆排序（升序）
-void heap_sort_asc(int a[], int n) {
-
-   make_maxheap(a, n);
-
-   for (int i = n - 1; i > 0; i--) {
-       swap(a[0], a[i]);
-       maxheap_down(a, 0, i - 1);
-   }
-}
-
-int main() {
-
-   int arr[] = {10,20,15,12,40,25,18};
-   int len = sizeof(arr) / sizeof(arr[0]);
-
-   heap_sort_asc(arr,len);
-
-   for (int x : arr) {
-       std::cout << x << " ";
-   }
-
-   std::cout << "\n";
-
-   return 0;
-}*/
