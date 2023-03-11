@@ -5,19 +5,52 @@ typedef long long ll;
 int main()
 {
     /*打印沙漏*/
-    int m, i = 1, n = 1;
+    int m, n = 0;
     char c;
     cin >> m >> c;
-    for (int i = 1; 2 * n * n + n - 1 < m;)
+    // Sn上半部分 a1 = 3,a2 = 5 a(n-1) = 2n+1  sn = n(n+2) Sn = 2s(n-1)+1 = 2n*n-1
+    for (int i = 1; 2 * n * n - 1 < m;)
     {
         n++;
     }
-    n--; // 前面为1 多减
-    int temp = n, an1 = 2 * n - 1, an2 = 2 * temp + 1;
-    for(int i = an1;i>=1;i++)
+    n--;
+    int an1 = 2 * n - 1, x = 0, an2 = 1; // 先求最大层的数目
+    while (an1 > 0)
     {
-        
+        for (int i = 0; i < x; i++)
+        {
+            cout << " ";
+        }
+        x++;
+        for (int i = an1; i > 0; i--)
+        {
+            cout << c;
+        }
+        cout << endl;
+        m -= an1;
+        an1 -= 2;
     }
+    // 下半部分
+    x--;
+    while (x > 0)
+    {
+        x--;
+        an2 += 2;
+        m -= an2;
+        for (int i = 0; i < x; i++)
+        {
+            cout << " ";
+        }
+        for (int i = 0; i < an2; i++)
+            cout << c;
+        cout << endl;
+    }
+    if (m == 0)
+        return 0;
+    cout << m;
+
+    /**/
+    // 前面为1 多减
     /*个位数统计*/
     // int a[10] = {0}; // 桶
     // int b[10], cnt = 0;
