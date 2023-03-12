@@ -21,6 +21,8 @@ int fib(int n)
 /*经典的最优子结构问题*/
 /*据钢条*/
 /*递归版*/
+// fish see you randon see kou heng
+
 int cut(int a[], int n)
 {
     if (n == 0)
