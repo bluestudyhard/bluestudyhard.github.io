@@ -18,9 +18,30 @@
 #### 模板
 
 ```C++ {.line-numbers}
+int n;
+bool st[n+5];
+int a[n+5];
+
 void dfs(int k)
 {
+    if(k>n)
+    {
+        return;
+    }
+    // 选
+    st[k] = 1;
+    dfs(k+1);
+    //不选
+    st[k] = 0;
+    dfs(k+1);
 
+    // 一组数里面选不选的
+    for(int i = 1;i<=n;i++)
+    {
+        a[k] = i;
+        dfs(k+1);
+        a[k] = 0;
+    }
 }
 ```
 
@@ -43,7 +64,7 @@ void dfs(int k)
 个元素的组合数（Ckn
 ）$
 - 杨辉三角
-  ![img](img/杨辉三角.png)
+  ![img](imgg/杨辉三角.png)
   观察杨辉三角我们可以发现，其实杨辉三角的每一层都是对应他的 n 的系数的 k 的展开，然后因此我们可以得到$在(x+1)^n中，x^k的系数 = 在n中取k个组合数的个数$
 
 - 得到递推公式
@@ -88,6 +109,37 @@ int main()
 ```
 
 ### 排列选数问题
+
+#### 模板
+
+```C++ {.line-numbers}
+oid dfsmei(int k)
+{
+    if (k > n)
+    {
+        for (int i = 1; i <= n; i++)
+            cout << a[i] << " ";
+        cout << endl;
+        return;
+    }
+    // 用for循环是为了保证我每次能走完n个数
+    for (int i = 1; i <= n; i++)
+    {
+        if (!st[i]) // st[i]==false
+        {
+            a[k] = i;
+            st[i] = 1;
+            dfsmei(k + 1);
+            cout << "康康回溯后是不是直接走这里还是走I "
+                 << "i = " << i << endl; // 是直接走这里，前一个递归栈
+            st[i] = 0;
+            a[k] = i;
+        }
+    }
+}
+```
+
+#### 实现思路
 
 #### 排列选数的实现思路
 
@@ -339,3 +391,5 @@ int main()
     return 0;
 }
 ```
+
+#### 2.奇怪的电梯

@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 /*
 手动转2进制
 */
@@ -51,22 +52,19 @@ int changeten(string s, int radix)
     return ans;
 }
 /*
-任意转16进制
+16转10
 */
-int change16(string s)
+ll sixToTen(string s)
 {
-    int sum = 0;
+    ll result = 0;
     for (int i = s.size() - 1, j = 0; i >= 0; i--, j++)
     {
         if (isdigit(s[i]))
-        {
-            sum = sum + (s[i] - '0' * pow(16, i));
-        }
+            result = result + ((s[i] - '0') * pow(16, j));
         else
-            sum = sum + s[i] - 'A' * pow(16, i);
+            result = result + ((s[i] - 'A' + 10) * pow(16, j));
     }
-    cout << sum << endl;
-    return sum;
+    return result;
 }
 /*
     10进制转任意进制
@@ -107,5 +105,4 @@ int main()
     changeten("7F", 16); // 将7F 16进制转换为10进制
     tochangeten(112, 16);
     changeten("FFF", 16);
-    change16("7F");
 }
