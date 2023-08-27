@@ -1,4 +1,5 @@
 [toc]
+
 ## js 基础
 
 ### 输出 执行语句从上到下
@@ -13,7 +14,11 @@
 ### 数据类型
 
 - number — 可以是浮点数，也可以是整数，
-- bigint — 用于任意长度的整数，
+- bigint — 用于任意长度的整数，BigInt 类型是最近被添加到 JavaScript 语言中的，用于表示任意长度的整数。
+可以通过将 n 附加到整数字段的末尾来创建 BigInt 值。
+```js {.line-numbers} 
+const bigInt = 1234567890123456789012345678901234567890n;
+```
 - string — 字符串类型，
   字符串中包含变量的方法 用反引号 `${}`
   ```js {.line-numbers}
@@ -33,8 +38,27 @@ let lastName = "Johnson"; // String 通过字符串字面量赋值
 let cars = ["Saab", "Volvo", "BMW"]; // Array 通过数组字面量赋值
 let person = {firstName:"John", lastName:"Doe"}; // Object 通过对象字面量赋值
 ```
+- typeof 标识符可以识别数据属于什么类型
+```js {.line-numbers} 
+typeof 12 = "number"
+typeof undefined // "undefined"
 
-JSON
+typeof 0 // "number"
+
+typeof 10n // "bigint"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+```
 
 ### js 引用
 
@@ -216,6 +240,19 @@ for (let value of Object.values(value)) {
 ### 内置对象
 
 #### 数组
+- 数组定义: 
+```js {.line-numbers} 
+let arr = []
+```
+- 数组一些基本操作
+```js {.line-numbers} 
+let arr = [1,2,3]
+let arr1 = ["fuck",{name:"nihao",age:1},function(){console.log("nihao")}];// 数组可以放任何的内容
+let arr[3] = 4;// arr = [1,2,3,4]
+
+
+```
+
 
 - **array.push()** 数组末尾添加一个或者多个元素 数组长度+1
 - **Array.pop();** 删除最后一个
@@ -271,6 +308,33 @@ array3.forEach(elm=>for (value in elm) {
       console.log(value);
   }
 })
+```
+
+#### filter
+
+find 方法搜索的是使函数返回 true 的第一个（单个）元素。
+
+如果需要匹配的有很多，我们可以使用 arr.filter(fn)。
+
+语法与 find 大致相同，但是 filter 返回的是所有匹配元素组成的数组：
+
+let results = arr.filter(function(item, index, array) {
+// 如果 true item 被 push 到 results，迭代继续
+// 如果什么都没找到，则返回空数组
+});
+例如：
+
+```js {.line-numbers}
+let users = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Pete" },
+  { id: 3, name: "Mary" },
+];
+
+// 返回前两个用户的数组
+let someUsers = users.filter((item) => item.id < 3);
+
+alert(someUsers.length); // 2
 ```
 
 #### String
@@ -757,6 +821,15 @@ son.onclick = elee;
 **当注册事件的元素和执行事件的元素不同时，他们不同，在这里执行事件的是 son，所以 ele.target 指向的就是 son。**
 ![img](imgg/target2.png)
 
+#### 常用的$event的一些属性
+
+- $event.target.textContent 
+这是获取，p，div那样文本元素里的内容的方法
+
+- $event.target.value
+  这就是用于像input里的内容
+
+
 #### 事件流
 
 **DOM 事件流的方向**
@@ -942,3 +1015,25 @@ alert(div.style.color); // red
 ```js {.line-numbers}
 setTimeout(() => {}, 3000);
 ```
+
+## 前端模块化
+
+### 什么是模块化
+
+- 模块化可以提高代码复用率，方便进行代码的管理，和封装函数似的，公有函数封装成模块/包，方便复用
+- 模块化主要是用来抽离公共代码，私有作用域，避免变量冲突等
+- 目前流行的 js 模块化规范有 CommonJS、AMD、CMD 以及 ES6 的模块系统
+
+### 各模块化的区别
+
+**Node.js 采取 CommonJS 规范**，因为是服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，可以采取同步加载模块
+
+**浏览器端一般采用 AMD 规范**，浏览器环境要从服务器端加载模块，这时就必须采用异步模式，出的早，可以指定回调函数
+
+**CMD 规范专门用于浏览器端**，模块的加载是异步的，模块使用时才会加载执行。CMD 规范整合了 CommonJS 和 AMD 规范的特点
+
+RequireJS 是一个工具库，主要用于客户端的模块管理。它的模块管理遵守 AMD 规范，RequireJS 的基本思想是，通过 define 方法，将代码定义为模块；通过 require 方法，实现代码的模块加载。
+
+CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+
+CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。

@@ -59,8 +59,8 @@
 
 - margin 0
 - padding 0
-### border-sizing
 
+### border-sizing
 
 ### display 的种类
 
@@ -224,3 +224,50 @@ backdrop-filter: unset;
 ```
 
 - symbol 引用。
+
+## 响应式设计
+
+- 媒体查询语法：
+
+```js {.line-numbers}
+@media screen and (max-width: 768px) {
+  /* 在屏幕宽度小于768像素时应用的CSS规则 */
+}
+```
+
+- css 栅格系统
+
+```js {.line-numbers}
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+}
+
+.col-1 {
+  grid-column: span 1;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+/* ... */
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .col-1 {
+    grid-column: span 2;
+  }
+
+  .col-2 {
+    grid-column: span 4;
+  }
+
+  /* ... */
+}
+
+```
